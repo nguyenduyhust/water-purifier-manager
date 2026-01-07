@@ -1,0 +1,166 @@
+# Claude Code Ignore File
+# Files and directories listed here will be ignored by Claude Code
+# Syntax is similar to .gitignore
+
+# ===========================================
+# Dependencies
+# ===========================================
+node_modules/
+vendor/
+.pnpm-store/
+bower_components/
+
+# ===========================================
+# Build outputs
+# ===========================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+*.min.js
+*.min.css
+*.bundle.js
+*.chunk.js
+
+# ===========================================
+# Cache directories
+# ===========================================
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# ===========================================
+# IDE and editor files
+# ===========================================
+.idea/
+.vscode/settings.json
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ===========================================
+# OS generated files
+# ===========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===========================================
+# Environment and secrets
+# ===========================================
+.env
+.env.local
+.env.*.local
+.env.production
+*.pem
+*.key
+*.crt
+secrets/
+credentials.json
+
+# ===========================================
+# Log files
+# ===========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ===========================================
+# Test coverage
+# ===========================================
+coverage/
+.nyc_output/
+*.lcov
+
+# ===========================================
+# Generated files
+# ===========================================
+*.generated.*
+*.auto.*
+generated/
+__generated__/
+
+# ===========================================
+# Large binary files
+# ===========================================
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+*.iso
+*.dmg
+*.exe
+*.dll
+*.so
+*.dylib
+
+# ===========================================
+# Media files (usually large)
+# ===========================================
+*.mp4
+*.mp3
+*.wav
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+
+# ===========================================
+# Database files
+# ===========================================
+*.sqlite
+*.sqlite3
+*.db
+*.sql.gz
+
+# ===========================================
+# Lock files (often large and auto-generated)
+# ===========================================
+# Uncomment if you want to ignore lock files
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+# Cargo.lock
+# Gemfile.lock
+# poetry.lock
+
+# ===========================================
+# Documentation build output
+# ===========================================
+docs/_build/
+site/
+.docusaurus/
+
+# ===========================================
+# Temporary files
+# ===========================================
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ===========================================
+# Project-specific ignores
+# ===========================================
+# Add your project-specific patterns below

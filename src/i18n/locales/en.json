@@ -1,0 +1,246 @@
+{
+  "common": {
+    "appName": "Water Purifier",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "back": "Back",
+    "confirm": "Confirm",
+    "search": "Search",
+    "filter": "Filter",
+    "filters": "Filters",
+    "all": "All",
+    "none": "None",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info",
+    "months": "months"
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signOut": "Sign out",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "name": "Name",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset password",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "createAccount": "Create account",
+    "signInDescription": "Enter your email and password to access your account",
+    "signUpDescription": "Enter your details to create your account",
+    "resetPasswordDescription": "Enter your email address and we'll send you a link to reset your password",
+    "sendResetLink": "Send reset link",
+    "backToSignIn": "Back to Sign in",
+    "checkEmail": "Check your email",
+    "resetEmailSent": "We've sent a password reset link to",
+    "orContinueWith": "Or continue with",
+    "google": "Google",
+    "errors": {
+      "invalidCredential": "Invalid email or password",
+      "userNotFound": "No account found with this email",
+      "emailInUse": "An account with this email already exists",
+      "weakPassword": "Password is too weak",
+      "tooManyRequests": "Too many failed attempts. Please try again later.",
+      "invalidEmail": "Invalid email address",
+      "passwordMismatch": "Passwords don't match",
+      "generic": "An unexpected error occurred"
+    }
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "purifiers": "Purifiers",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "Overview of your water purifiers and filter status",
+    "totalPurifiers": "Total Purifiers",
+    "totalFilters": "Total Filters",
+    "needsAttention": "Needs Attention",
+    "filtersOk": "Filters OK",
+    "expired": "expired",
+    "dueSoon": "due soon",
+    "filtersNeedingAttention": "Filters Needing Attention",
+    "expiredFilters": "Expired",
+    "warningFilters": "Due Soon",
+    "noPurifiers": "No purifiers yet",
+    "noPurifiersDescription": "Add your first water purifier to start tracking filter replacements",
+    "addFirstPurifier": "Add Your First Purifier"
+  },
+  "purifier": {
+    "title": "Purifiers",
+    "description": "Manage your water purifiers and their filters",
+    "addPurifier": "Add Purifier",
+    "newPurifier": "Add Purifier",
+    "newPurifierDescription": "Add a new water purifier to track its filters",
+    "purifierDetails": "Purifier Details",
+    "purifierDetailsDescription": "Enter the details of your water purifier. Filter replacement dates will be calculated based on the installation date.",
+    "name": "Name",
+    "namePlaceholder": "e.g., Kitchen Purifier",
+    "type": "Purifier Type",
+    "selectType": "Select a purifier type",
+    "location": "Location",
+    "locationPlaceholder": "e.g., Kitchen, Living Room",
+    "installationDate": "Installation Date",
+    "notes": "Notes",
+    "notesPlaceholder": "Any additional notes about this purifier...",
+    "details": "Details",
+    "installed": "Installed",
+    "deletePurifier": "Delete Purifier",
+    "deleteConfirmTitle": "Delete Purifier",
+    "deleteConfirmDescription": "Are you sure you want to delete \"{{name}}\"? This will also delete all associated filters and replacement history. This action cannot be undone.",
+    "notFound": "Purifier not found",
+    "notFoundDescription": "The purifier you're looking for doesn't exist.",
+    "backToPurifiers": "Back to Purifiers",
+    "purifierAdded": "Purifier added",
+    "purifierAddedDescription": "{{name}} has been added successfully.",
+    "purifierDeleted": "Purifier deleted",
+    "purifierDeletedDescription": "The purifier has been deleted successfully.",
+    "errors": {
+      "addFailed": "Failed to add purifier. Please try again.",
+      "deleteFailed": "Failed to delete purifier. Please try again.",
+      "invalidType": "Invalid purifier type"
+    }
+  },
+  "filter": {
+    "filters": "Filters",
+    "replaceFilter": "Replace Filter",
+    "replace": "Replace",
+    "replacementDate": "Replacement Date",
+    "replacementNotes": "Notes (optional)",
+    "replacementNotesPlaceholder": "e.g., Replaced with original brand filter",
+    "lastReplaced": "Last replaced",
+    "nextReplacement": "Next replacement",
+    "daysRemaining": "{{days}} days remaining",
+    "daysOverdue": "{{days}} days overdue",
+    "dueToday": "Due today",
+    "status": {
+      "ok": "OK",
+      "warning": "Due Soon",
+      "expired": "Expired"
+    },
+    "filterReplaced": "Filter replaced",
+    "filterReplacedDescription": "{{name}} has been replaced successfully.",
+    "errors": {
+      "replaceFailed": "Failed to replace filter. Please try again."
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "selectLanguage": "Select language",
+    "english": "English",
+    "vietnamese": "Vietnamese"
+  },
+  "purifierTypes": {
+    "kangaroo-kg108": {
+      "name": "Kangaroo - KG108 (8 filters)",
+      "filters": {
+        "1": { "name": "Filter 1 - PP", "description": "Removes sediment, rust, particles > 5 micron" },
+        "2": { "name": "Filter 2 - UDF", "description": "Granular activated carbon, removes odor, chlorine" },
+        "3": { "name": "Filter 3 - CTO", "description": "Carbon block, removes chemicals" },
+        "4": { "name": "Filter 4 - RO Membrane", "description": "RO membrane removes 99% of impurities" },
+        "5": { "name": "Filter 5 - T33", "description": "Post-RO carbon, improves taste" },
+        "6": { "name": "Filter 6 - Mineral", "description": "Adds beneficial minerals" },
+        "7": { "name": "Filter 7 - Nano Silver", "description": "Antibacterial nano silver technology" },
+        "8": { "name": "Filter 8 - Alkaline", "description": "Creates alkaline water, balances pH" }
+      }
+    },
+    "kangaroo-kg100hq": {
+      "name": "Kangaroo - KG100HQ (9 filters)",
+      "filters": {
+        "1": { "name": "Filter 1 - PP", "description": "Removes sediment, rust, particles > 5 micron" },
+        "2": { "name": "Filter 2 - UDF", "description": "Granular activated carbon, removes odor, chlorine" },
+        "3": { "name": "Filter 3 - CTO", "description": "Carbon block, removes chemicals" },
+        "4": { "name": "Filter 4 - RO Membrane", "description": "RO membrane removes 99% of impurities" },
+        "5": { "name": "Filter 5 - T33", "description": "Post-RO carbon, improves taste" },
+        "6": { "name": "Filter 6 - Mineral", "description": "Adds beneficial minerals" },
+        "7": { "name": "Filter 7 - Nano Silver", "description": "Antibacterial nano silver technology" },
+        "8": { "name": "Filter 8 - Alkaline", "description": "Creates alkaline water, balances pH" },
+        "9": { "name": "Filter 9 - Far Infrared", "description": "Far infrared rays, increases oxygen in water" }
+      }
+    },
+    "kangaroo-kg104": {
+      "name": "Kangaroo - KG104 Hydrogen (10 filters)",
+      "filters": {
+        "1": { "name": "Filter 1 - PP", "description": "Removes sediment, rust, particles > 5 micron" },
+        "2": { "name": "Filter 2 - UDF", "description": "Granular activated carbon, removes odor, chlorine" },
+        "3": { "name": "Filter 3 - CTO", "description": "Carbon block, removes chemicals" },
+        "4": { "name": "Filter 4 - RO Membrane", "description": "RO membrane removes 99% of impurities" },
+        "5": { "name": "Filter 5 - T33", "description": "Post-RO carbon, improves taste" },
+        "6": { "name": "Filter 6 - Mineral", "description": "Adds beneficial minerals" },
+        "7": { "name": "Filter 7 - Nano Silver", "description": "Antibacterial nano silver technology" },
+        "8": { "name": "Filter 8 - Alkaline", "description": "Creates alkaline water, balances pH" },
+        "9": { "name": "Filter 9 - Hydrogen", "description": "Creates hydrogen-rich water, antioxidant" },
+        "10": { "name": "Filter 10 - Far Infrared", "description": "Far infrared rays, increases oxygen in water" }
+      }
+    },
+    "karofi-ksi80": {
+      "name": "Karofi - KSI80 (8 filters)",
+      "filters": {
+        "1": { "name": "Filter 1 - PP", "description": "Removes sediment, rust, particles > 5 micron" },
+        "2": { "name": "Filter 2 - GAC", "description": "Granular activated carbon, removes odor, chlorine" },
+        "3": { "name": "Filter 3 - CTO", "description": "Carbon block, removes chemicals" },
+        "4": { "name": "Filter 4 - RO Membrane", "description": "Smax RO membrane removes 99% of impurities" },
+        "5": { "name": "Filter 5 - TCR", "description": "Premium activated carbon, improves taste" },
+        "6": { "name": "Filter 6 - Hydrogen", "description": "Creates hydrogen-rich water, antioxidant" },
+        "7": { "name": "Filter 7 - Mineral", "description": "Adds natural minerals" },
+        "8": { "name": "Filter 8 - Nano Silver", "description": "Antibacterial nano silver technology" }
+      }
+    },
+    "karofi-optimus-o-i229": {
+      "name": "Karofi - Optimus O-i229 (9 filters)",
+      "filters": {
+        "1": { "name": "Filter 1 - Sediment", "description": "Removes sediment, rust, particles > 5 micron" },
+        "2": { "name": "Filter 2 - Pre-Carbon", "description": "Pre-RO carbon, protects membrane" },
+        "3": { "name": "Filter 3 - RO Smax Membrane", "description": "Smax RO technology, long lifespan" },
+        "4": { "name": "Filter 4 - Post-Carbon", "description": "Post-RO carbon, improves taste" },
+        "5": { "name": "Filter 5 - ORP", "description": "Increases ORP, energy-rich water" },
+        "6": { "name": "Filter 6 - Hydrogen", "description": "Creates hydrogen-rich water, antioxidant" },
+        "7": { "name": "Filter 7 - Mineral", "description": "Adds natural minerals" },
+        "8": { "name": "Filter 8 - Alkaline", "description": "Creates alkaline water, balances pH" },
+        "9": { "name": "Filter 9 - Nano Silver", "description": "Antibacterial nano silver technology" }
+      }
+    },
+    "karofi-kad-x60": {
+      "name": "Karofi - KAD-X60 (10 filters)",
+      "filters": {
+        "1": { "name": "Filter 1 - PP 5 micron", "description": "Removes sediment, rust, particles > 5 micron" },
+        "2": { "name": "Filter 2 - PP 1 micron", "description": "Removes fine particles > 1 micron" },
+        "3": { "name": "Filter 3 - GAC", "description": "Granular activated carbon, removes odor, chlorine" },
+        "4": { "name": "Filter 4 - CTO", "description": "Carbon block, removes chemicals" },
+        "5": { "name": "Filter 5 - RO Membrane", "description": "RO membrane removes 99% of impurities" },
+        "6": { "name": "Filter 6 - T33", "description": "Post-RO carbon, improves taste" },
+        "7": { "name": "Filter 7 - Mineral", "description": "Adds natural minerals" },
+        "8": { "name": "Filter 8 - Nano Silver", "description": "Antibacterial nano silver technology" },
+        "9": { "name": "Filter 9 - Alkaline", "description": "Creates alkaline water, balances pH" },
+        "10": { "name": "Filter 10 - Hydrogen", "description": "Creates hydrogen-rich water, antioxidant" }
+      }
+    },
+    "sunhouse-shr76210ck": {
+      "name": "Sunhouse - SHR76210CK (10 filters)",
+      "filters": {
+        "1": { "name": "Filter 1 - PP", "description": "Removes sediment, rust > 5 micron" },
+        "2": { "name": "Filter 2 - UDF", "description": "Granular activated carbon" },
+        "3": { "name": "Filter 3 - CTO", "description": "Carbon block" },
+        "4": { "name": "Filter 4 - RO Membrane", "description": "RO membrane removes 99% of impurities" },
+        "5": { "name": "Filter 5 - T33", "description": "Post-RO carbon" },
+        "6": { "name": "Filter 6 - Mineral", "description": "Adds minerals" },
+        "7": { "name": "Filter 7 - Nano Silver", "description": "Nano silver antibacterial" },
+        "8": { "name": "Filter 8 - Alkaline", "description": "Creates alkaline water" },
+        "9": { "name": "Filter 9 - Hydrogen", "description": "Creates hydrogen-rich water" },
+        "10": { "name": "Filter 10 - Far Infrared", "description": "Far infrared rays" }
+      }
+    }
+  }
+}
