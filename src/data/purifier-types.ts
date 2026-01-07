@@ -18,7 +18,160 @@ export interface LocalizedPurifierType {
 }
 
 export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
-  // Kangaroo Models
+  // Kangaroo Models (based on official Kangaroo filter chart)
+  {
+    id: "kangaroo-kg104",
+    name: {
+      en: "Kangaroo - KG104 (7 filters)",
+      vi: "Kangaroo - KG104 (7 lõi)",
+    },
+    filterTemplates: [
+      {
+        position: 1,
+        name: { en: "Filter 1 - PP 5µm", vi: "Lõi số 1 - PP 5µm" },
+        defaultIntervalMonths: 6,
+        description: {
+          en: "Removes sediment, rust, particles > 5 micron",
+          vi: "Lọc cặn thô, rỉ sét, tạp chất > 5 micron",
+        },
+      },
+      {
+        position: 2,
+        name: { en: "Filter 2 - Activated Carbon", vi: "Lõi số 2 - Than hoạt tính" },
+        defaultIntervalMonths: 6,
+        description: {
+          en: "Activated carbon, removes odor, chlorine",
+          vi: "Than hoạt tính, khử mùi, chlorine",
+        },
+      },
+      {
+        position: 3,
+        name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
+        defaultIntervalMonths: 6,
+        description: {
+          en: "Fine filter, removes particles > 1 micron",
+          vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
+        },
+      },
+      {
+        position: 4,
+        name: { en: "Filter 4 - RO Filmtec", vi: "Lõi số 4 - Màng RO Filmtec" },
+        defaultIntervalMonths: 24,
+        description: {
+          en: "RO Filmtec membrane removes 99% of impurities",
+          vi: "Màng lọc RO Filmtec loại bỏ 99% tạp chất",
+        },
+      },
+      {
+        position: 5,
+        name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "Antibacterial nano silver technology",
+          vi: "Diệt khuẩn bằng công nghệ nano bạc",
+        },
+      },
+      {
+        position: 6,
+        name: { en: "Filter 6 - Ceramic Ball", vi: "Lõi số 6 - Bóng gốm" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "Ceramic ball filter, adds minerals",
+          vi: "Lõi bóng gốm, bổ sung khoáng chất",
+        },
+      },
+      {
+        position: 7,
+        name: { en: "Filter 7 - Alkaline", vi: "Lõi số 7 - Alkaline" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "Creates alkaline water, balances pH",
+          vi: "Tạo nước kiềm, cân bằng độ pH",
+        },
+      },
+    ],
+  },
+  {
+    id: "kangaroo-kg106",
+    name: {
+      en: "Kangaroo - KG106 (8 filters)",
+      vi: "Kangaroo - KG106 (8 lõi)",
+    },
+    filterTemplates: [
+      {
+        position: 1,
+        name: { en: "Filter 1 - PP 5µm", vi: "Lõi số 1 - PP 5µm" },
+        defaultIntervalMonths: 6,
+        description: {
+          en: "Removes sediment, rust, particles > 5 micron",
+          vi: "Lọc cặn thô, rỉ sét, tạp chất > 5 micron",
+        },
+      },
+      {
+        position: 2,
+        name: { en: "Filter 2 - Activated Carbon", vi: "Lõi số 2 - Than hoạt tính" },
+        defaultIntervalMonths: 6,
+        description: {
+          en: "Activated carbon, removes odor, chlorine",
+          vi: "Than hoạt tính, khử mùi, chlorine",
+        },
+      },
+      {
+        position: 3,
+        name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
+        defaultIntervalMonths: 6,
+        description: {
+          en: "Fine filter, removes particles > 1 micron",
+          vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
+        },
+      },
+      {
+        position: 4,
+        name: { en: "Filter 4 - RO Filmtec", vi: "Lõi số 4 - Màng RO Filmtec" },
+        defaultIntervalMonths: 24,
+        description: {
+          en: "RO Filmtec membrane removes 99% of impurities",
+          vi: "Màng lọc RO Filmtec loại bỏ 99% tạp chất",
+        },
+      },
+      {
+        position: 5,
+        name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "Antibacterial nano silver technology",
+          vi: "Diệt khuẩn bằng công nghệ nano bạc",
+        },
+      },
+      {
+        position: 6,
+        name: { en: "Filter 6 - Ceramic Ball", vi: "Lõi số 6 - Bóng gốm" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "Ceramic ball filter, adds minerals",
+          vi: "Lõi bóng gốm, bổ sung khoáng chất",
+        },
+      },
+      {
+        position: 7,
+        name: { en: "Filter 7 - Alkaline", vi: "Lõi số 7 - Alkaline" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "Creates alkaline water, balances pH",
+          vi: "Tạo nước kiềm, cân bằng độ pH",
+        },
+      },
+      {
+        position: 8,
+        name: { en: "Filter 8 - Maifan", vi: "Lõi số 8 - Maifan" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "Maifan stone, adds beneficial minerals",
+          vi: "Đá Maifan, bổ sung khoáng chất có lợi",
+        },
+      },
+    ],
+  },
   {
     id: "kangaroo-kg108",
     name: {
@@ -28,61 +181,43 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
     filterTemplates: [
       {
         position: 1,
-        name: { en: "Filter 1 - PP", vi: "Lõi số 1 - PP" },
-        defaultIntervalMonths: 3,
+        name: { en: "Filter 1 - PP 5µm + Quartz", vi: "Lõi số 1 - PP 5µm Cát thạch anh" },
+        defaultIntervalMonths: 6,
         description: {
-          en: "Removes sediment, rust, particles > 5 micron",
-          vi: "Lọc cặn thô, rỉ sét, tạp chất > 5 micron",
+          en: "PP filter with quartz sand, removes sediment",
+          vi: "Lõi PP kết hợp cát thạch anh, lọc cặn thô",
         },
       },
       {
         position: 2,
-        name: { en: "Filter 2 - UDF", vi: "Lõi số 2 - UDF" },
+        name: { en: "Filter 2 - Activated Carbon", vi: "Lõi số 2 - Than hoạt tính" },
         defaultIntervalMonths: 6,
         description: {
-          en: "Granular activated carbon, removes odor, chlorine",
-          vi: "Than hoạt tính dạng hạt, khử mùi, chlorine",
+          en: "Activated carbon, removes odor, chlorine",
+          vi: "Than hoạt tính, khử mùi, chlorine",
         },
       },
       {
         position: 3,
-        name: { en: "Filter 3 - CTO", vi: "Lõi số 3 - CTO" },
+        name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
         defaultIntervalMonths: 6,
         description: {
-          en: "Carbon block, removes chemicals",
-          vi: "Than hoạt tính dạng khối, lọc hóa chất",
+          en: "Fine filter, removes particles > 1 micron",
+          vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
         },
       },
       {
         position: 4,
-        name: { en: "Filter 4 - RO Membrane", vi: "Lõi số 4 - Màng RO" },
+        name: { en: "Filter 4 - RO Filmtec", vi: "Lõi số 4 - Màng RO Filmtec" },
         defaultIntervalMonths: 24,
         description: {
-          en: "RO membrane removes 99% of impurities",
-          vi: "Màng lọc RO loại bỏ 99% tạp chất",
+          en: "RO Filmtec membrane removes 99% of impurities",
+          vi: "Màng lọc RO Filmtec loại bỏ 99% tạp chất",
         },
       },
       {
         position: 5,
-        name: { en: "Filter 5 - T33", vi: "Lõi số 5 - T33" },
-        defaultIntervalMonths: 12,
-        description: {
-          en: "Post-RO carbon, improves taste",
-          vi: "Than hoạt tính sau RO, cải thiện vị nước",
-        },
-      },
-      {
-        position: 6,
-        name: { en: "Filter 6 - Mineral", vi: "Lõi số 6 - Khoáng" },
-        defaultIntervalMonths: 12,
-        description: {
-          en: "Adds beneficial minerals",
-          vi: "Bổ sung khoáng chất có lợi",
-        },
-      },
-      {
-        position: 7,
-        name: { en: "Filter 7 - Nano Silver", vi: "Lõi số 7 - Nano Silver" },
+        name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
         defaultIntervalMonths: 12,
         description: {
           en: "Antibacterial nano silver technology",
@@ -90,27 +225,45 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
         },
       },
       {
-        position: 8,
-        name: { en: "Filter 8 - Alkaline", vi: "Lõi số 8 - Alkaline" },
+        position: 6,
+        name: { en: "Filter 6 - 3-in-1", vi: "Lõi số 6 - Lõi 3 trong 1" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "3-in-1 filter: minerals, far infrared, magnetic",
+          vi: "Lõi 3 trong 1: khoáng, tia hồng ngoại xa, từ tính",
+        },
+      },
+      {
+        position: 7,
+        name: { en: "Filter 7 - Alkaline", vi: "Lõi số 7 - Alkaline" },
         defaultIntervalMonths: 12,
         description: {
           en: "Creates alkaline water, balances pH",
           vi: "Tạo nước kiềm, cân bằng độ pH",
+        },
+      },
+      {
+        position: 8,
+        name: { en: "Filter 8 - Maifan", vi: "Lõi số 8 - Maifan" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "Maifan stone, adds beneficial minerals",
+          vi: "Đá Maifan, bổ sung khoáng chất có lợi",
         },
       },
     ],
   },
   {
-    id: "kangaroo-kg100hq",
+    id: "kangaroo-kg116",
     name: {
-      en: "Kangaroo - KG100HQ (9 filters)",
-      vi: "Kangaroo - KG100HQ (9 lõi)",
+      en: "Kangaroo - KG116 (9 filters)",
+      vi: "Kangaroo - KG116 (9 lõi)",
     },
     filterTemplates: [
       {
         position: 1,
-        name: { en: "Filter 1 - PP", vi: "Lõi số 1 - PP" },
-        defaultIntervalMonths: 3,
+        name: { en: "Filter 1 - PP 5µm", vi: "Lõi số 1 - PP 5µm" },
+        defaultIntervalMonths: 6,
         description: {
           en: "Removes sediment, rust, particles > 5 micron",
           vi: "Lọc cặn thô, rỉ sét, tạp chất > 5 micron",
@@ -118,52 +271,34 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       },
       {
         position: 2,
-        name: { en: "Filter 2 - UDF", vi: "Lõi số 2 - UDF" },
+        name: { en: "Filter 2 - Activated Carbon", vi: "Lõi số 2 - Than hoạt tính" },
         defaultIntervalMonths: 6,
         description: {
-          en: "Granular activated carbon, removes odor, chlorine",
-          vi: "Than hoạt tính dạng hạt, khử mùi, chlorine",
+          en: "Activated carbon, removes odor, chlorine",
+          vi: "Than hoạt tính, khử mùi, chlorine",
         },
       },
       {
         position: 3,
-        name: { en: "Filter 3 - CTO", vi: "Lõi số 3 - CTO" },
+        name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
         defaultIntervalMonths: 6,
         description: {
-          en: "Carbon block, removes chemicals",
-          vi: "Than hoạt tính dạng khối, lọc hóa chất",
+          en: "Fine filter, removes particles > 1 micron",
+          vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
         },
       },
       {
         position: 4,
-        name: { en: "Filter 4 - RO Membrane", vi: "Lõi số 4 - Màng RO" },
+        name: { en: "Filter 4 - RO Filmtec", vi: "Lõi số 4 - Màng RO Filmtec" },
         defaultIntervalMonths: 24,
         description: {
-          en: "RO membrane removes 99% of impurities",
-          vi: "Màng lọc RO loại bỏ 99% tạp chất",
+          en: "RO Filmtec membrane removes 99% of impurities",
+          vi: "Màng lọc RO Filmtec loại bỏ 99% tạp chất",
         },
       },
       {
         position: 5,
-        name: { en: "Filter 5 - T33", vi: "Lõi số 5 - T33" },
-        defaultIntervalMonths: 12,
-        description: {
-          en: "Post-RO carbon, improves taste",
-          vi: "Than hoạt tính sau RO, cải thiện vị nước",
-        },
-      },
-      {
-        position: 6,
-        name: { en: "Filter 6 - Mineral", vi: "Lõi số 6 - Khoáng" },
-        defaultIntervalMonths: 12,
-        description: {
-          en: "Adds beneficial minerals",
-          vi: "Bổ sung khoáng chất có lợi",
-        },
-      },
-      {
-        position: 7,
-        name: { en: "Filter 7 - Nano Silver", vi: "Lõi số 7 - Nano Silver" },
+        name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
         defaultIntervalMonths: 12,
         description: {
           en: "Antibacterial nano silver technology",
@@ -171,8 +306,17 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
         },
       },
       {
-        position: 8,
-        name: { en: "Filter 8 - Alkaline", vi: "Lõi số 8 - Alkaline" },
+        position: 6,
+        name: { en: "Filter 6 - Ceramic Ball", vi: "Lõi số 6 - Bóng gốm" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "Ceramic ball filter, adds minerals",
+          vi: "Lõi bóng gốm, bổ sung khoáng chất",
+        },
+      },
+      {
+        position: 7,
+        name: { en: "Filter 7 - Alkaline", vi: "Lõi số 7 - Alkaline" },
         defaultIntervalMonths: 12,
         description: {
           en: "Creates alkaline water, balances pH",
@@ -180,80 +324,71 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
         },
       },
       {
-        position: 9,
-        name: { en: "Filter 9 - Far Infrared", vi: "Lõi số 9 - Far Infrared" },
-        defaultIntervalMonths: 18,
+        position: 8,
+        name: { en: "Filter 8 - Maifan", vi: "Lõi số 8 - Maifan" },
+        defaultIntervalMonths: 12,
         description: {
-          en: "Far infrared rays, increases oxygen in water",
-          vi: "Tia hồng ngoại xa, tăng oxy trong nước",
+          en: "Maifan stone, adds beneficial minerals",
+          vi: "Đá Maifan, bổ sung khoáng chất có lợi",
+        },
+      },
+      {
+        position: 9,
+        name: { en: "Filter 9 - ORP", vi: "Lõi số 9 - ORP" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "ORP filter, creates antioxidant water",
+          vi: "Lõi ORP, tạo nước chống oxy hóa",
         },
       },
     ],
   },
   {
-    id: "kangaroo-kg104",
+    id: "kangaroo-kg109",
     name: {
-      en: "Kangaroo - KG104 Hydrogen (10 filters)",
-      vi: "Kangaroo - KG104 Hydrogen (10 lõi)",
+      en: "Kangaroo - KG109 (9 filters)",
+      vi: "Kangaroo - KG109 (9 lõi)",
     },
     filterTemplates: [
       {
         position: 1,
-        name: { en: "Filter 1 - PP", vi: "Lõi số 1 - PP" },
-        defaultIntervalMonths: 3,
+        name: { en: "Filter 1 - PP 5µm + Quartz", vi: "Lõi số 1 - PP 5µm Cát thạch anh" },
+        defaultIntervalMonths: 6,
         description: {
-          en: "Removes sediment, rust, particles > 5 micron",
-          vi: "Lọc cặn thô, rỉ sét, tạp chất > 5 micron",
+          en: "PP filter with quartz sand, removes sediment",
+          vi: "Lõi PP kết hợp cát thạch anh, lọc cặn thô",
         },
       },
       {
         position: 2,
-        name: { en: "Filter 2 - UDF", vi: "Lõi số 2 - UDF" },
+        name: { en: "Filter 2 - Activated Carbon", vi: "Lõi số 2 - Than hoạt tính" },
         defaultIntervalMonths: 6,
         description: {
-          en: "Granular activated carbon, removes odor, chlorine",
-          vi: "Than hoạt tính dạng hạt, khử mùi, chlorine",
+          en: "Activated carbon, removes odor, chlorine",
+          vi: "Than hoạt tính, khử mùi, chlorine",
         },
       },
       {
         position: 3,
-        name: { en: "Filter 3 - CTO", vi: "Lõi số 3 - CTO" },
+        name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
         defaultIntervalMonths: 6,
         description: {
-          en: "Carbon block, removes chemicals",
-          vi: "Than hoạt tính dạng khối, lọc hóa chất",
+          en: "Fine filter, removes particles > 1 micron",
+          vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
         },
       },
       {
         position: 4,
-        name: { en: "Filter 4 - RO Membrane", vi: "Lõi số 4 - Màng RO" },
+        name: { en: "Filter 4 - RO Filmtec", vi: "Lõi số 4 - Màng RO Filmtec" },
         defaultIntervalMonths: 24,
         description: {
-          en: "RO membrane removes 99% of impurities",
-          vi: "Màng lọc RO loại bỏ 99% tạp chất",
+          en: "RO Filmtec membrane removes 99% of impurities",
+          vi: "Màng lọc RO Filmtec loại bỏ 99% tạp chất",
         },
       },
       {
         position: 5,
-        name: { en: "Filter 5 - T33", vi: "Lõi số 5 - T33" },
-        defaultIntervalMonths: 12,
-        description: {
-          en: "Post-RO carbon, improves taste",
-          vi: "Than hoạt tính sau RO, cải thiện vị nước",
-        },
-      },
-      {
-        position: 6,
-        name: { en: "Filter 6 - Mineral", vi: "Lõi số 6 - Khoáng" },
-        defaultIntervalMonths: 12,
-        description: {
-          en: "Adds beneficial minerals",
-          vi: "Bổ sung khoáng chất có lợi",
-        },
-      },
-      {
-        position: 7,
-        name: { en: "Filter 7 - Nano Silver", vi: "Lõi số 7 - Nano Silver" },
+        name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
         defaultIntervalMonths: 12,
         description: {
           en: "Antibacterial nano silver technology",
@@ -261,8 +396,17 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
         },
       },
       {
-        position: 8,
-        name: { en: "Filter 8 - Alkaline", vi: "Lõi số 8 - Alkaline" },
+        position: 6,
+        name: { en: "Filter 6 - 3-in-1", vi: "Lõi số 6 - Lõi 3 trong 1" },
+        defaultIntervalMonths: 12,
+        description: {
+          en: "3-in-1 filter: minerals, far infrared, magnetic",
+          vi: "Lõi 3 trong 1: khoáng, tia hồng ngoại xa, từ tính",
+        },
+      },
+      {
+        position: 7,
+        name: { en: "Filter 7 - Alkaline", vi: "Lõi số 7 - Alkaline" },
         defaultIntervalMonths: 12,
         description: {
           en: "Creates alkaline water, balances pH",
@@ -270,21 +414,21 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
         },
       },
       {
-        position: 9,
-        name: { en: "Filter 9 - Hydrogen", vi: "Lõi số 9 - Hydrogen" },
-        defaultIntervalMonths: 18,
+        position: 8,
+        name: { en: "Filter 8 - Maifan", vi: "Lõi số 8 - Maifan" },
+        defaultIntervalMonths: 12,
         description: {
-          en: "Creates hydrogen-rich water, antioxidant",
-          vi: "Tạo nước giàu hydrogen, chống oxy hóa",
+          en: "Maifan stone, adds beneficial minerals",
+          vi: "Đá Maifan, bổ sung khoáng chất có lợi",
         },
       },
       {
-        position: 10,
-        name: { en: "Filter 10 - Far Infrared", vi: "Lõi số 10 - Far Infrared" },
-        defaultIntervalMonths: 18,
+        position: 9,
+        name: { en: "Filter 9 - ORP", vi: "Lõi số 9 - ORP" },
+        defaultIntervalMonths: 12,
         description: {
-          en: "Far infrared rays, increases oxygen in water",
-          vi: "Tia hồng ngoại xa, tăng oxy trong nước",
+          en: "ORP filter, creates antioxidant water",
+          vi: "Lõi ORP, tạo nước chống oxy hóa",
         },
       },
     ],

@@ -111,9 +111,11 @@
 
 | Brand | Model | Filter Count |
 |-------|-------|--------------|
+| Kangaroo | KG104 | 7 filters |
+| Kangaroo | KG106 | 8 filters |
 | Kangaroo | KG108 | 8 filters |
-| Kangaroo | KG100HQ | 9 filters |
-| Kangaroo | KG104 Hydrogen | 10 filters |
+| Kangaroo | KG116 | 9 filters |
+| Kangaroo | KG109 | 9 filters |
 | Karofi | KSI80 | 8 filters |
 | Karofi | Optimus O-i229 | 9 filters |
 | Karofi | KAD-X60 | 10 filters |
