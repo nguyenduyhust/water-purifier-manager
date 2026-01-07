@@ -36,7 +36,7 @@ export function FilterCard({ filter, onReplace }: FilterCardProps) {
   return (
     <Card>
       <CardHeader className="pb-2">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-2">
           <CardTitle className="text-base font-medium">
             {filter.position}. {filter.name}
           </CardTitle>

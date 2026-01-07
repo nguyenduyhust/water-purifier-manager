@@ -55,9 +55,15 @@ export function FilterStatusBadge({
   const daysLabel = getDaysLabel();
 
   return (
-    <Badge variant={variant}>
-      {getStatusLabel()}
-      {daysLabel && <span className="ml-1 text-xs">({daysLabel})</span>}
-    </Badge>
+    <div className="flex flex-wrap items-center gap-2">
+      <Badge variant={variant}>
+        {getStatusLabel()}
+      </Badge>
+      {daysLabel && (
+        <span className={`text-sm ${status === 'expired' ? 'text-destructive font-medium' : status === 'warning' ? 'text-amber-600 font-medium' : 'text-muted-foreground'}`}>
+          {daysLabel}
+        </span>
+      )}
+    </div>
   );
 }
