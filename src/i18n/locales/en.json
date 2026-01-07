@@ -59,6 +59,7 @@
   "nav": {
     "dashboard": "Dashboard",
     "purifiers": "Purifiers",
+    "history": "History",
     "settings": "Settings"
   },
   "dashboard": {
@@ -145,6 +146,14 @@
     "selectLanguage": "Select language",
     "english": "English",
     "vietnamese": "Vietnamese"
+  },
+  "history": {
+    "title": "History",
+    "description": "View all activities for your water purifiers",
+    "noHistory": "No history yet",
+    "noHistoryDescription": "Activities will appear here once you add purifiers or replace filters.",
+    "purifierCreated": "Purifier added",
+    "filterReplaced": "Filter replaced"
   },
   "purifierTypes": {
     "kangaroo-kg108": {

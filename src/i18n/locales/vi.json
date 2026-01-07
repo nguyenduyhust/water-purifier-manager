@@ -59,6 +59,7 @@
   "nav": {
     "dashboard": "Tổng quan",
     "purifiers": "Máy lọc nước",
+    "history": "Lịch sử",
     "settings": "Cài đặt"
   },
   "dashboard": {
@@ -145,6 +146,14 @@
     "selectLanguage": "Chọn ngôn ngữ",
     "english": "Tiếng Anh",
     "vietnamese": "Tiếng Việt"
+  },
+  "history": {
+    "title": "Lịch sử",
+    "description": "Xem tất cả hoạt động của máy lọc nước",
+    "noHistory": "Chưa có lịch sử",
+    "noHistoryDescription": "Hoạt động sẽ xuất hiện ở đây khi bạn thêm máy lọc hoặc thay lõi lọc.",
+    "purifierCreated": "Đã thêm máy lọc",
+    "filterReplaced": "Đã thay lõi lọc"
   },
   "purifierTypes": {
     "kangaroo-kg108": {
