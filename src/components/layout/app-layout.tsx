@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Droplets, LayoutDashboard, Settings, LogOut, Menu } from 'lucide-react';
+import { Droplets, LayoutDashboard, LogOut, Menu } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth } from '@/contexts/auth-context';
 import { Button } from '@/components/ui/button';
@@ -30,7 +30,6 @@ export function AppLayout({ children }: AppLayoutProps) {
   const navigation = [
     { name: t('nav.dashboard'), href: '/', icon: LayoutDashboard },
     { name: t('nav.purifiers'), href: '/purifiers', icon: Droplets },
-    { name: t('nav.settings'), href: '/settings', icon: Settings },
   ];
 
   const handleSignOut = async () => {
