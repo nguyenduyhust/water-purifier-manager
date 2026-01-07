@@ -111,10 +111,18 @@
 
 | Brand | Model | Filter Count |
 |-------|-------|--------------|
+| Kangaroo | KG102 | 5 filters |
+| Kangaroo | KG112 | 5 filters |
+| Kangaroo | KG103 | 6 filters |
+| Kangaroo | KG113 | 6 filters |
 | Kangaroo | KG104 | 7 filters |
-| Kangaroo | KG106 | 8 filters |
+| Kangaroo | KG114 | 7 filters |
+| Kangaroo | KG106 | 6 filters |
+| Kangaroo | KG116 | 6 filters |
+| Kangaroo | KG107 | 7 filters |
+| Kangaroo | KG117 | 7 filters |
 | Kangaroo | KG108 | 8 filters |
-| Kangaroo | KG116 | 9 filters |
+| Kangaroo | KG118 | 8 filters |
 | Kangaroo | KG109 | 9 filters |
 | Karofi | KSI80 | 8 filters |
 | Karofi | Optimus O-i229 | 9 filters |
