@@ -106,9 +106,13 @@
     "purifierAddedDescription": "{{name}} has been added successfully.",
     "purifierDeleted": "Purifier deleted",
     "purifierDeletedDescription": "The purifier has been deleted successfully.",
+    "editPurifier": "Edit Purifier",
+    "purifierUpdated": "Purifier updated",
+    "purifierUpdatedDescription": "The purifier has been updated successfully.",
     "errors": {
       "addFailed": "Failed to add purifier. Please try again.",
       "deleteFailed": "Failed to delete purifier. Please try again.",
+      "updateFailed": "Failed to update purifier. Please try again.",
       "invalidType": "Invalid purifier type"
     }
   },

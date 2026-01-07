@@ -106,9 +106,13 @@
     "purifierAddedDescription": "{{name}} đã được thêm thành công.",
     "purifierDeleted": "Đã xóa máy lọc",
     "purifierDeletedDescription": "Máy lọc đã được xóa thành công.",
+    "editPurifier": "Chỉnh sửa máy lọc",
+    "purifierUpdated": "Đã cập nhật máy lọc",
+    "purifierUpdatedDescription": "Máy lọc đã được cập nhật thành công.",
     "errors": {
       "addFailed": "Thêm máy lọc thất bại. Vui lòng thử lại.",
       "deleteFailed": "Xóa máy lọc thất bại. Vui lòng thử lại.",
+      "updateFailed": "Cập nhật máy lọc thất bại. Vui lòng thử lại.",
       "invalidType": "Loại máy lọc không hợp lệ"
     }
   },

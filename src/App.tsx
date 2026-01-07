@@ -9,6 +9,7 @@ import { DashboardPage } from '@/pages/dashboard';
 import { PurifiersPage } from '@/pages/purifiers';
 import { NewPurifierPage } from '@/pages/purifiers/new';
 import { PurifierDetailPage } from '@/pages/purifiers/detail';
+import { EditPurifierPage } from '@/pages/purifiers/edit';
 
 function App() {
   return (
@@ -50,6 +51,14 @@ function App() {
             element={
               <AuthGuard>
                 <PurifierDetailPage />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/purifiers/:id/edit"
+            element={
+              <AuthGuard>
+                <EditPurifierPage />
               </AuthGuard>
             }
           />

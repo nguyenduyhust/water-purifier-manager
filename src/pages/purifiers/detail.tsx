@@ -127,10 +127,12 @@ export function PurifierDetailPage() {
             </div>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline" size="sm" disabled>
-              <Edit className="mr-2 h-4 w-4" />
-              {t('common.edit')}
-            </Button>
+            <Link to={`/purifiers/${id}/edit`}>
+              <Button variant="outline" size="sm">
+                <Edit className="mr-2 h-4 w-4" />
+                {t('common.edit')}
+              </Button>
+            </Link>
             <Button
               variant="destructive"
               size="sm"
