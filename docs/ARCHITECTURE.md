@@ -221,10 +221,11 @@ interface PurifierService {
 #### Filter Status Service
 ```typescript
 interface FilterStatusService {
-  calculateStatus(filter: Filter): FilterStatus;
-  getNextReplacementDate(lastReplaced: Date, intervalMonths: number): Date;
-  getDaysUntilReplacement(nextReplacement: Date): number;
-  getFiltersNeedingAttention(filters: Filter[]): Filter[];
+  calculateStatus(filter: Filter): FilterWithStatus;
+  calculateAllStatuses(filters: Filter[]): FilterWithStatus[];
+  calculateDashboardStats(filters: Filter[]): DashboardStats;
+  sortByUrgency(filters: FilterWithStatus[]): FilterWithStatus[];
+  getStatusColor(status: FilterStatus): string;
 }
 ```
 

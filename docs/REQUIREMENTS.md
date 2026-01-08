@@ -573,12 +573,12 @@ Managed by Firebase Authentication - no custom storage needed.
 ### Firestore Collection Structure
 
 ```
-/users/{userId}                          # User preferences (optional)
-/purifierTypes/{typeId}                  # System + custom purifier types
 /purifiers/{purifierId}                  # User's purifiers
 /purifiers/{purifierId}/filters/{filterId}  # Filters as subcollection
-/filterReplacements/{replacementId}      # Replacement history
+/activityLogs/{logId}                    # Activity history (purifier created, filter replaced)
 ```
+
+Note: Purifier types are defined in client code (`src/data/purifier-types.ts`).
 
 ### Data Validation Rules
 
@@ -610,35 +610,29 @@ Managed by Firebase Authentication - no custom storage needed.
 
 ```javascript
 rules_version = '2';
+
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Purifier types
-    match /purifierTypes/{typeId} {
-      allow read: if request.auth != null;
-      allow write: if request.auth != null
-        && request.resource.data.userId == request.auth.uid;
-    }
 
-    // Purifiers
+    // Purifiers collection
     match /purifiers/{purifierId} {
-      allow read, write: if request.auth != null
-        && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null
-        && request.resource.data.userId == request.auth.uid;
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
 
       // Filters subcollection
       match /filters/{filterId} {
-        allow read, write: if request.auth != null
-          && get(/databases/$(database)/documents/purifiers/$(purifierId)).data.userId == request.auth.uid;
+        allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+        allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+        allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
       }
     }
 
-    // Filter replacements
-    match /filterReplacements/{replacementId} {
-      allow read, write: if request.auth != null
-        && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null
-        && request.resource.data.userId == request.auth.uid;
+    // Activity Logs collection
+    match /activityLogs/{logId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
     }
   }
 }
