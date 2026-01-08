@@ -189,8 +189,9 @@ src/
 │   ├── auth-service.ts       # Authentication operations
 │   ├── purifier-service.ts   # Purifier CRUD
 │   ├── filter-service.ts     # Filter operations
-│   ├── purifier-type-service.ts  # Purifier type operations
-│   └── filter-status-service.ts  # Status calculation logic
+│   ├── filter-status-service.ts  # Status calculation logic
+│   ├── activity-log-service.ts   # Unified activity logging
+│   └── history-service.ts        # History events retrieval
 ```
 
 **Key Services:**
@@ -238,20 +239,12 @@ interface FilterStatusService {
 
 ```
 firestore/
-├── purifierTypes/                    # Collection
-│   └── {typeId}/                     # Document
-│       ├── id: string
-│       ├── name: string
-│       ├── isCustom: boolean
-│       ├── userId: string | null
-│       ├── filterTemplates: FilterTemplate[]
-│       └── createdAt: Timestamp
-│
 ├── purifiers/                        # Collection
 │   └── {purifierId}/                 # Document
 │       ├── id: string
 │       ├── userId: string
 │       ├── typeId: string
+│       ├── typeName: string
 │       ├── name: string
 │       ├── location: string
 │       ├── installationDate: Timestamp
@@ -271,15 +264,22 @@ firestore/
 │               ├── createdAt: Timestamp
 │               └── updatedAt: Timestamp
 │
-└── filterReplacements/               # Collection
-    └── {replacementId}/              # Document
+└── activityLogs/                     # Collection (unified history)
+    └── {logId}/                      # Document
         ├── id: string
-        ├── filterId: string
         ├── userId: string
-        ├── replacedAt: Timestamp
-        ├── notes: string
+        ├── type: 'purifier_created' | 'filter_replaced'
+        ├── timestamp: Timestamp
+        ├── purifierId: string
+        ├── purifierName: string       # Denormalized for performance
+        ├── filterId: string | null
+        ├── filterName: string | null  # Denormalized for performance
+        ├── filterPosition: number | null
+        ├── notes: string | null
         └── createdAt: Timestamp
 ```
+
+**Note:** Purifier types are defined in client code (`src/data/purifier-types.ts`) rather than Firestore for simplicity.
 
 ---
 
@@ -611,52 +611,41 @@ export function ErrorBoundary({ children }: { children: React.ReactNode }) {
 
 ```javascript
 rules_version = '2';
+
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Helper function to check authentication
-    function isAuthenticated() {
-      return request.auth != null;
-    }
 
-    // Helper function to check ownership
-    function isOwner(userId) {
-      return isAuthenticated() && request.auth.uid == userId;
-    }
-
-    // Purifier Types - read by all auth users, write only own custom types
-    match /purifierTypes/{typeId} {
-      allow read: if isAuthenticated();
-      allow create: if isAuthenticated()
-        && request.resource.data.userId == request.auth.uid
-        && request.resource.data.isCustom == true;
-      allow update, delete: if isAuthenticated()
-        && resource.data.userId == request.auth.uid;
-    }
-
-    // Purifiers - full access to own data only
+    // Purifiers collection
     match /purifiers/{purifierId} {
-      allow read: if isOwner(resource.data.userId);
-      allow create: if isAuthenticated()
-        && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if isOwner(resource.data.userId);
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
 
       // Filters subcollection
       match /filters/{filterId} {
-        allow read, write: if isAuthenticated()
-          && get(/databases/$(database)/documents/purifiers/$(purifierId)).data.userId == request.auth.uid;
+        allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+        allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+        allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
       }
     }
 
-    // Filter Replacements
-    match /filterReplacements/{replacementId} {
-      allow read: if isOwner(resource.data.userId);
-      allow create: if isAuthenticated()
-        && request.resource.data.userId == request.auth.uid;
-      allow delete: if isOwner(resource.data.userId);
+    // Activity Logs collection
+    match /activityLogs/{logId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
     }
   }
 }
 ```
+
+### Required Composite Indexes
+
+| Collection | Fields | Query scope |
+|------------|--------|-------------|
+| `purifiers` | `userId` Asc, `createdAt` Desc | Collection |
+| `activityLogs` | `userId` Asc, `timestamp` Desc | Collection |
+| `filters` | `userId` Asc, `position` Asc | Collection group |
 
 ---
 
@@ -801,13 +790,14 @@ water-purifier-manager/
 │   │   ├── auth-service.ts
 │   │   ├── purifier-service.ts
 │   │   ├── filter-service.ts
-│   │   ├── purifier-type-service.ts
-│   │   └── filter-status-service.ts
+│   │   ├── filter-status-service.ts
+│   │   ├── activity-log-service.ts
+│   │   └── history-service.ts
 │   ├── pages/
 │   │   ├── auth/
 │   │   ├── dashboard/
 │   │   ├── purifiers/
-│   │   └── settings/
+│   │   └── history/
 │   ├── types/
 │   │   ├── index.ts
 │   │   ├── purifier.ts

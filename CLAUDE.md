@@ -52,12 +52,14 @@ water-purifier-manager/
 │   │   ├── firebase.ts       # Firebase initialization
 │   │   ├── auth-service.ts   # Authentication (Email/Password + Google)
 │   │   ├── purifier-service.ts    # Purifier CRUD
-│   │   └── filter-service.ts      # Filter operations & status
+│   │   ├── filter-service.ts      # Filter operations & status
+│   │   ├── activity-log-service.ts # Unified activity logging
+│   │   └── history-service.ts     # History events retrieval
 │   ├── pages/
 │   │   ├── auth/             # Login, Register, ForgotPassword
 │   │   ├── dashboard/        # Main dashboard
-│   │   ├── purifiers/        # Purifier list, detail, create
-│   │   └── settings/         # Language settings
+│   │   ├── purifiers/        # Purifier list, detail, create, edit
+│   │   └── history/          # Activity history page
 │   ├── i18n/
 │   │   ├── index.ts          # i18n configuration
 │   │   └── locales/          # en.json, vi.json translation files
@@ -209,17 +211,55 @@ const { purifierTypes, getPurifierTypeById } = usePurifierTypes();
 
 | Collection | Description |
 |------------|-------------|
-| `purifierTypes` | System and custom purifier type definitions |
 | `purifiers` | User's water purifiers |
 | `purifiers/{id}/filters` | Filter cartridges (subcollection) |
-| `filterReplacements` | Replacement history records |
+| `activityLogs` | Unified activity history (purifier created, filter replaced) |
 
 ### Key Relationships
 
-- Purifier → PurifierType (via `typeId`)
+- Purifier → PurifierType (via `typeId`, types defined in client code)
 - Filter → Purifier (via `purifierId`, also subcollection)
-- FilterReplacement → Filter (via `filterId`)
+- ActivityLog → Purifier/Filter (via `purifierId`, `filterId`)
 - All user data filtered by `userId`
+
+### Firestore Security Rules
+
+```javascript
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Purifiers collection
+    match /purifiers/{purifierId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+
+      // Filters subcollection
+      match /filters/{filterId} {
+        allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+        allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+        allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+      }
+    }
+
+    // Activity Logs collection
+    match /activityLogs/{logId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+  }
+}
+```
+
+### Required Composite Indexes
+
+| Collection | Fields | Query scope |
+|------------|--------|-------------|
+| `purifiers` | `userId` Asc, `createdAt` Desc | Collection |
+| `activityLogs` | `userId` Asc, `timestamp` Desc | Collection |
+| `filters` | `userId` Asc, `position` Asc | Collection group |
 
 ## Deployment
 

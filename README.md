@@ -9,7 +9,9 @@ A web application for managing water purifiers and tracking filter replacement s
 - **Purifier Management**: Add, view, edit, and delete water purifiers
 - **Filter Tracking**: Track filter status with automatic replacement date calculations
 - **Dashboard**: Overview of all purifiers and filters needing attention
+- **Activity History**: View history of purifier creation and filter replacements
 - **Real-time Sync**: Data syncs in real-time across browser tabs via Firestore
+- **User Profile**: Display user avatar from Google account
 
 ## Supported Purifier Types
 
@@ -107,12 +109,14 @@ src/
 │   ├── firebase.ts       # Firebase initialization
 │   ├── auth-service.ts   # Auth operations
 │   ├── purifier-service.ts
-│   └── filter-service.ts
+│   ├── filter-service.ts
+│   ├── activity-log-service.ts  # Activity logging
+│   └── history-service.ts       # History retrieval
 ├── pages/
 │   ├── auth/             # Login, Register, ForgotPassword
 │   ├── dashboard/        # Main dashboard
-│   ├── purifiers/        # List, detail, create pages
-│   └── settings/         # Language settings
+│   ├── purifiers/        # List, detail, create, edit pages
+│   └── history/          # Activity history
 ├── i18n/
 │   ├── index.ts          # i18n configuration
 │   └── locales/          # en.json, vi.json
