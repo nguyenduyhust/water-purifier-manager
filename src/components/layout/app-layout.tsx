@@ -5,7 +5,7 @@ import { Droplets, LayoutDashboard, LogOut, Menu, History } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth } from '@/contexts/auth-context';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -110,6 +110,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                 <Avatar className="h-8 w-8">
+                  <AvatarImage src={user?.photoURL || undefined} alt={user?.displayName || 'User'} />
                   <AvatarFallback>
                     {getInitials(user?.email || null)}
                   </AvatarFallback>
