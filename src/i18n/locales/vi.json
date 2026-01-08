@@ -1,0 +1,259 @@
+{
+  "common": {
+    "appName": "Máy Lọc Nước",
+    "loading": "Đang tải...",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "edit": "Sửa",
+    "add": "Thêm",
+    "back": "Quay lại",
+    "confirm": "Xác nhận",
+    "search": "Tìm kiếm",
+    "filter": "Lõi lọc",
+    "filters": "Lõi lọc",
+    "all": "Tất cả",
+    "none": "Không có",
+    "yes": "Có",
+    "no": "Không",
+    "ok": "OK",
+    "error": "Lỗi",
+    "success": "Thành công",
+    "warning": "Cảnh báo",
+    "info": "Thông tin",
+    "months": "tháng"
+  },
+  "auth": {
+    "signIn": "Đăng nhập",
+    "signUp": "Đăng ký",
+    "signOut": "Đăng xuất",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "name": "Họ tên",
+    "forgotPassword": "Quên mật khẩu?",
+    "resetPassword": "Đặt lại mật khẩu",
+    "noAccount": "Chưa có tài khoản?",
+    "hasAccount": "Đã có tài khoản?",
+    "createAccount": "Tạo tài khoản",
+    "signInDescription": "Nhập email và mật khẩu để truy cập tài khoản của bạn",
+    "signUpDescription": "Nhập thông tin để tạo tài khoản mới",
+    "resetPasswordDescription": "Nhập địa chỉ email và chúng tôi sẽ gửi link đặt lại mật khẩu",
+    "sendResetLink": "Gửi link đặt lại",
+    "backToSignIn": "Quay lại đăng nhập",
+    "checkEmail": "Kiểm tra email",
+    "resetEmailSent": "Chúng tôi đã gửi link đặt lại mật khẩu đến",
+    "orContinueWith": "Hoặc tiếp tục với",
+    "google": "Google",
+    "errors": {
+      "invalidCredential": "Email hoặc mật khẩu không đúng",
+      "userNotFound": "Không tìm thấy tài khoản với email này",
+      "emailInUse": "Email này đã được sử dụng",
+      "weakPassword": "Mật khẩu quá yếu",
+      "tooManyRequests": "Quá nhiều lần thử. Vui lòng thử lại sau.",
+      "invalidEmail": "Địa chỉ email không hợp lệ",
+      "passwordMismatch": "Mật khẩu không khớp",
+      "generic": "Đã xảy ra lỗi không mong muốn"
+    }
+  },
+  "nav": {
+    "dashboard": "Tổng quan",
+    "purifiers": "Máy lọc nước",
+    "history": "Lịch sử",
+    "settings": "Cài đặt"
+  },
+  "dashboard": {
+    "title": "Tổng quan",
+    "description": "Tổng quan máy lọc nước và trạng thái lõi lọc",
+    "totalPurifiers": "Tổng máy lọc",
+    "totalFilters": "Tổng lõi lọc",
+    "needsAttention": "Cần chú ý",
+    "filtersOk": "Lõi lọc OK",
+    "expired": "hết hạn",
+    "dueSoon": "sắp đến hạn",
+    "filtersNeedingAttention": "Lõi lọc cần chú ý",
+    "expiredFilters": "Đã hết hạn",
+    "warningFilters": "Sắp đến hạn",
+    "noPurifiers": "Chưa có máy lọc nước",
+    "noPurifiersDescription": "Thêm máy lọc nước đầu tiên để bắt đầu theo dõi việc thay lõi lọc",
+    "addFirstPurifier": "Thêm máy lọc đầu tiên"
+  },
+  "purifier": {
+    "title": "Máy lọc nước",
+    "description": "Quản lý máy lọc nước và các lõi lọc",
+    "addPurifier": "Thêm máy lọc",
+    "newPurifier": "Thêm máy lọc nước",
+    "newPurifierDescription": "Thêm máy lọc nước mới để theo dõi lõi lọc",
+    "purifierDetails": "Thông tin máy lọc",
+    "purifierDetailsDescription": "Nhập thông tin máy lọc nước. Ngày thay lõi lọc sẽ được tính dựa trên ngày lắp đặt.",
+    "name": "Tên máy",
+    "namePlaceholder": "VD: Máy lọc bếp",
+    "type": "Loại máy",
+    "selectType": "Chọn loại máy lọc",
+    "location": "Vị trí",
+    "locationPlaceholder": "VD: Nhà bếp, Phòng khách",
+    "installationDate": "Ngày lắp đặt",
+    "notes": "Ghi chú",
+    "notesPlaceholder": "Ghi chú thêm về máy lọc này...",
+    "details": "Chi tiết",
+    "installed": "Lắp đặt ngày",
+    "deletePurifier": "Xóa máy lọc",
+    "deleteConfirmTitle": "Xóa máy lọc",
+    "deleteConfirmDescription": "Bạn có chắc muốn xóa \"{{name}}\"? Tất cả lõi lọc và lịch sử thay lõi cũng sẽ bị xóa. Hành động này không thể hoàn tác.",
+    "notFound": "Không tìm thấy máy lọc",
+    "notFoundDescription": "Máy lọc nước bạn tìm không tồn tại.",
+    "backToPurifiers": "Quay lại danh sách",
+    "purifierAdded": "Đã thêm máy lọc",
+    "purifierAddedDescription": "{{name}} đã được thêm thành công.",
+    "purifierDeleted": "Đã xóa máy lọc",
+    "purifierDeletedDescription": "Máy lọc đã được xóa thành công.",
+    "editPurifier": "Chỉnh sửa máy lọc",
+    "purifierUpdated": "Đã cập nhật máy lọc",
+    "purifierUpdatedDescription": "Máy lọc đã được cập nhật thành công.",
+    "errors": {
+      "addFailed": "Thêm máy lọc thất bại. Vui lòng thử lại.",
+      "deleteFailed": "Xóa máy lọc thất bại. Vui lòng thử lại.",
+      "updateFailed": "Cập nhật máy lọc thất bại. Vui lòng thử lại.",
+      "invalidType": "Loại máy lọc không hợp lệ"
+    }
+  },
+  "filter": {
+    "filters": "Lõi lọc",
+    "replaceFilter": "Thay lõi lọc",
+    "replace": "Thay lõi",
+    "replacementDate": "Ngày thay",
+    "replacementNotes": "Ghi chú (tùy chọn)",
+    "replacementNotesPlaceholder": "VD: Thay bằng lõi chính hãng",
+    "lastReplaced": "Thay lần cuối",
+    "nextReplacement": "Thay tiếp theo",
+    "daysRemaining": "Còn {{days}} ngày",
+    "daysOverdue": "Quá hạn {{days}} ngày",
+    "dueToday": "Đến hạn hôm nay",
+    "status": {
+      "ok": "OK",
+      "warning": "Sắp hết hạn",
+      "expired": "Hết hạn"
+    },
+    "filterReplaced": "Đã thay lõi lọc",
+    "filterReplacedDescription": "{{name}} đã được thay thành công.",
+    "errors": {
+      "replaceFailed": "Thay lõi lọc thất bại. Vui lòng thử lại."
+    }
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "language": "Ngôn ngữ",
+    "selectLanguage": "Chọn ngôn ngữ",
+    "english": "Tiếng Anh",
+    "vietnamese": "Tiếng Việt"
+  },
+  "history": {
+    "title": "Lịch sử",
+    "description": "Xem tất cả hoạt động của máy lọc nước",
+    "noHistory": "Chưa có lịch sử",
+    "noHistoryDescription": "Hoạt động sẽ xuất hiện ở đây khi bạn thêm máy lọc hoặc thay lõi lọc.",
+    "purifierCreated": "Đã thêm máy lọc",
+    "filterReplaced": "Đã thay lõi lọc"
+  },
+  "purifierTypes": {
+    "kangaroo-kg108": {
+      "name": "Kangaroo - KG108 (8 lõi)",
+      "filters": {
+        "1": { "name": "Lõi số 1 - PP", "description": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron" },
+        "2": { "name": "Lõi số 2 - UDF", "description": "Than hoạt tính dạng hạt, khử mùi, chlorine" },
+        "3": { "name": "Lõi số 3 - CTO", "description": "Than hoạt tính dạng khối, lọc hóa chất" },
+        "4": { "name": "Lõi số 4 - Màng RO", "description": "Màng lọc RO loại bỏ 99% tạp chất" },
+        "5": { "name": "Lõi số 5 - T33", "description": "Than hoạt tính sau RO, cải thiện vị nước" },
+        "6": { "name": "Lõi số 6 - Khoáng", "description": "Bổ sung khoáng chất có lợi" },
+        "7": { "name": "Lõi số 7 - Nano Silver", "description": "Diệt khuẩn bằng công nghệ nano bạc" },
+        "8": { "name": "Lõi số 8 - Alkaline", "description": "Tạo nước kiềm, cân bằng độ pH" }
+      }
+    },
+    "kangaroo-kg100hq": {
+      "name": "Kangaroo - KG100HQ (9 lõi)",
+      "filters": {
+        "1": { "name": "Lõi số 1 - PP", "description": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron" },
+        "2": { "name": "Lõi số 2 - UDF", "description": "Than hoạt tính dạng hạt, khử mùi, chlorine" },
+        "3": { "name": "Lõi số 3 - CTO", "description": "Than hoạt tính dạng khối, lọc hóa chất" },
+        "4": { "name": "Lõi số 4 - Màng RO", "description": "Màng lọc RO loại bỏ 99% tạp chất" },
+        "5": { "name": "Lõi số 5 - T33", "description": "Than hoạt tính sau RO, cải thiện vị nước" },
+        "6": { "name": "Lõi số 6 - Khoáng", "description": "Bổ sung khoáng chất có lợi" },
+        "7": { "name": "Lõi số 7 - Nano Silver", "description": "Diệt khuẩn bằng công nghệ nano bạc" },
+        "8": { "name": "Lõi số 8 - Alkaline", "description": "Tạo nước kiềm, cân bằng độ pH" },
+        "9": { "name": "Lõi số 9 - Far Infrared", "description": "Tia hồng ngoại xa, tăng oxy trong nước" }
+      }
+    },
+    "kangaroo-kg104": {
+      "name": "Kangaroo - KG104 Hydrogen (10 lõi)",
+      "filters": {
+        "1": { "name": "Lõi số 1 - PP", "description": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron" },
+        "2": { "name": "Lõi số 2 - UDF", "description": "Than hoạt tính dạng hạt, khử mùi, chlorine" },
+        "3": { "name": "Lõi số 3 - CTO", "description": "Than hoạt tính dạng khối, lọc hóa chất" },
+        "4": { "name": "Lõi số 4 - Màng RO", "description": "Màng lọc RO loại bỏ 99% tạp chất" },
+        "5": { "name": "Lõi số 5 - T33", "description": "Than hoạt tính sau RO, cải thiện vị nước" },
+        "6": { "name": "Lõi số 6 - Khoáng", "description": "Bổ sung khoáng chất có lợi" },
+        "7": { "name": "Lõi số 7 - Nano Silver", "description": "Diệt khuẩn bằng công nghệ nano bạc" },
+        "8": { "name": "Lõi số 8 - Alkaline", "description": "Tạo nước kiềm, cân bằng độ pH" },
+        "9": { "name": "Lõi số 9 - Hydrogen", "description": "Tạo nước giàu hydrogen, chống oxy hóa" },
+        "10": { "name": "Lõi số 10 - Far Infrared", "description": "Tia hồng ngoại xa, tăng oxy trong nước" }
+      }
+    },
+    "karofi-ksi80": {
+      "name": "Karofi - KSI80 (8 lõi)",
+      "filters": {
+        "1": { "name": "Lõi số 1 - PP", "description": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron" },
+        "2": { "name": "Lõi số 2 - GAC", "description": "Than hoạt tính dạng hạt, khử mùi, chlorine" },
+        "3": { "name": "Lõi số 3 - CTO", "description": "Than hoạt tính dạng khối, lọc hóa chất" },
+        "4": { "name": "Lõi số 4 - Màng RO", "description": "Màng lọc RO Smax loại bỏ 99% tạp chất" },
+        "5": { "name": "Lõi số 5 - TCR", "description": "Than hoạt tính cao cấp, cải thiện vị nước" },
+        "6": { "name": "Lõi số 6 - Hydrogen", "description": "Tạo nước giàu hydrogen, chống oxy hóa" },
+        "7": { "name": "Lõi số 7 - Khoáng", "description": "Bổ sung khoáng chất thiên nhiên" },
+        "8": { "name": "Lõi số 8 - Nano Silver", "description": "Diệt khuẩn bằng công nghệ nano bạc" }
+      }
+    },
+    "karofi-optimus-o-i229": {
+      "name": "Karofi - Optimus O-i229 (9 lõi)",
+      "filters": {
+        "1": { "name": "Lõi số 1 - Sediment", "description": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron" },
+        "2": { "name": "Lõi số 2 - Pre-Carbon", "description": "Than hoạt tính trước RO, bảo vệ màng" },
+        "3": { "name": "Lõi số 3 - Màng RO Smax", "description": "Màng RO công nghệ Smax, tuổi thọ cao" },
+        "4": { "name": "Lõi số 4 - Post-Carbon", "description": "Than hoạt tính sau RO, cải thiện vị nước" },
+        "5": { "name": "Lõi số 5 - ORP", "description": "Tăng chỉ số ORP, nước giàu năng lượng" },
+        "6": { "name": "Lõi số 6 - Hydrogen", "description": "Tạo nước giàu hydrogen, chống oxy hóa" },
+        "7": { "name": "Lõi số 7 - Khoáng", "description": "Bổ sung khoáng chất thiên nhiên" },
+        "8": { "name": "Lõi số 8 - Alkaline", "description": "Tạo nước kiềm, cân bằng độ pH" },
+        "9": { "name": "Lõi số 9 - Nano Silver", "description": "Diệt khuẩn bằng công nghệ nano bạc" }
+      }
+    },
+    "karofi-kad-x60": {
+      "name": "Karofi - KAD-X60 (10 lõi)",
+      "filters": {
+        "1": { "name": "Lõi số 1 - PP 5 micron", "description": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron" },
+        "2": { "name": "Lõi số 2 - PP 1 micron", "description": "Lọc cặn mịn > 1 micron" },
+        "3": { "name": "Lõi số 3 - GAC", "description": "Than hoạt tính dạng hạt, khử mùi, chlorine" },
+        "4": { "name": "Lõi số 4 - CTO", "description": "Than hoạt tính dạng khối, lọc hóa chất" },
+        "5": { "name": "Lõi số 5 - Màng RO", "description": "Màng lọc RO loại bỏ 99% tạp chất" },
+        "6": { "name": "Lõi số 6 - T33", "description": "Than hoạt tính sau RO, cải thiện vị nước" },
+        "7": { "name": "Lõi số 7 - Khoáng", "description": "Bổ sung khoáng chất thiên nhiên" },
+        "8": { "name": "Lõi số 8 - Nano Silver", "description": "Diệt khuẩn bằng công nghệ nano bạc" },
+        "9": { "name": "Lõi số 9 - Alkaline", "description": "Tạo nước kiềm, cân bằng độ pH" },
+        "10": { "name": "Lõi số 10 - Hydrogen", "description": "Tạo nước giàu hydrogen, chống oxy hóa" }
+      }
+    },
+    "sunhouse-shr76210ck": {
+      "name": "Sunhouse - SHR76210CK (10 lõi)",
+      "filters": {
+        "1": { "name": "Lõi số 1 - PP", "description": "Lọc cặn thô, rỉ sét > 5 micron" },
+        "2": { "name": "Lõi số 2 - UDF", "description": "Than hoạt tính dạng hạt" },
+        "3": { "name": "Lõi số 3 - CTO", "description": "Than hoạt tính dạng khối" },
+        "4": { "name": "Lõi số 4 - Màng RO", "description": "Màng lọc RO loại bỏ 99% tạp chất" },
+        "5": { "name": "Lõi số 5 - T33", "description": "Than hoạt tính sau RO" },
+        "6": { "name": "Lõi số 6 - Khoáng", "description": "Bổ sung khoáng chất" },
+        "7": { "name": "Lõi số 7 - Nano Silver", "description": "Diệt khuẩn nano bạc" },
+        "8": { "name": "Lõi số 8 - Alkaline", "description": "Tạo nước kiềm" },
+        "9": { "name": "Lõi số 9 - Hydrogen", "description": "Tạo nước giàu hydrogen" },
+        "10": { "name": "Lõi số 10 - Far Infrared", "description": "Tia hồng ngoại xa" }
+      }
+    }
+  }
+}
