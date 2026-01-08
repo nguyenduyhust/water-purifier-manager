@@ -37,6 +37,7 @@ type ReplaceFormValues = z.infer<typeof replaceSchema>;
 interface ReplaceFilterDialogProps {
   filter: FilterWithStatus | null;
   purifierId: string;
+  purifierName?: string;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
@@ -44,6 +45,7 @@ interface ReplaceFilterDialogProps {
 export function ReplaceFilterDialog({
   filter,
   purifierId,
+  purifierName,
   open,
   onOpenChange,
 }: ReplaceFilterDialogProps) {
@@ -68,7 +70,12 @@ export function ReplaceFilterDialog({
         purifierId,
         filter.id,
         new Date(data.replacedAt),
-        data.notes
+        data.notes,
+        {
+          purifierName,
+          filterName: filter.name,
+          filterPosition: filter.position,
+        }
       );
       toast({
         title: t('filter.filterReplaced'),
@@ -77,6 +84,7 @@ export function ReplaceFilterDialog({
       onOpenChange(false);
       form.reset();
     } catch (error) {
+      console.error('Replace filter error:', error);
       toast({
         variant: 'destructive',
         title: t('common.error'),

@@ -15,6 +15,7 @@ import {
 import { db } from '@/config/firebase';
 import type { Purifier, CreatePurifierData, UpdatePurifierData, Filter } from '@/types';
 import { filterService } from './filter-service';
+import { activityLogService } from './activity-log-service';
 
 const COLLECTION_NAME = 'purifiers';
 
@@ -83,6 +84,15 @@ export const purifierService = {
 
     await batch.commit();
 
+    // Log activity
+    await activityLogService.add({
+      userId: data.userId,
+      type: 'purifier_created',
+      timestamp: data.installationDate,
+      purifierId: docRef.id,
+      purifierName: data.name,
+    });
+
     return docRef.id;
   },
 
@@ -94,9 +104,9 @@ export const purifierService = {
     });
   },
 
-  async delete(id: string): Promise<void> {
+  async delete(id: string, userId: string): Promise<void> {
     // First delete all filters in the subcollection
-    const filters = await filterService.getByPurifierId(id);
+    const filters = await filterService.getByPurifierId(id, userId);
     const batch = writeBatch(db);
 
     for (const filter of filters) {
@@ -149,14 +159,15 @@ export const purifierService = {
   },
 
   // Get filters for a purifier
-  async getFilters(purifierId: string): Promise<Filter[]> {
-    return filterService.getByPurifierId(purifierId);
+  async getFilters(purifierId: string, userId: string): Promise<Filter[]> {
+    return filterService.getByPurifierId(purifierId, userId);
   },
 
   subscribeToFilters(
     purifierId: string,
+    userId: string,
     callback: (filters: Filter[]) => void
   ): () => void {
-    return filterService.subscribeByPurifierId(purifierId, callback);
+    return filterService.subscribeByPurifierId(purifierId, userId, callback);
   },
 };

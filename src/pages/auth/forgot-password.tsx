@@ -60,6 +60,7 @@ export function ForgotPasswordPage() {
       await resetPassword(data.email);
       setIsSuccess(true);
     } catch (err) {
+      console.error('Forgot password error:', err);
       if (err instanceof FirebaseError) {
         switch (err.code) {
           case 'auth/user-not-found':

@@ -1,12 +1,17 @@
 import { useCallback } from 'react';
 import { useAuth } from '@/contexts/auth-context';
 import { filterService } from '@/services/filter-service';
-import type { UpdateFilterData, FilterReplacement } from '@/types';
+import type { UpdateFilterData } from '@/types';
+
+interface ReplaceFilterOptions {
+  purifierName?: string;
+  filterName?: string;
+  filterPosition?: number;
+}
 
 interface UseFiltersReturn {
   updateFilter: (purifierId: string, filterId: string, data: UpdateFilterData) => Promise<void>;
-  replaceFilter: (purifierId: string, filterId: string, replacedAt: Date, notes?: string) => Promise<void>;
-  getReplacementHistory: (filterId: string) => Promise<FilterReplacement[]>;
+  replaceFilter: (purifierId: string, filterId: string, replacedAt: Date, notes?: string, options?: ReplaceFilterOptions) => Promise<void>;
 }
 
 export function useFilters(): UseFiltersReturn {
@@ -20,20 +25,24 @@ export function useFilters(): UseFiltersReturn {
   );
 
   const replaceFilter = useCallback(
-    async (purifierId: string, filterId: string, replacedAt: Date, notes?: string) => {
+    async (purifierId: string, filterId: string, replacedAt: Date, notes?: string, options?: ReplaceFilterOptions) => {
       if (!user) throw new Error('User not authenticated');
-      await filterService.replaceFilter(purifierId, filterId, user.uid, replacedAt, notes);
+      await filterService.replaceFilter(
+        purifierId,
+        filterId,
+        user.uid,
+        replacedAt,
+        notes,
+        options?.purifierName,
+        options?.filterName,
+        options?.filterPosition
+      );
     },
     [user]
   );
 
-  const getReplacementHistory = useCallback(async (filterId: string) => {
-    return filterService.getReplacementHistory(filterId);
-  }, []);
-
   return {
     updateFilter,
     replaceFilter,
-    getReplacementHistory,
   };
 }

@@ -46,7 +46,7 @@ export function useAllFilters(): UseAllFiltersReturn {
 
   // Subscribe to filters for each purifier
   useEffect(() => {
-    if (purifiers.length === 0) {
+    if (!user || purifiers.length === 0) {
       setAllFilters(new Map());
       setLoading(false);
       return;
@@ -55,7 +55,7 @@ export function useAllFilters(): UseAllFiltersReturn {
     const unsubscribes: (() => void)[] = [];
 
     purifiers.forEach((purifier) => {
-      const unsubscribe = purifierService.subscribeToFilters(purifier.id, (filters) => {
+      const unsubscribe = purifierService.subscribeToFilters(purifier.id, user.uid, (filters: Filter[]) => {
         setAllFilters((prev) => {
           const newMap = new Map(prev);
           newMap.set(purifier.id, filters);
@@ -69,7 +69,7 @@ export function useAllFilters(): UseAllFiltersReturn {
     return () => {
       unsubscribes.forEach((unsub) => unsub());
     };
-  }, [purifiers]);
+  }, [purifiers, user]);
 
   const filtersWithPurifier = useMemo(() => {
     const result: FilterWithPurifier[] = [];

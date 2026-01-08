@@ -6,21 +6,23 @@ import {
   addDoc,
   updateDoc,
   query,
+  where,
   orderBy,
   onSnapshot,
   Timestamp,
 } from 'firebase/firestore';
 import { db } from '@/config/firebase';
-import type { Filter, CreateFilterData, UpdateFilterData, FilterReplacement, CreateFilterReplacementData } from '@/types';
+import type { Filter, CreateFilterData, UpdateFilterData } from '@/types';
+import { activityLogService } from './activity-log-service';
 
 const PURIFIERS_COLLECTION = 'purifiers';
 const FILTERS_SUBCOLLECTION = 'filters';
-const REPLACEMENTS_COLLECTION = 'filterReplacements';
 
 export const filterService = {
-  async getByPurifierId(purifierId: string): Promise<Filter[]> {
+  async getByPurifierId(purifierId: string, userId: string): Promise<Filter[]> {
     const q = query(
       collection(db, PURIFIERS_COLLECTION, purifierId, FILTERS_SUBCOLLECTION),
+      where('userId', '==', userId),
       orderBy('position', 'asc')
     );
     const snapshot = await getDocs(q);
@@ -89,26 +91,37 @@ export const filterService = {
     filterId: string,
     userId: string,
     replacedAt: Date,
-    notes?: string
+    notes?: string,
+    // Denormalized data for activity log
+    purifierName?: string,
+    filterName?: string,
+    filterPosition?: number
   ): Promise<void> {
     // Update filter's lastReplacedAt
     await this.update(purifierId, filterId, { lastReplacedAt: replacedAt });
 
-    // Add replacement history record
-    await this.addReplacementHistory({
-      filterId,
+    // Log activity (replaces old filterReplacements collection)
+    await activityLogService.add({
       userId,
-      replacedAt,
+      type: 'filter_replaced',
+      timestamp: replacedAt,
+      purifierId,
+      purifierName: purifierName || '',
+      filterId,
+      filterName,
+      filterPosition,
       notes,
     });
   },
 
   subscribeByPurifierId(
     purifierId: string,
+    userId: string,
     callback: (filters: Filter[]) => void
   ): () => void {
     const q = query(
       collection(db, PURIFIERS_COLLECTION, purifierId, FILTERS_SUBCOLLECTION),
+      where('userId', '==', userId),
       orderBy('position', 'asc')
     );
 
@@ -119,36 +132,5 @@ export const filterService = {
       })) as Filter[];
       callback(filters);
     });
-  },
-
-  // Replacement history methods
-  async addReplacementHistory(data: CreateFilterReplacementData): Promise<string> {
-    const now = Timestamp.now();
-
-    const replacementData = {
-      filterId: data.filterId,
-      userId: data.userId,
-      replacedAt: Timestamp.fromDate(data.replacedAt),
-      notes: data.notes || '',
-      createdAt: now,
-    };
-
-    const docRef = await addDoc(collection(db, REPLACEMENTS_COLLECTION), replacementData);
-    return docRef.id;
-  },
-
-  async getReplacementHistory(filterId: string): Promise<FilterReplacement[]> {
-    const q = query(
-      collection(db, REPLACEMENTS_COLLECTION),
-      orderBy('replacedAt', 'desc')
-    );
-    const snapshot = await getDocs(q);
-
-    return (snapshot.docs
-      .map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      })) as FilterReplacement[])
-      .filter((r) => r.filterId === filterId);
   },
 };

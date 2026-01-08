@@ -64,6 +64,7 @@ export function RegisterForm() {
       await signUp(data.email, data.password, data.name);
       navigate('/');
     } catch (err) {
+      console.error('Register error:', err);
       if (err instanceof FirebaseError) {
         switch (err.code) {
           case 'auth/email-already-in-use':
@@ -94,6 +95,7 @@ export function RegisterForm() {
       await signInWithGoogle();
       navigate('/');
     } catch (err) {
+      console.error('Google sign up error:', err);
       if (err instanceof FirebaseError) {
         switch (err.code) {
           case 'auth/popup-closed-by-user':

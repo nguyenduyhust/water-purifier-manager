@@ -56,6 +56,7 @@ export function PurifierDetailPage() {
       });
       navigate('/purifiers');
     } catch (error) {
+      console.error('Delete purifier error:', error);
       toast({
         variant: 'destructive',
         title: t('common.error'),
@@ -212,6 +213,7 @@ export function PurifierDetailPage() {
       <ReplaceFilterDialog
         filter={selectedFilter}
         purifierId={id || ''}
+        purifierName={purifier?.name}
         open={showReplaceDialog}
         onOpenChange={setShowReplaceDialog}
       />

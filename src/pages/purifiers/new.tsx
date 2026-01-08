@@ -47,6 +47,7 @@ export function NewPurifierPage() {
 
       navigate('/purifiers');
     } catch (error) {
+      console.error('Add purifier error:', error);
       toast({
         variant: 'destructive',
         title: t('common.error'),

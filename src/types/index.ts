@@ -85,7 +85,7 @@ export interface UpdateFilterData {
   lastReplacedAt?: Date;
 }
 
-// Filter replacement history
+// Filter replacement history (denormalized for performance)
 export interface FilterReplacement {
   id: string;
   filterId: string;
@@ -93,6 +93,11 @@ export interface FilterReplacement {
   replacedAt: Timestamp;
   notes?: string;
   createdAt: Timestamp;
+  // Denormalized fields for history display (no extra queries needed)
+  purifierId?: string;
+  purifierName?: string;
+  filterName?: string;
+  filterPosition?: number;
 }
 
 export interface CreateFilterReplacementData {
@@ -100,6 +105,11 @@ export interface CreateFilterReplacementData {
   userId: string;
   replacedAt: Date;
   notes?: string;
+  // Denormalized fields
+  purifierId?: string;
+  purifierName?: string;
+  filterName?: string;
+  filterPosition?: number;
 }
 
 // Purifier with filters (for display)
@@ -130,4 +140,36 @@ export interface UserPreferences {
   warningDays: number; // Days before expiration to show warning
   createdAt: Timestamp;
   updatedAt: Timestamp;
+}
+
+// Activity Log - unified history for all events
+export type ActivityType = 'purifier_created' | 'purifier_updated' | 'purifier_deleted' | 'filter_replaced';
+
+export interface ActivityLog {
+  id: string;
+  userId: string;
+  type: ActivityType;
+  timestamp: Timestamp;
+  // Purifier info (denormalized)
+  purifierId: string;
+  purifierName: string;
+  // Filter info (optional, for filter events)
+  filterId?: string;
+  filterName?: string;
+  filterPosition?: number;
+  // Additional data
+  notes?: string;
+  createdAt: Timestamp;
+}
+
+export interface CreateActivityLogData {
+  userId: string;
+  type: ActivityType;
+  timestamp: Date;
+  purifierId: string;
+  purifierName: string;
+  filterId?: string;
+  filterName?: string;
+  filterPosition?: number;
+  notes?: string;
 }

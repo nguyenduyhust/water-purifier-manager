@@ -55,6 +55,7 @@ export function LoginForm() {
       await signIn(data.email, data.password);
       navigate('/');
     } catch (err) {
+      console.error('Login error:', err);
       if (err instanceof FirebaseError) {
         switch (err.code) {
           case 'auth/user-not-found':
@@ -84,6 +85,7 @@ export function LoginForm() {
       await signInWithGoogle();
       navigate('/');
     } catch (err) {
+      console.error('Google sign in error:', err);
       if (err instanceof FirebaseError) {
         switch (err.code) {
           case 'auth/popup-closed-by-user':

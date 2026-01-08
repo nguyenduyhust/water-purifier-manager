@@ -61,7 +61,8 @@ export function EditPurifierPage() {
         description: t('purifier.purifierUpdatedDescription'),
       });
       navigate(`/purifiers/${id}`);
-    } catch {
+    } catch (error) {
+      console.error('Update purifier error:', error);
       toast({
         variant: 'destructive',
         title: t('common.error'),

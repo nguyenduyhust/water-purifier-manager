@@ -63,8 +63,9 @@ export function usePurifiers(): UsePurifiersReturn {
   }, []);
 
   const deletePurifier = useCallback(async (id: string) => {
-    await purifierService.delete(id);
-  }, []);
+    if (!user) throw new Error('User not authenticated');
+    await purifierService.delete(id, user.uid);
+  }, [user]);
 
   const refresh = useCallback(() => {
     if (!user) return;

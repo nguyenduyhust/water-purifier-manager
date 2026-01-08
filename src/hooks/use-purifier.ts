@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useAuth } from '@/contexts/auth-context';
 import { purifierService } from '@/services/purifier-service';
 import { filterStatusService } from '@/services/filter-status-service';
 import type { Purifier, Filter, FilterWithStatus } from '@/types';
@@ -11,13 +12,14 @@ interface UsePurifierReturn {
 }
 
 export function usePurifier(purifierId: string | undefined): UsePurifierReturn {
+  const { user } = useAuth();
   const [purifier, setPurifier] = useState<Purifier | null>(null);
   const [filters, setFilters] = useState<FilterWithStatus[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    if (!purifierId) {
+    if (!purifierId || !user) {
       setPurifier(null);
       setFilters([]);
       setLoading(false);
@@ -36,7 +38,7 @@ export function usePurifier(purifierId: string | undefined): UsePurifierReturn {
     });
 
     // Subscribe to filters
-    const unsubscribeFilters = purifierService.subscribeToFilters(purifierId, (data: Filter[]) => {
+    const unsubscribeFilters = purifierService.subscribeToFilters(purifierId, user.uid, (data: Filter[]) => {
       const filtersWithStatus = filterStatusService.calculateAllStatuses(data);
       setFilters(filterStatusService.sortByUrgency(filtersWithStatus));
       setLoading(false);
@@ -46,7 +48,7 @@ export function usePurifier(purifierId: string | undefined): UsePurifierReturn {
       unsubscribePurifier();
       unsubscribeFilters();
     };
-  }, [purifierId]);
+  }, [purifierId, user]);
 
   return {
     purifier,
