@@ -676,6 +676,101 @@ service cloud.firestore {
 
 ---
 
+## Future Enhancements
+
+### Household Sharing (Multi-User Access)
+
+**Goal:** Allow multiple users (family members) to manage the same purifiers.
+
+**Approach:** Household-based sharing (recommended for family use)
+
+#### Data Model Changes
+
+**New Collection: `/households/{householdId}`**
+```typescript
+interface Household {
+  id: string;
+  name: string;                    // e.g., "Nguyen Family"
+  ownerId: string;                 // Creator's userId
+  members: string[];               // Array of member userIds
+  createdAt: Timestamp;
+  updatedAt: Timestamp;
+}
+```
+
+**Purifier Document: Add optional field**
+```typescript
+interface Purifier {
+  // ... existing fields unchanged
+  userId: string;                  // Keep as creator/owner
+  householdId?: string | null;     // NEW: optional household reference
+}
+```
+
+#### Access Logic
+
+- If `householdId` is null/undefined → only `userId` (owner) can access (current behavior)
+- If `householdId` exists → all household members can access
+
+#### Security Rules Update
+
+```javascript
+// Households collection
+match /households/{householdId} {
+  allow read: if request.auth != null && request.auth.uid in resource.data.members;
+  allow create: if request.auth != null && request.resource.data.ownerId == request.auth.uid;
+  allow update: if request.auth != null && resource.data.ownerId == request.auth.uid;
+  allow delete: if request.auth != null && resource.data.ownerId == request.auth.uid;
+}
+
+// Purifiers - updated to support household access
+match /purifiers/{purifierId} {
+  function isOwner() {
+    return resource.data.userId == request.auth.uid;
+  }
+
+  function isHouseholdMember() {
+    return resource.data.householdId != null
+      && exists(/databases/$(database)/documents/households/$(resource.data.householdId))
+      && request.auth.uid in get(/databases/$(database)/documents/households/$(resource.data.householdId)).data.members;
+  }
+
+  allow read: if request.auth != null && (isOwner() || isHouseholdMember());
+  // ... similar for write operations
+}
+```
+
+#### UI Features Required
+
+1. **Household Management Page**
+   - Create household
+   - Invite members (by email)
+   - Remove members
+   - Leave household
+   - Delete household (owner only)
+
+2. **Purifier Assignment**
+   - Assign purifier to household
+   - Remove purifier from household
+
+3. **Member Roles (Optional)**
+   - Owner: full control
+   - Editor: can edit purifiers, replace filters
+   - Viewer: read-only access
+
+#### Benefits
+
+- No migration needed for existing data
+- Backward compatible (existing purifiers work as-is)
+- Natural for family use case
+- One-time household setup, applies to all shared purifiers
+
+#### Implementation Priority: Low
+
+This feature is documented for future implementation when multi-user support is needed.
+
+---
+
 ## Glossary
 
 | Term | Definition |
@@ -694,3 +789,4 @@ service cloud.firestore {
 |------|---------|---------|--------|
 | 2025-01-07 | 1.0.0 | Initial requirements | Claude |
 | 2025-01-07 | 1.1.0 | Added i18n requirement (FR-008), updated status of all requirements, added Vietnamese purifier brands, Google Sign-In | Claude |
+| 2025-01-08 | 1.2.0 | Updated Firestore structure (activityLogs), added Household Sharing as future enhancement | Claude |
