@@ -190,8 +190,7 @@ src/
 │   ├── purifier-service.ts   # Purifier CRUD
 │   ├── filter-service.ts     # Filter operations
 │   ├── filter-status-service.ts  # Status calculation logic
-│   ├── activity-log-service.ts   # Unified activity logging
-│   └── history-service.ts        # History events retrieval
+│   └── activity-log-service.ts   # Activity logging & history
 ```
 
 **Key Services:**
@@ -791,8 +790,7 @@ water-purifier-manager/
 │   │   ├── purifier-service.ts
 │   │   ├── filter-service.ts
 │   │   ├── filter-status-service.ts
-│   │   ├── activity-log-service.ts
-│   │   └── history-service.ts
+│   │   └── activity-log-service.ts
 │   ├── pages/
 │   │   ├── auth/
 │   │   ├── dashboard/

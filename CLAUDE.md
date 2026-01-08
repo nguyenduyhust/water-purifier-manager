@@ -53,8 +53,8 @@ water-purifier-manager/
 │   │   ├── auth-service.ts   # Authentication (Email/Password + Google)
 │   │   ├── purifier-service.ts    # Purifier CRUD
 │   │   ├── filter-service.ts      # Filter operations & status
-│   │   ├── activity-log-service.ts # Unified activity logging
-│   │   └── history-service.ts     # History events retrieval
+│   │   ├── filter-status-service.ts # Filter status calculations
+│   │   └── activity-log-service.ts  # Activity logging & history
 │   ├── pages/
 │   │   ├── auth/             # Login, Register, ForgotPassword
 │   │   ├── dashboard/        # Main dashboard

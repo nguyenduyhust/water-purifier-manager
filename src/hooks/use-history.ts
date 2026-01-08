@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/auth-context';
-import { historyService, type HistoryEvent } from '@/services/history-service';
+import { activityLogService, type HistoryEvent } from '@/services/activity-log-service';
 
 interface UseHistoryReturn {
   events: HistoryEvent[];
@@ -26,7 +26,7 @@ export function useHistory(): UseHistoryReturn {
     setError(null);
 
     try {
-      const data = await historyService.getHistory(user.uid);
+      const data = await activityLogService.getHistory(user.uid);
       setEvents(data);
     } catch (err) {
       console.error('History fetch error:', err);

@@ -110,8 +110,8 @@ src/
 │   ├── auth-service.ts   # Auth operations
 │   ├── purifier-service.ts
 │   ├── filter-service.ts
-│   ├── activity-log-service.ts  # Activity logging
-│   └── history-service.ts       # History retrieval
+│   ├── filter-status-service.ts  # Filter status calculations
+│   └── activity-log-service.ts   # Activity logging & history
 ├── pages/
 │   ├── auth/             # Login, Register, ForgotPassword
 │   ├── dashboard/        # Main dashboard

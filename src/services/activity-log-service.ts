@@ -13,6 +13,18 @@ import type { ActivityLog, CreateActivityLogData } from '@/types';
 
 const COLLECTION_NAME = 'activityLogs';
 
+export interface HistoryEvent {
+  id: string;
+  type: 'purifier_created' | 'filter_replaced';
+  timestamp: Date;
+  purifierId: string;
+  purifierName: string;
+  filterId?: string;
+  filterName?: string;
+  filterPosition?: number;
+  notes?: string;
+}
+
 export const activityLogService = {
   /**
    * Add a new activity log entry
@@ -39,8 +51,6 @@ export const activityLogService = {
 
   /**
    * Get activity logs for a user with pagination
-   * @param userId - User ID
-   * @param limitCount - Number of records to fetch (default 50)
    */
   async getByUserId(userId: string, limitCount = 50): Promise<ActivityLog[]> {
     const q = query(
@@ -58,20 +68,23 @@ export const activityLogService = {
   },
 
   /**
-   * Get activity logs for a specific purifier
+   * Get history events for a user (transformed for UI display)
    */
-  async getByPurifierId(purifierId: string, limitCount = 50): Promise<ActivityLog[]> {
-    const q = query(
-      collection(db, COLLECTION_NAME),
-      where('purifierId', '==', purifierId),
-      orderBy('timestamp', 'desc'),
-      limit(limitCount)
-    );
+  async getHistory(userId: string, limitCount = 50): Promise<HistoryEvent[]> {
+    const logs = await this.getByUserId(userId, limitCount);
 
-    const snapshot = await getDocs(q);
-    return snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as ActivityLog[];
+    return logs.map((log: ActivityLog) => ({
+      id: log.id,
+      type: log.type as 'purifier_created' | 'filter_replaced',
+      timestamp: log.timestamp instanceof Timestamp
+        ? log.timestamp.toDate()
+        : new Date(log.timestamp),
+      purifierId: log.purifierId,
+      purifierName: log.purifierName,
+      filterId: log.filterId,
+      filterName: log.filterName,
+      filterPosition: log.filterPosition,
+      notes: log.notes,
+    }));
   },
 };

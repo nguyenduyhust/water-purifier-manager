@@ -6,7 +6,7 @@ import { Loader2, Droplets, RefreshCw, History as HistoryIcon } from 'lucide-rea
 import { AppLayout } from '@/components/layout/app-layout';
 import { Card, CardContent } from '@/components/ui/card';
 import { useHistory } from '@/hooks/use-history';
-import type { HistoryEvent } from '@/services/history-service';
+import type { HistoryEvent } from '@/services/activity-log-service';
 
 export function HistoryPage() {
   const { t, i18n } = useTranslation();
