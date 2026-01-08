@@ -49,7 +49,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -67,7 +67,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -105,7 +105,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -123,7 +123,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - ORP", vi: "Lõi số 5 - ORP" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 12,
         description: {
           en: "ORP filter, creates antioxidant water",
           vi: "Lõi ORP, tạo nước chống oxy hóa",
@@ -161,7 +161,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -179,7 +179,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -226,7 +226,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -244,7 +244,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -291,7 +291,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -309,7 +309,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -327,7 +327,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 7,
         name: { en: "Filter 7 - Alkaline", vi: "Lõi số 7 - Alkaline" },
-        defaultIntervalMonths: 12,
+        defaultIntervalMonths: 24,
         description: {
           en: "Creates alkaline water, balances pH",
           vi: "Tạo nước kiềm, cân bằng độ pH",
@@ -365,7 +365,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -383,7 +383,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -439,7 +439,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -457,7 +457,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -504,7 +504,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -522,7 +522,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -569,7 +569,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -587,7 +587,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -605,7 +605,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 7,
         name: { en: "Filter 7 - Alkaline", vi: "Lõi số 7 - Alkaline" },
-        defaultIntervalMonths: 12,
+        defaultIntervalMonths: 24,
         description: {
           en: "Creates alkaline water, balances pH",
           vi: "Tạo nước kiềm, cân bằng độ pH",
@@ -643,7 +643,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -661,7 +661,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -717,7 +717,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -735,7 +735,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -753,7 +753,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 7,
         name: { en: "Filter 7 - Alkaline", vi: "Lõi số 7 - Alkaline" },
-        defaultIntervalMonths: 12,
+        defaultIntervalMonths: 24,
         description: {
           en: "Creates alkaline water, balances pH",
           vi: "Tạo nước kiềm, cân bằng độ pH",
@@ -762,7 +762,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 8,
         name: { en: "Filter 8 - Maifan", vi: "Lõi số 8 - Maifan" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 12,
         description: {
           en: "Maifan stone, adds beneficial minerals",
           vi: "Đá Maifan, bổ sung khoáng chất có lợi",
@@ -800,7 +800,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -818,7 +818,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -836,7 +836,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 7,
         name: { en: "Filter 7 - Maifan", vi: "Lõi số 7 - Maifan" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 12,
         description: {
           en: "Maifan stone, adds beneficial minerals",
           vi: "Đá Maifan, bổ sung khoáng chất có lợi",
@@ -883,7 +883,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 3,
         name: { en: "Filter 3 - PP 1µm", vi: "Lõi số 3 - PP 1µm" },
-        defaultIntervalMonths: 6,
+        defaultIntervalMonths: 9,
         description: {
           en: "Fine filter, removes particles > 1 micron",
           vi: "Lọc tinh, loại bỏ tạp chất > 1 micron",
@@ -901,7 +901,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 5,
         name: { en: "Filter 5 - Nano Silver", vi: "Lõi số 5 - Nano Silver" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -919,7 +919,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 7,
         name: { en: "Filter 7 - Alkaline", vi: "Lõi số 7 - Alkaline" },
-        defaultIntervalMonths: 12,
+        defaultIntervalMonths: 24,
         description: {
           en: "Creates alkaline water, balances pH",
           vi: "Tạo nước kiềm, cân bằng độ pH",
@@ -928,7 +928,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 8,
         name: { en: "Filter 8 - Maifan", vi: "Lõi số 8 - Maifan" },
-        defaultIntervalMonths: 24,
+        defaultIntervalMonths: 12,
         description: {
           en: "Maifan stone, adds beneficial minerals",
           vi: "Đá Maifan, bổ sung khoáng chất có lợi",
@@ -1020,7 +1020,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 8,
         name: { en: "Filter 8 - Nano Silver", vi: "Lõi số 8 - Nano Silver" },
-        defaultIntervalMonths: 12,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -1101,7 +1101,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 8,
         name: { en: "Filter 8 - Alkaline", vi: "Lõi số 8 - Alkaline" },
-        defaultIntervalMonths: 12,
+        defaultIntervalMonths: 24,
         description: {
           en: "Creates alkaline water, balances pH",
           vi: "Tạo nước kiềm, cân bằng độ pH",
@@ -1110,7 +1110,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 9,
         name: { en: "Filter 9 - Nano Silver", vi: "Lõi số 9 - Nano Silver" },
-        defaultIntervalMonths: 12,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -1191,7 +1191,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 8,
         name: { en: "Filter 8 - Nano Silver", vi: "Lõi số 8 - Nano Silver" },
-        defaultIntervalMonths: 12,
+        defaultIntervalMonths: 18,
         description: {
           en: "Antibacterial nano silver technology",
           vi: "Diệt khuẩn bằng công nghệ nano bạc",
@@ -1200,7 +1200,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 9,
         name: { en: "Filter 9 - Alkaline", vi: "Lõi số 9 - Alkaline" },
-        defaultIntervalMonths: 12,
+        defaultIntervalMonths: 24,
         description: {
           en: "Creates alkaline water, balances pH",
           vi: "Tạo nước kiềm, cân bằng độ pH",
@@ -1283,7 +1283,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 7,
         name: { en: "Filter 7 - Nano Silver", vi: "Lõi số 7 - Nano Silver" },
-        defaultIntervalMonths: 12,
+        defaultIntervalMonths: 18,
         description: {
           en: "Nano silver antibacterial",
           vi: "Diệt khuẩn nano bạc",
@@ -1292,7 +1292,7 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = [
       {
         position: 8,
         name: { en: "Filter 8 - Alkaline", vi: "Lõi số 8 - Alkaline" },
-        defaultIntervalMonths: 12,
+        defaultIntervalMonths: 24,
         description: {
           en: "Creates alkaline water",
           vi: "Tạo nước kiềm",
