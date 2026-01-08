@@ -36,32 +36,6 @@ export const filterStatusService = {
     return filters.map((filter) => this.calculateStatus(filter));
   },
 
-  getNextReplacementDate(lastReplaced: Date, intervalMonths: number): Date {
-    return addMonths(lastReplaced, intervalMonths);
-  },
-
-  getDaysUntilReplacement(nextReplacement: Date): number {
-    return differenceInDays(nextReplacement, new Date());
-  },
-
-  getFiltersNeedingAttention(filters: Filter[]): FilterWithStatus[] {
-    return this.calculateAllStatuses(filters).filter(
-      (f) => f.status === 'warning' || f.status === 'expired'
-    );
-  },
-
-  getExpiredFilters(filters: Filter[]): FilterWithStatus[] {
-    return this.calculateAllStatuses(filters).filter((f) => f.status === 'expired');
-  },
-
-  getWarningFilters(filters: Filter[]): FilterWithStatus[] {
-    return this.calculateAllStatuses(filters).filter((f) => f.status === 'warning');
-  },
-
-  getOkFilters(filters: Filter[]): FilterWithStatus[] {
-    return this.calculateAllStatuses(filters).filter((f) => f.status === 'ok');
-  },
-
   calculateDashboardStats(filters: Filter[]): DashboardStats {
     const filtersWithStatus = this.calculateAllStatuses(filters);
 
@@ -99,19 +73,6 @@ export const filterStatusService = {
         return 'success';
       default:
         return 'secondary';
-    }
-  },
-
-  getStatusLabel(status: FilterStatus): string {
-    switch (status) {
-      case 'expired':
-        return 'Expired';
-      case 'warning':
-        return 'Due Soon';
-      case 'ok':
-        return 'OK';
-      default:
-        return 'Unknown';
     }
   },
 };
