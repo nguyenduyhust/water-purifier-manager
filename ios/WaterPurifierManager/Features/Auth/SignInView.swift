@@ -48,21 +48,28 @@ struct SignInView: View {
             }
 
             Section("Or continue with") {
-                SignInWithAppleButton(.signIn) { request in
-                    session.prepareAppleRequest(request)
-                } onCompletion: { result in
-                    perform { try await session.completeAppleSignIn(result) }
-                }
-                .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
-                .frame(height: 44)
-                .listRowInsets(EdgeInsets())
+                VStack(spacing: 12) {
+                    SignInWithAppleButton(.signIn) { request in
+                        session.prepareAppleRequest(request)
+                    } onCompletion: { result in
+                        perform { try await session.completeAppleSignIn(result) }
+                    }
+                    .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
+                    .frame(height: 50)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
 
-                Button {
-                    perform { try await session.signInWithGoogle() }
-                } label: {
-                    Label("Continue with Google", systemImage: "globe")
-                        .frame(maxWidth: .infinity)
+                    Button {
+                        perform { try await session.signInWithGoogle() }
+                    } label: {
+                        Label("Continue with Google", systemImage: "globe")
+                            .font(.body.weight(.medium))
+                            .frame(maxWidth: .infinity, minHeight: 50)
+                            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+                    }
+                    .buttonStyle(.plain)
                 }
+                .listRowInsets(EdgeInsets())
+                .listRowBackground(Color.clear)
             }
             .disabled(isWorking)
 

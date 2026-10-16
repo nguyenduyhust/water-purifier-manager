@@ -60,5 +60,5 @@ xcuserdata/
 DerivedData/
 *.xcuserstate
 # Firebase app config is kept out of git, like web/.env.local (see ios/README.md)
-ios/WaterPurifierManager/GoogleService-Info.plist
+GoogleService-Info.plist
 ios/Config/Firebase.xcconfig
