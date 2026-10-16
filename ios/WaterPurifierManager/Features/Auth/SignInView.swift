@@ -61,8 +61,14 @@ struct SignInView: View {
                     Button {
                         perform { try await session.signInWithGoogle() }
                     } label: {
-                        Label("Continue with Google", systemImage: "globe")
-                            .font(.body.weight(.medium))
+                        Label {
+                            Text("Continue with Google")
+                        } icon: {
+                            Image(.googleLogo)
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
+                        .font(.body.weight(.medium))
                             .frame(maxWidth: .infinity, minHeight: 50)
                             .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
                     }
