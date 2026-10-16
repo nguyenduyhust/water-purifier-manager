@@ -54,3 +54,11 @@ ui-debug.log
 
 # Optional: Local Firestore emulator data
 firestore_export/
+
+# iOS
+xcuserdata/
+DerivedData/
+*.xcuserstate
+# Firebase app config is kept out of git, like web/.env.local (see ios/README.md)
+GoogleService-Info.plist
+ios/Config/Firebase.xcconfig

@@ -1,0 +1,2 @@
+// Copy to Firebase.xcconfig and set REVERSED_CLIENT_ID from GoogleService-Info.plist.
+GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.YOUR-CLIENT-ID

@@ -578,7 +578,7 @@ Managed by Firebase Authentication - no custom storage needed.
 /activityLogs/{logId}                    # Activity history (purifier created, filter replaced)
 ```
 
-Note: Purifier types are defined in client code (`src/data/purifier-types.ts`).
+Note: Purifier types are defined in `shared/purifier-types.json` and bundled into each app.
 
 ### Data Validation Rules
 
@@ -608,35 +608,7 @@ Note: Purifier types are defined in client code (`src/data/purifier-types.ts`).
 
 ### Security Rules Example
 
-```javascript
-rules_version = '2';
-
-service cloud.firestore {
-  match /databases/{database}/documents {
-
-    // Purifiers collection
-    match /purifiers/{purifierId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-
-      // Filters subcollection
-      match /filters/{filterId} {
-        allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-        allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-        allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-      }
-    }
-
-    // Activity Logs collection
-    match /activityLogs/{logId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-    }
-  }
-}
-```
+See [`firebase/firestore.rules`](../firebase/firestore.rules).
 
 ---
 

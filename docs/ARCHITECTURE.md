@@ -279,7 +279,7 @@ firestore/
         └── createdAt: Timestamp
 ```
 
-**Note:** Purifier types are defined in client code (`src/data/purifier-types.ts`) rather than Firestore for simplicity.
+**Note:** Purifier types are defined in `shared/purifier-types.json` (bundled into each app) rather than Firestore for simplicity.
 
 ---
 
@@ -609,37 +609,11 @@ export function ErrorBoundary({ children }: { children: React.ReactNode }) {
 
 ### Firestore Security Rules
 
-```javascript
-rules_version = '2';
-
-service cloud.firestore {
-  match /databases/{database}/documents {
-
-    // Purifiers collection
-    match /purifiers/{purifierId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-
-      // Filters subcollection
-      match /filters/{filterId} {
-        allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-        allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-        allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-      }
-    }
-
-    // Activity Logs collection
-    match /activityLogs/{logId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-    }
-  }
-}
-```
+See [`firebase/firestore.rules`](../firebase/firestore.rules). Every document carries `userId` and is readable/writable only by its owner.
 
 ### Required Composite Indexes
+
+Defined in `firebase/firestore.indexes.json`:
 
 | Collection | Fields | Query scope |
 |------------|--------|-------------|
@@ -766,63 +740,71 @@ VITE_FIREBASE_APP_ID=xxx
 
 ```
 water-purifier-manager/
-├── public/
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   ├── ui/               # shadcn/ui components
-│   │   ├── layout/           # Layout components
-│   │   ├── auth/             # Auth components
-│   │   ├── purifier/         # Purifier components
-│   │   ├── filter/           # Filter components
-│   │   └── dashboard/        # Dashboard components
-│   ├── contexts/
-│   │   ├── auth-context.tsx
-│   │   └── notification-context.tsx
-│   ├── hooks/
-│   │   ├── use-auth.ts
-│   │   ├── use-purifiers.ts
-│   │   ├── use-purifier.ts
-│   │   ├── use-filters.ts
-│   │   └── use-purifier-types.ts
-│   ├── services/
-│   │   ├── firebase.ts
-│   │   ├── auth-service.ts
-│   │   ├── purifier-service.ts
-│   │   ├── filter-service.ts
-│   │   ├── filter-status-service.ts
-│   │   └── activity-log-service.ts
-│   ├── pages/
-│   │   ├── auth/
-│   │   ├── dashboard/
-│   │   ├── purifiers/
-│   │   └── history/
-│   ├── types/
-│   │   ├── index.ts
-│   │   ├── purifier.ts
-│   │   ├── filter.ts
-│   │   └── errors.ts
-│   ├── lib/
-│   │   └── utils.ts          # Utility functions
-│   ├── config/
-│   │   └── firebase.ts       # Firebase config
-│   ├── data/
-│   │   └── purifier-types.ts # Default purifier types
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
+├── web/
+│   ├── public/
+│   │   └── favicon.ico
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ui/               # shadcn/ui components
+│   │   │   ├── layout/           # Layout components
+│   │   │   ├── auth/             # Auth components
+│   │   │   ├── purifier/         # Purifier components
+│   │   │   ├── filter/           # Filter components
+│   │   │   └── dashboard/        # Dashboard components
+│   │   ├── contexts/
+│   │   │   ├── auth-context.tsx
+│   │   │   └── notification-context.tsx
+│   │   ├── hooks/
+│   │   │   ├── use-auth.ts
+│   │   │   ├── use-purifiers.ts
+│   │   │   ├── use-purifier.ts
+│   │   │   ├── use-filters.ts
+│   │   │   └── use-purifier-types.ts
+│   │   ├── services/
+│   │   │   ├── firebase.ts
+│   │   │   ├── auth-service.ts
+│   │   │   ├── purifier-service.ts
+│   │   │   ├── filter-service.ts
+│   │   │   ├── filter-status-service.ts
+│   │   │   └── activity-log-service.ts
+│   │   ├── pages/
+│   │   │   ├── auth/
+│   │   │   ├── dashboard/
+│   │   │   ├── purifiers/
+│   │   │   └── history/
+│   │   ├── types/
+│   │   │   ├── index.ts
+│   │   │   ├── purifier.ts
+│   │   │   ├── filter.ts
+│   │   │   └── errors.ts
+│   │   ├── lib/
+│   │   │   └── utils.ts          # Utility functions
+│   │   ├── config/
+│   │   │   └── firebase.ts       # Firebase config
+│   │   ├── data/
+│   │   │   └── purifier-types.ts # Localization helpers over shared data
+│   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   └── index.css
+│   ├── .env.example
+│   ├── index.html
+│   ├── package.json
+│   ├── tailwind.config.js
+│   ├── tsconfig.json
+│   ├── vite.config.ts
+│   └── components.json           # shadcn/ui config
+├── shared/
+│   ├── purifier-types.json       # Purifier models, shared by all apps
+│   └── README.md
+├── firebase/
+│   ├── firebase.json
+│   ├── firestore.rules
+│   └── firestore.indexes.json
 ├── docs/
 │   ├── ARCHITECTURE.md
 │   ├── CONVENTIONS.md
 │   └── REQUIREMENTS.md
-├── .env.example
 ├── .gitignore
-├── index.html
-├── package.json
-├── tailwind.config.js
-├── tsconfig.json
-├── vite.config.ts
-├── components.json           # shadcn/ui config
 └── CLAUDE.md
 ```
 
@@ -835,7 +817,7 @@ water-purifier-manager/
 The application supports English (en) and Vietnamese (vi) languages using a hybrid approach:
 
 1. **UI Text**: react-i18next with JSON translation files
-2. **Purifier Types**: Bilingual data hardcoded with localization helpers
+2. **Purifier Types**: Bilingual data in `shared/purifier-types.json` with localization helpers
 3. **Date Formatting**: date-fns with locale support
 
 ### i18n Structure
@@ -862,7 +844,7 @@ const { purifierTypes, getPurifierTypeById } = usePurifierTypes();
 // Automatically returns localized names/descriptions based on current language
 ```
 
-### Bilingual Data Structure (purifier-types.ts)
+### Bilingual Data Structure (shared/purifier-types.json)
 
 ```typescript
 interface DefaultPurifierType {

@@ -6,12 +6,16 @@
 ## Project Overview
 
 **Name:** Water Purifier Manager
-**Description:** A web application for managing water purifiers and tracking filter replacement schedules. Users can manage multiple purifiers with different filter configurations. Supports Vietnamese water purifier brands (Kangaroo, Karofi, Sunhouse) with bilingual support (English/Vietnamese).
-**Tech Stack:** TypeScript, React 18, Vite, Tailwind CSS, shadcn/ui, Firebase (Auth + Firestore), react-i18next
+**Description:** A web app and native iOS app for managing water purifiers and tracking filter replacement schedules. Users can manage multiple purifiers with different filter configurations. Supports Vietnamese water purifier brands (Kangaroo, Karofi, Sunhouse) with bilingual support (English/Vietnamese).
+**Tech Stack:** Web — TypeScript, React 18, Vite, Tailwind CSS, shadcn/ui, Firebase (Auth + Firestore), react-i18next. iOS — Swift, SwiftUI (iOS 17+), Firebase iOS SDK, GoogleSignIn
 
 ## Quick Start
 
+The repo is organized by platform: the web app lives in `web/`, the iOS app in `ios/` (see [ios/README.md](ios/README.md)). Both share one Firebase backend. Paths like `src/...` below are relative to `web/`.
+
 ```bash
+cd web
+
 # Install dependencies
 npm install
 
@@ -32,41 +36,50 @@ npm run preview
 
 ```
 water-purifier-manager/
-├── src/
-│   ├── components/
-│   │   ├── ui/               # shadcn/ui components (Button, Card, Dialog, etc.)
-│   │   ├── layout/           # AppLayout, Header, Sidebar
-│   │   ├── auth/             # LoginForm, RegisterForm, AuthGuard
-│   │   ├── purifier/         # PurifierCard, PurifierForm
-│   │   ├── filter/           # FilterCard, ReplaceFilterDialog
-│   │   └── dashboard/        # StatsCards, FiltersNeedingAttention
-│   ├── contexts/
-│   │   └── auth-context.tsx  # Authentication state management
-│   ├── hooks/
-│   │   ├── use-purifiers.ts  # Purifier CRUD hook
-│   │   ├── use-purifier.ts   # Single purifier with filters
-│   │   ├── use-filters.ts    # Filter operations hook
-│   │   ├── use-purifier-types.ts  # Localized purifier types
-│   │   └── use-all-filters.ts     # All filters across purifiers
-│   ├── services/
-│   │   ├── firebase.ts       # Firebase initialization
-│   │   ├── auth-service.ts   # Authentication (Email/Password + Google)
-│   │   ├── purifier-service.ts    # Purifier CRUD
-│   │   ├── filter-service.ts      # Filter operations & status
-│   │   ├── filter-status-service.ts # Filter status calculations
-│   │   └── activity-log-service.ts  # Activity logging & history
-│   ├── pages/
-│   │   ├── auth/             # Login, Register, ForgotPassword
-│   │   ├── dashboard/        # Main dashboard
-│   │   ├── purifiers/        # Purifier list, detail, create, edit
-│   │   └── history/          # Activity history page
-│   ├── i18n/
-│   │   ├── index.ts          # i18n configuration
-│   │   └── locales/          # en.json, vi.json translation files
-│   ├── types/                # TypeScript interfaces
-│   ├── lib/                  # Utility functions
-│   ├── config/               # Firebase config
-│   └── data/                 # Bilingual purifier type definitions
+├── web/                    # React web app (Vite) — run npm commands here
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ui/               # shadcn/ui components (Button, Card, Dialog, etc.)
+│   │   │   ├── layout/           # AppLayout, Header, Sidebar
+│   │   │   ├── auth/             # LoginForm, RegisterForm, AuthGuard
+│   │   │   ├── purifier/         # PurifierCard, PurifierForm
+│   │   │   ├── filter/           # FilterCard, ReplaceFilterDialog
+│   │   │   └── dashboard/        # StatsCards, FiltersNeedingAttention
+│   │   ├── contexts/
+│   │   │   └── auth-context.tsx  # Authentication state management
+│   │   ├── hooks/
+│   │   │   ├── use-purifiers.ts  # Purifier CRUD hook
+│   │   │   ├── use-purifier.ts   # Single purifier with filters
+│   │   │   ├── use-filters.ts    # Filter operations hook
+│   │   │   ├── use-purifier-types.ts  # Localized purifier types
+│   │   │   └── use-all-filters.ts     # All filters across purifiers
+│   │   ├── services/
+│   │   │   ├── firebase.ts       # Firebase initialization
+│   │   │   ├── auth-service.ts   # Authentication (Email/Password + Google)
+│   │   │   ├── purifier-service.ts    # Purifier CRUD
+│   │   │   ├── filter-service.ts      # Filter operations & status
+│   │   │   ├── filter-status-service.ts # Filter status calculations
+│   │   │   └── activity-log-service.ts  # Activity logging & history
+│   │   ├── pages/
+│   │   │   ├── auth/             # Login, Register, ForgotPassword
+│   │   │   ├── dashboard/        # Main dashboard
+│   │   │   ├── purifiers/        # Purifier list, detail, create, edit
+│   │   │   └── history/          # Activity history page
+│   │   ├── i18n/
+│   │   │   ├── index.ts          # i18n configuration
+│   │   │   └── locales/          # en.json, vi.json translation files
+│   │   ├── types/                # TypeScript interfaces
+│   │   ├── lib/                  # Utility functions
+│   │   ├── config/               # Firebase config
+│   │   └── data/                 # Localization helpers over shared/purifier-types.json
+│   ├── public/
+│   ├── package.json
+│   ├── vercel.json           # Vercel config (Root Directory = web)
+│   └── .env.local            # Firebase config (not committed)
+├── shared/
+│   └── purifier-types.json   # Purifier models + filter templates, used by all apps
+├── ios/                      # Native SwiftUI app — see ios/README.md
+├── firebase/                 # Firestore rules, indexes, emulator config (shared backend)
 ├── docs/
 │   ├── ARCHITECTURE.md       # System architecture
 │   ├── CONVENTIONS.md        # Coding conventions
@@ -83,7 +96,8 @@ water-purifier-manager/
 | `src/services/firebase.ts` | Firebase initialization |
 | `src/contexts/auth-context.tsx` | Authentication state (Email/Password + Google) |
 | `src/types/` | All TypeScript interfaces |
-| `src/data/purifier-types.ts` | Bilingual purifier definitions with localization helpers |
+| `shared/purifier-types.json` | Bilingual purifier definitions shared by all platform apps (see `shared/README.md`) |
+| `src/data/purifier-types.ts` | Localization helpers over the shared purifier data |
 | `src/i18n/index.ts` | i18n configuration with language detection |
 | `src/i18n/locales/*.json` | Translation files (en.json, vi.json) |
 | `src/hooks/use-purifier-types.ts` | Hook for localized purifier type data |
@@ -116,7 +130,7 @@ See [docs/CONVENTIONS.md](docs/CONVENTIONS.md) for full coding standards.
 ### Required Environment Variables
 
 ```bash
-# .env.local (copy from .env.example)
+# web/.env.local (copy from web/.env.example)
 VITE_FIREBASE_API_KEY=your-api-key
 VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=your-project-id
@@ -135,8 +149,12 @@ VITE_FIREBASE_APP_ID=your-app-id
 
 ### Adding a New Purifier Type
 
-1. Add type definition in `src/data/purifier-types.ts`
-2. Include filter templates with names and default intervals
+1. Add the type to `shared/purifier-types.json` (see `shared/README.md`)
+2. Include filter templates with names and default intervals in both languages
+
+### Changing Shared Behavior
+
+Web and iOS must stay in sync on the Firestore schema and filter status rules. When changing either, update both `web/src/services/` and `ios/WaterPurifierManager/` (see "Keeping parity" in `ios/README.md`).
 
 ### Adding a New Component
 
@@ -159,7 +177,7 @@ VITE_FIREBASE_APP_ID=your-app-id
 ### How i18n Works
 
 1. **UI Text**: Uses react-i18next with translation files in `src/i18n/locales/`
-2. **Purifier Types**: Bilingual data hardcoded in `src/data/purifier-types.ts` with helper functions
+2. **Purifier Types**: Bilingual data in `shared/purifier-types.json`, localized by helpers in `src/data/purifier-types.ts`
 3. **Date Formatting**: Uses date-fns locale (vi, enUS)
 
 ### Adding Translations
@@ -202,7 +220,7 @@ const { purifierTypes, getPurifierTypeById } = usePurifierTypes();
 ## Known Issues & Gotchas
 
 - **Firebase Emulators:** For local development, configure emulators in `firebase.ts`
-- **Firestore Indexes:** Compound queries may require composite indexes (check console for errors)
+- **Firestore Indexes:** Compound queries need composite indexes — add them to `firebase/firestore.indexes.json` and deploy
 - **Auth Persistence:** Firebase handles persistence automatically; don't implement custom token storage
 
 ## Database Schema (Firestore)
@@ -224,36 +242,11 @@ const { purifierTypes, getPurifierTypeById } = usePurifierTypes();
 
 ### Firestore Security Rules
 
-```javascript
-rules_version = '2';
-
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Purifiers collection
-    match /purifiers/{purifierId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-
-      // Filters subcollection
-      match /filters/{filterId} {
-        allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-        allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-        allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-      }
-    }
-
-    // Activity Logs collection
-    match /activityLogs/{logId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-    }
-  }
-}
-```
+Source of truth: [`firebase/firestore.rules`](firebase/firestore.rules). Every document carries `userId` and is readable/writable only by its owner.
 
 ### Required Composite Indexes
+
+Defined in `firebase/firestore.indexes.json`:
 
 | Collection | Fields | Query scope |
 |------------|--------|-------------|
@@ -263,8 +256,8 @@ service cloud.firestore {
 
 ## Deployment
 
-- **Firebase Hosting:** `npm run build && firebase deploy`
-- **Vercel/Netlify:** Connect repo, auto-deploys on push to main
+- **Web:** Vercel auto-deploys on push to main (Root Directory = `web`)
+- **Firestore rules & indexes:** `cd firebase && firebase deploy --only firestore`
 - **Environment:** Set Firebase env vars in hosting platform
 
 ---

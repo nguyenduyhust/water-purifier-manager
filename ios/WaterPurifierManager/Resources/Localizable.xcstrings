@@ -1,0 +1,1160 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ in %@ is due in %lld days.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ của %2$@ sẽ đến hạn thay sau %3$lld ngày."
+          }
+        }
+      }
+    },
+    "%@ in %@ is due today.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ của %2$@ đến hạn thay hôm nay."
+          }
+        }
+      }
+    },
+    "%lld days left": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Còn %lld ngày"
+          }
+        },
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld day left"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld days left"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Account": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tài khoản"
+          }
+        }
+      }
+    },
+    "Activity": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoạt động"
+          }
+        }
+      }
+    },
+    "Activity will show up here when you add purifiers or replace filters.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoạt động sẽ xuất hiện ở đây khi bạn thêm máy lọc hoặc thay lõi lọc."
+          }
+        }
+      }
+    },
+    "Add GoogleService-Info.plist to the app target. See ios/README.md.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thêm GoogleService-Info.plist vào app target. Xem ios/README.md."
+          }
+        }
+      }
+    },
+    "Add purifier": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thêm máy lọc"
+          }
+        }
+      }
+    },
+    "Add your first purifier": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thêm máy lọc đầu tiên"
+          }
+        }
+      }
+    },
+    "Add your first purifier to start tracking filter replacements.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thêm máy lọc nước đầu tiên để bắt đầu theo dõi việc thay lõi lọc."
+          }
+        }
+      }
+    },
+    "Additional notes about this purifier…": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ghi chú thêm về máy lọc này…"
+          }
+        }
+      }
+    },
+    "All filters are OK": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tất cả lõi lọc đều ổn"
+          }
+        }
+      }
+    },
+    "An unexpected error occurred": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đã xảy ra lỗi không mong muốn"
+          }
+        }
+      }
+    },
+    "Are you sure you want to delete \"%@\"? All of its filters will be deleted too. This can't be undone.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bạn có chắc muốn xóa \"%@\"? Tất cả lõi lọc của máy cũng sẽ bị xóa. Hành động này không thể hoàn tác."
+          }
+        }
+      }
+    },
+    "At least 6 characters": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tối thiểu 6 ký tự"
+          }
+        }
+      }
+    },
+    "Back to sign in": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quay lại đăng nhập"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hủy"
+          }
+        }
+      }
+    },
+    "Change language": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đổi ngôn ngữ"
+          }
+        }
+      }
+    },
+    "Check your email": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kiểm tra email"
+          }
+        }
+      }
+    },
+    "Confirm password": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xác nhận mật khẩu"
+          }
+        }
+      }
+    },
+    "Continue with Google": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếp tục với Google"
+          }
+        }
+      }
+    },
+    "Create account": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tạo tài khoản"
+          }
+        }
+      }
+    },
+    "Dashboard": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tổng quan"
+          }
+        }
+      }
+    },
+    "Delete": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa"
+          }
+        }
+      }
+    },
+    "Delete purifier": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa máy lọc"
+          }
+        }
+      }
+    },
+    "Details": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chi tiết"
+          }
+        }
+      }
+    },
+    "Don't have an account? Sign up": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chưa có tài khoản? Đăng ký"
+          }
+        }
+      }
+    },
+    "Due soon": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sắp hết hạn"
+          }
+        }
+      }
+    },
+    "Due today": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đến hạn hôm nay"
+          }
+        }
+      }
+    },
+    "e.g. Kitchen purifier": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VD: Máy lọc bếp"
+          }
+        }
+      }
+    },
+    "e.g. Kitchen, Living room": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VD: Nhà bếp, Phòng khách"
+          }
+        }
+      }
+    },
+    "e.g. Replaced with a genuine filter": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VD: Thay bằng lõi chính hãng"
+          }
+        }
+      }
+    },
+    "Edit": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sửa"
+          }
+        }
+      }
+    },
+    "Edit purifier": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chỉnh sửa máy lọc"
+          }
+        }
+      }
+    },
+    "Email": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Email"
+          }
+        }
+      }
+    },
+    "Enter your email and we'll send you a link to reset your password.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhập địa chỉ email và chúng tôi sẽ gửi link đặt lại mật khẩu."
+          }
+        }
+      }
+    },
+    "Error": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lỗi"
+          }
+        }
+      }
+    },
+    "Every %lld months": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld tháng/lần"
+          }
+        },
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Every month"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Every %lld months"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Expired": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hết hạn"
+          }
+        }
+      }
+    },
+    "Failed to add purifier. Please try again.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thêm máy lọc thất bại. Vui lòng thử lại."
+          }
+        }
+      }
+    },
+    "Failed to delete purifier. Please try again.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa máy lọc thất bại. Vui lòng thử lại."
+          }
+        }
+      }
+    },
+    "Failed to replace filter. Please try again.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thay lõi lọc thất bại. Vui lòng thử lại."
+          }
+        }
+      }
+    },
+    "Failed to update purifier. Please try again.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cập nhật máy lọc thất bại. Vui lòng thử lại."
+          }
+        }
+      }
+    },
+    "Filter": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lõi lọc"
+          }
+        }
+      }
+    },
+    "Filter replaced": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đã thay lõi lọc"
+          }
+        }
+      }
+    },
+    "Filter replacement coming up": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sắp đến hạn thay lõi"
+          }
+        }
+      }
+    },
+    "Filter replacement dates are calculated from the installation date.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngày thay lõi lọc được tính từ ngày lắp đặt."
+          }
+        }
+      }
+    },
+    "Filters": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lõi lọc"
+          }
+        }
+      }
+    },
+    "Filters needing attention": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lõi lọc cần chú ý"
+          }
+        }
+      }
+    },
+    "Filters OK": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lõi lọc OK"
+          }
+        }
+      }
+    },
+    "Firebase is not configured": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chưa cấu hình Firebase"
+          }
+        }
+      }
+    },
+    "Forgot password?": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quên mật khẩu?"
+          }
+        }
+      }
+    },
+    "History": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lịch sử"
+          }
+        }
+      }
+    },
+    "Installation date": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngày lắp đặt"
+          }
+        }
+      }
+    },
+    "Invalid email address": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Địa chỉ email không hợp lệ"
+          }
+        }
+      }
+    },
+    "Invalid email or password": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Email hoặc mật khẩu không đúng"
+          }
+        }
+      }
+    },
+    "Language": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngôn ngữ"
+          }
+        }
+      }
+    },
+    "Last replaced": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thay lần cuối"
+          }
+        }
+      }
+    },
+    "Location": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vị trí"
+          }
+        }
+      }
+    },
+    "More": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thêm"
+          }
+        }
+      }
+    },
+    "Name": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tên"
+          }
+        }
+      }
+    },
+    "Needs attention": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cần chú ý"
+          }
+        }
+      }
+    },
+    "Network error. Check your connection and try again.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lỗi mạng. Kiểm tra kết nối và thử lại."
+          }
+        }
+      }
+    },
+    "New purifier": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thêm máy lọc"
+          }
+        }
+      }
+    },
+    "Next replacement": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thay tiếp theo"
+          }
+        }
+      }
+    },
+    "No account found with this email": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không tìm thấy tài khoản với email này"
+          }
+        }
+      }
+    },
+    "No history yet": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chưa có lịch sử"
+          }
+        }
+      }
+    },
+    "No purifiers yet": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chưa có máy lọc nước"
+          }
+        }
+      }
+    },
+    "Notes": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ghi chú"
+          }
+        }
+      }
+    },
+    "Notes (optional)": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ghi chú (tùy chọn)"
+          }
+        }
+      }
+    },
+    "OK": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        }
+      }
+    },
+    "Or continue with": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoặc tiếp tục với"
+          }
+        }
+      }
+    },
+    "Overdue by %lld days": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quá hạn %lld ngày"
+          }
+        },
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Overdue by %lld day"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Overdue by %lld days"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Password": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mật khẩu"
+          }
+        }
+      }
+    },
+    "Password is too weak": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mật khẩu quá yếu"
+          }
+        }
+      }
+    },
+    "Passwords don't match": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mật khẩu không khớp"
+          }
+        }
+      }
+    },
+    "Purifier": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Máy lọc"
+          }
+        }
+      }
+    },
+    "Purifier added": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đã thêm máy lọc"
+          }
+        }
+      }
+    },
+    "Purifier deleted": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đã xóa máy lọc"
+          }
+        }
+      }
+    },
+    "Purifier not found": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không tìm thấy máy lọc"
+          }
+        }
+      }
+    },
+    "Purifier type": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loại máy"
+          }
+        }
+      }
+    },
+    "Purifier updated": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đã cập nhật máy lọc"
+          }
+        }
+      }
+    },
+    "Purifiers": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Máy lọc"
+          }
+        }
+      }
+    },
+    "Reminders": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhắc nhở"
+          }
+        }
+      }
+    },
+    "Reminders are on": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đã bật nhắc nhở"
+          }
+        }
+      }
+    },
+    "Replace": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thay lõi"
+          }
+        }
+      }
+    },
+    "Replace filter": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thay lõi lọc"
+          }
+        }
+      }
+    },
+    "Replacement date": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngày thay"
+          }
+        }
+      }
+    },
+    "Reset password": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đặt lại mật khẩu"
+          }
+        }
+      }
+    },
+    "Save": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lưu"
+          }
+        }
+      }
+    },
+    "Select a purifier type": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chọn loại máy lọc"
+          }
+        }
+      }
+    },
+    "Send reset link": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gửi link đặt lại"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cài đặt"
+          }
+        }
+      }
+    },
+    "Sign in": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đăng nhập"
+          }
+        }
+      }
+    },
+    "Sign out": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đăng xuất"
+          }
+        }
+      }
+    },
+    "Sign out?": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đăng xuất?"
+          }
+        }
+      }
+    },
+    "Sign up": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đăng ký"
+          }
+        }
+      }
+    },
+    "The app follows your iPhone's language. You can choose a different language for this app in Settings.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ứng dụng dùng ngôn ngữ của iPhone. Bạn có thể chọn ngôn ngữ riêng cho ứng dụng này trong Cài đặt."
+          }
+        }
+      }
+    },
+    "The purifier you're looking for doesn't exist.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Máy lọc nước bạn tìm không tồn tại."
+          }
+        }
+      }
+    },
+    "This email is already in use": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Email này đã được sử dụng"
+          }
+        }
+      }
+    },
+    "Time to replace a filter": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đến hạn thay lõi lọc"
+          }
+        }
+      }
+    },
+    "Too many attempts. Please try again later.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quá nhiều lần thử. Vui lòng thử lại sau."
+          }
+        }
+      }
+    },
+    "Track filter replacements for your water purifiers": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theo dõi lịch thay lõi cho máy lọc nước của bạn"
+          }
+        }
+      }
+    },
+    "Turn on reminders": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bật nhắc nhở"
+          }
+        }
+      }
+    },
+    "Turn on reminders in Settings": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bật nhắc nhở trong Cài đặt"
+          }
+        }
+      }
+    },
+    "Type": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loại máy"
+          }
+        }
+      }
+    },
+    "Version": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên bản"
+          }
+        }
+      }
+    },
+    "Water Purifier Manager": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quản lý máy lọc nước"
+          }
+        }
+      }
+    },
+    "We sent a password reset link to %@": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chúng tôi đã gửi link đặt lại mật khẩu đến %@"
+          }
+        }
+      }
+    },
+    "You'll be reminded %lld days before and on the day each filter is due, at %lld:00.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bạn sẽ được nhắc trước %1$lld ngày và vào đúng ngày đến hạn thay mỗi lõi, lúc %2$lld:00."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

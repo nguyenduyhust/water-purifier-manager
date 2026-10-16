@@ -1,0 +1,8 @@
+// Shared build settings for the app target.
+
+// Google Sign-In redirects back to the app through this URL scheme.
+// The real value (REVERSED_CLIENT_ID from GoogleService-Info.plist) lives in
+// Firebase.xcconfig, which is not committed — see ios/README.md.
+GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.not-configured
+
+#include? "Firebase.xcconfig"
