@@ -6,12 +6,12 @@
 ## Project Overview
 
 **Name:** Water Purifier Manager
-**Description:** A web application for managing water purifiers and tracking filter replacement schedules. Users can manage multiple purifiers with different filter configurations. Supports Vietnamese water purifier brands (Kangaroo, Karofi, Sunhouse) with bilingual support (English/Vietnamese).
-**Tech Stack:** TypeScript, React 18, Vite, Tailwind CSS, shadcn/ui, Firebase (Auth + Firestore), react-i18next
+**Description:** A web app and native iOS app for managing water purifiers and tracking filter replacement schedules. Users can manage multiple purifiers with different filter configurations. Supports Vietnamese water purifier brands (Kangaroo, Karofi, Sunhouse) with bilingual support (English/Vietnamese).
+**Tech Stack:** Web — TypeScript, React 18, Vite, Tailwind CSS, shadcn/ui, Firebase (Auth + Firestore), react-i18next. iOS — Swift, SwiftUI (iOS 17+), Firebase iOS SDK, GoogleSignIn
 
 ## Quick Start
 
-The repo is organized by platform: the web app lives in `web/`. Paths like `src/...` below are relative to `web/`.
+The repo is organized by platform: the web app lives in `web/`, the iOS app in `ios/` (see [ios/README.md](ios/README.md)). Both share one Firebase backend. Paths like `src/...` below are relative to `web/`.
 
 ```bash
 cd web
@@ -78,6 +78,7 @@ water-purifier-manager/
 │   └── .env.local            # Firebase config (not committed)
 ├── shared/
 │   └── purifier-types.json   # Purifier models + filter templates, used by all apps
+├── ios/                      # Native SwiftUI app — see ios/README.md
 ├── firebase/                 # Firestore rules, indexes, emulator config (shared backend)
 ├── docs/
 │   ├── ARCHITECTURE.md       # System architecture
@@ -150,6 +151,10 @@ VITE_FIREBASE_APP_ID=your-app-id
 
 1. Add the type to `shared/purifier-types.json` (see `shared/README.md`)
 2. Include filter templates with names and default intervals in both languages
+
+### Changing Shared Behavior
+
+Web and iOS must stay in sync on the Firestore schema and filter status rules. When changing either, update both `web/src/services/` and `ios/WaterPurifierManager/` (see "Keeping parity" in `ios/README.md`).
 
 ### Adding a New Component
 
