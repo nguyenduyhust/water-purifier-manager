@@ -71,11 +71,13 @@ water-purifier-manager/
 │   │   ├── types/                # TypeScript interfaces
 │   │   ├── lib/                  # Utility functions
 │   │   ├── config/               # Firebase config
-│   │   └── data/                 # Bilingual purifier type definitions
+│   │   └── data/                 # Localization helpers over shared/purifier-types.json
 │   ├── public/
 │   ├── package.json
 │   ├── vercel.json           # Vercel config (Root Directory = web)
 │   └── .env.local            # Firebase config (not committed)
+├── shared/
+│   └── purifier-types.json   # Purifier models + filter templates, used by all apps
 ├── docs/
 │   ├── ARCHITECTURE.md       # System architecture
 │   ├── CONVENTIONS.md        # Coding conventions
@@ -92,7 +94,8 @@ water-purifier-manager/
 | `src/services/firebase.ts` | Firebase initialization |
 | `src/contexts/auth-context.tsx` | Authentication state (Email/Password + Google) |
 | `src/types/` | All TypeScript interfaces |
-| `src/data/purifier-types.ts` | Bilingual purifier definitions with localization helpers |
+| `shared/purifier-types.json` | Bilingual purifier definitions shared by all platform apps (see `shared/README.md`) |
+| `src/data/purifier-types.ts` | Localization helpers over the shared purifier data |
 | `src/i18n/index.ts` | i18n configuration with language detection |
 | `src/i18n/locales/*.json` | Translation files (en.json, vi.json) |
 | `src/hooks/use-purifier-types.ts` | Hook for localized purifier type data |
@@ -144,8 +147,8 @@ VITE_FIREBASE_APP_ID=your-app-id
 
 ### Adding a New Purifier Type
 
-1. Add type definition in `src/data/purifier-types.ts`
-2. Include filter templates with names and default intervals
+1. Add the type to `shared/purifier-types.json` (see `shared/README.md`)
+2. Include filter templates with names and default intervals in both languages
 
 ### Adding a New Component
 
@@ -168,7 +171,7 @@ VITE_FIREBASE_APP_ID=your-app-id
 ### How i18n Works
 
 1. **UI Text**: Uses react-i18next with translation files in `src/i18n/locales/`
-2. **Purifier Types**: Bilingual data hardcoded in `src/data/purifier-types.ts` with helper functions
+2. **Purifier Types**: Bilingual data in `shared/purifier-types.json`, localized by helpers in `src/data/purifier-types.ts`
 3. **Date Formatting**: Uses date-fns locale (vi, enUS)
 
 ### Adding Translations

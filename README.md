@@ -123,7 +123,7 @@ web/src/
 │   ├── index.ts          # i18n configuration
 │   └── locales/          # en.json, vi.json
 ├── data/
-│   └── purifier-types.ts # Bilingual purifier definitions
+│   └── purifier-types.ts # Localization helpers (data in shared/purifier-types.json)
 ├── types/                # TypeScript interfaces
 └── lib/                  # Utilities
 ```

@@ -578,7 +578,7 @@ Managed by Firebase Authentication - no custom storage needed.
 /activityLogs/{logId}                    # Activity history (purifier created, filter replaced)
 ```
 
-Note: Purifier types are defined in client code (`src/data/purifier-types.ts`).
+Note: Purifier types are defined in `shared/purifier-types.json` and bundled into each app.
 
 ### Data Validation Rules
 

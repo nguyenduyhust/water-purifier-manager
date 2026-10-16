@@ -279,7 +279,7 @@ firestore/
         └── createdAt: Timestamp
 ```
 
-**Note:** Purifier types are defined in client code (`src/data/purifier-types.ts`) rather than Firestore for simplicity.
+**Note:** Purifier types are defined in `shared/purifier-types.json` (bundled into each app) rather than Firestore for simplicity.
 
 ---
 
@@ -808,7 +808,7 @@ water-purifier-manager/
 │   │   ├── config/
 │   │   │   └── firebase.ts       # Firebase config
 │   │   ├── data/
-│   │   │   └── purifier-types.ts # Default purifier types
+│   │   │   └── purifier-types.ts # Localization helpers over shared data
 │   │   ├── App.tsx
 │   │   ├── main.tsx
 │   │   └── index.css
@@ -819,6 +819,9 @@ water-purifier-manager/
 │   ├── tsconfig.json
 │   ├── vite.config.ts
 │   └── components.json           # shadcn/ui config
+├── shared/
+│   ├── purifier-types.json       # Purifier models, shared by all apps
+│   └── README.md
 ├── docs/
 │   ├── ARCHITECTURE.md
 │   ├── CONVENTIONS.md
@@ -836,7 +839,7 @@ water-purifier-manager/
 The application supports English (en) and Vietnamese (vi) languages using a hybrid approach:
 
 1. **UI Text**: react-i18next with JSON translation files
-2. **Purifier Types**: Bilingual data hardcoded with localization helpers
+2. **Purifier Types**: Bilingual data in `shared/purifier-types.json` with localization helpers
 3. **Date Formatting**: date-fns with locale support
 
 ### i18n Structure
@@ -863,7 +866,7 @@ const { purifierTypes, getPurifierTypeById } = usePurifierTypes();
 // Automatically returns localized names/descriptions based on current language
 ```
 
-### Bilingual Data Structure (purifier-types.ts)
+### Bilingual Data Structure (shared/purifier-types.json)
 
 ```typescript
 interface DefaultPurifierType {
