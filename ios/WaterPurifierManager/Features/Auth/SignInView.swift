@@ -97,9 +97,8 @@ struct SignInView: View {
 struct AppHeader: View {
     var body: some View {
         VStack(spacing: 8) {
-            Image(systemName: "drop.fill")
-                .font(.system(size: 44))
-                .foregroundStyle(.tint)
+            Image(.appLogo)
+                .accessibilityHidden(true)
             Text("Water Purifier Manager")
                 .font(.title2.bold())
             Text("Track filter replacements for your water purifiers")

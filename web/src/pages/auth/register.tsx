@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { Droplets } from 'lucide-react';
+import { AppLogo } from '@/components/app-logo';
 import { useAuth } from '@/contexts/auth-context';
 import { RegisterForm } from '@/components/auth/register-form';
 
@@ -17,7 +17,7 @@ export function RegisterPage() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
       <div className="mb-8 flex items-center gap-2">
-        <Droplets className="h-8 w-8 text-primary" />
+        <AppLogo className="h-10 w-10" />
         <h1 className="text-2xl font-bold">Water Purifier Manager</h1>
       </div>
       <RegisterForm />

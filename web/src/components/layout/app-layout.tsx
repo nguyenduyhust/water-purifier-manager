@@ -14,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { AppLogo } from '@/components/app-logo';
 import { LanguageSwitcher } from '@/components/language-switcher';
 import { cn } from '@/lib/utils';
 
@@ -60,7 +61,7 @@ export function AppLayout({ children }: AppLayoutProps) {
         )}
       >
         <div className="flex h-16 items-center gap-2 border-b px-6">
-          <Droplets className="h-6 w-6 text-primary" />
+          <AppLogo className="h-7 w-7" />
           <span className="text-lg font-semibold">{t('common.appName')}</span>
         </div>
 
