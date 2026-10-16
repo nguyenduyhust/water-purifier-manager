@@ -78,6 +78,7 @@ water-purifier-manager/
 │   └── .env.local            # Firebase config (not committed)
 ├── shared/
 │   └── purifier-types.json   # Purifier models + filter templates, used by all apps
+├── firebase/                 # Firestore rules, indexes, emulator config (shared backend)
 ├── docs/
 │   ├── ARCHITECTURE.md       # System architecture
 │   ├── CONVENTIONS.md        # Coding conventions
@@ -214,7 +215,7 @@ const { purifierTypes, getPurifierTypeById } = usePurifierTypes();
 ## Known Issues & Gotchas
 
 - **Firebase Emulators:** For local development, configure emulators in `firebase.ts`
-- **Firestore Indexes:** Compound queries may require composite indexes (check console for errors)
+- **Firestore Indexes:** Compound queries need composite indexes — add them to `firebase/firestore.indexes.json` and deploy
 - **Auth Persistence:** Firebase handles persistence automatically; don't implement custom token storage
 
 ## Database Schema (Firestore)
@@ -236,36 +237,11 @@ const { purifierTypes, getPurifierTypeById } = usePurifierTypes();
 
 ### Firestore Security Rules
 
-```javascript
-rules_version = '2';
-
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Purifiers collection
-    match /purifiers/{purifierId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-
-      // Filters subcollection
-      match /filters/{filterId} {
-        allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-        allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-        allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-      }
-    }
-
-    // Activity Logs collection
-    match /activityLogs/{logId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-    }
-  }
-}
-```
+Source of truth: [`firebase/firestore.rules`](firebase/firestore.rules). Every document carries `userId` and is readable/writable only by its owner.
 
 ### Required Composite Indexes
+
+Defined in `firebase/firestore.indexes.json`:
 
 | Collection | Fields | Query scope |
 |------------|--------|-------------|
@@ -275,8 +251,8 @@ service cloud.firestore {
 
 ## Deployment
 
-- **Firebase Hosting:** `npm run build && firebase deploy`
-- **Vercel/Netlify:** Connect repo, auto-deploys on push to main
+- **Web:** Vercel auto-deploys on push to main (Root Directory = `web`)
+- **Firestore rules & indexes:** `cd firebase && firebase deploy --only firestore`
 - **Environment:** Set Firebase env vars in hosting platform
 
 ---

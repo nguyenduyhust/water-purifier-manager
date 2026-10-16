@@ -87,6 +87,7 @@ VITE_FIREBASE_APP_ID=your-app-id
 2. Enable Authentication with Email/Password and Google providers
 3. Create a Firestore database
 4. Copy your Firebase config to `web/.env.local`
+5. Deploy Firestore rules and indexes: `cd firebase && npx firebase-tools deploy --only firestore`
 
 ## Project Structure
 

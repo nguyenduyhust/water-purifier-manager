@@ -609,37 +609,11 @@ export function ErrorBoundary({ children }: { children: React.ReactNode }) {
 
 ### Firestore Security Rules
 
-```javascript
-rules_version = '2';
-
-service cloud.firestore {
-  match /databases/{database}/documents {
-
-    // Purifiers collection
-    match /purifiers/{purifierId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-
-      // Filters subcollection
-      match /filters/{filterId} {
-        allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-        allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-        allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-      }
-    }
-
-    // Activity Logs collection
-    match /activityLogs/{logId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
-    }
-  }
-}
-```
+See [`firebase/firestore.rules`](../firebase/firestore.rules). Every document carries `userId` and is readable/writable only by its owner.
 
 ### Required Composite Indexes
+
+Defined in `firebase/firestore.indexes.json`:
 
 | Collection | Fields | Query scope |
 |------------|--------|-------------|
@@ -822,6 +796,10 @@ water-purifier-manager/
 ├── shared/
 │   ├── purifier-types.json       # Purifier models, shared by all apps
 │   └── README.md
+├── firebase/
+│   ├── firebase.json
+│   ├── firestore.rules
+│   └── firestore.indexes.json
 ├── docs/
 │   ├── ARCHITECTURE.md
 │   ├── CONVENTIONS.md
