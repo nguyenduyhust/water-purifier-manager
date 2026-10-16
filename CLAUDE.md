@@ -11,7 +11,11 @@
 
 ## Quick Start
 
+The repo is organized by platform: the web app lives in `web/`. Paths like `src/...` below are relative to `web/`.
+
 ```bash
+cd web
+
 # Install dependencies
 npm install
 
@@ -32,41 +36,46 @@ npm run preview
 
 ```
 water-purifier-manager/
-├── src/
-│   ├── components/
-│   │   ├── ui/               # shadcn/ui components (Button, Card, Dialog, etc.)
-│   │   ├── layout/           # AppLayout, Header, Sidebar
-│   │   ├── auth/             # LoginForm, RegisterForm, AuthGuard
-│   │   ├── purifier/         # PurifierCard, PurifierForm
-│   │   ├── filter/           # FilterCard, ReplaceFilterDialog
-│   │   └── dashboard/        # StatsCards, FiltersNeedingAttention
-│   ├── contexts/
-│   │   └── auth-context.tsx  # Authentication state management
-│   ├── hooks/
-│   │   ├── use-purifiers.ts  # Purifier CRUD hook
-│   │   ├── use-purifier.ts   # Single purifier with filters
-│   │   ├── use-filters.ts    # Filter operations hook
-│   │   ├── use-purifier-types.ts  # Localized purifier types
-│   │   └── use-all-filters.ts     # All filters across purifiers
-│   ├── services/
-│   │   ├── firebase.ts       # Firebase initialization
-│   │   ├── auth-service.ts   # Authentication (Email/Password + Google)
-│   │   ├── purifier-service.ts    # Purifier CRUD
-│   │   ├── filter-service.ts      # Filter operations & status
-│   │   ├── filter-status-service.ts # Filter status calculations
-│   │   └── activity-log-service.ts  # Activity logging & history
-│   ├── pages/
-│   │   ├── auth/             # Login, Register, ForgotPassword
-│   │   ├── dashboard/        # Main dashboard
-│   │   ├── purifiers/        # Purifier list, detail, create, edit
-│   │   └── history/          # Activity history page
-│   ├── i18n/
-│   │   ├── index.ts          # i18n configuration
-│   │   └── locales/          # en.json, vi.json translation files
-│   ├── types/                # TypeScript interfaces
-│   ├── lib/                  # Utility functions
-│   ├── config/               # Firebase config
-│   └── data/                 # Bilingual purifier type definitions
+├── web/                    # React web app (Vite) — run npm commands here
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ui/               # shadcn/ui components (Button, Card, Dialog, etc.)
+│   │   │   ├── layout/           # AppLayout, Header, Sidebar
+│   │   │   ├── auth/             # LoginForm, RegisterForm, AuthGuard
+│   │   │   ├── purifier/         # PurifierCard, PurifierForm
+│   │   │   ├── filter/           # FilterCard, ReplaceFilterDialog
+│   │   │   └── dashboard/        # StatsCards, FiltersNeedingAttention
+│   │   ├── contexts/
+│   │   │   └── auth-context.tsx  # Authentication state management
+│   │   ├── hooks/
+│   │   │   ├── use-purifiers.ts  # Purifier CRUD hook
+│   │   │   ├── use-purifier.ts   # Single purifier with filters
+│   │   │   ├── use-filters.ts    # Filter operations hook
+│   │   │   ├── use-purifier-types.ts  # Localized purifier types
+│   │   │   └── use-all-filters.ts     # All filters across purifiers
+│   │   ├── services/
+│   │   │   ├── firebase.ts       # Firebase initialization
+│   │   │   ├── auth-service.ts   # Authentication (Email/Password + Google)
+│   │   │   ├── purifier-service.ts    # Purifier CRUD
+│   │   │   ├── filter-service.ts      # Filter operations & status
+│   │   │   ├── filter-status-service.ts # Filter status calculations
+│   │   │   └── activity-log-service.ts  # Activity logging & history
+│   │   ├── pages/
+│   │   │   ├── auth/             # Login, Register, ForgotPassword
+│   │   │   ├── dashboard/        # Main dashboard
+│   │   │   ├── purifiers/        # Purifier list, detail, create, edit
+│   │   │   └── history/          # Activity history page
+│   │   ├── i18n/
+│   │   │   ├── index.ts          # i18n configuration
+│   │   │   └── locales/          # en.json, vi.json translation files
+│   │   ├── types/                # TypeScript interfaces
+│   │   ├── lib/                  # Utility functions
+│   │   ├── config/               # Firebase config
+│   │   └── data/                 # Bilingual purifier type definitions
+│   ├── public/
+│   ├── package.json
+│   ├── vercel.json           # Vercel config (Root Directory = web)
+│   └── .env.local            # Firebase config (not committed)
 ├── docs/
 │   ├── ARCHITECTURE.md       # System architecture
 │   ├── CONVENTIONS.md        # Coding conventions
@@ -116,7 +125,7 @@ See [docs/CONVENTIONS.md](docs/CONVENTIONS.md) for full coding standards.
 ### Required Environment Variables
 
 ```bash
-# .env.local (copy from .env.example)
+# web/.env.local (copy from web/.env.example)
 VITE_FIREBASE_API_KEY=your-api-key
 VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=your-project-id

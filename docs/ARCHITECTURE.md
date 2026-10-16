@@ -766,63 +766,64 @@ VITE_FIREBASE_APP_ID=xxx
 
 ```
 water-purifier-manager/
-├── public/
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   ├── ui/               # shadcn/ui components
-│   │   ├── layout/           # Layout components
-│   │   ├── auth/             # Auth components
-│   │   ├── purifier/         # Purifier components
-│   │   ├── filter/           # Filter components
-│   │   └── dashboard/        # Dashboard components
-│   ├── contexts/
-│   │   ├── auth-context.tsx
-│   │   └── notification-context.tsx
-│   ├── hooks/
-│   │   ├── use-auth.ts
-│   │   ├── use-purifiers.ts
-│   │   ├── use-purifier.ts
-│   │   ├── use-filters.ts
-│   │   └── use-purifier-types.ts
-│   ├── services/
-│   │   ├── firebase.ts
-│   │   ├── auth-service.ts
-│   │   ├── purifier-service.ts
-│   │   ├── filter-service.ts
-│   │   ├── filter-status-service.ts
-│   │   └── activity-log-service.ts
-│   ├── pages/
-│   │   ├── auth/
-│   │   ├── dashboard/
-│   │   ├── purifiers/
-│   │   └── history/
-│   ├── types/
-│   │   ├── index.ts
-│   │   ├── purifier.ts
-│   │   ├── filter.ts
-│   │   └── errors.ts
-│   ├── lib/
-│   │   └── utils.ts          # Utility functions
-│   ├── config/
-│   │   └── firebase.ts       # Firebase config
-│   ├── data/
-│   │   └── purifier-types.ts # Default purifier types
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
+├── web/
+│   ├── public/
+│   │   └── favicon.ico
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ui/               # shadcn/ui components
+│   │   │   ├── layout/           # Layout components
+│   │   │   ├── auth/             # Auth components
+│   │   │   ├── purifier/         # Purifier components
+│   │   │   ├── filter/           # Filter components
+│   │   │   └── dashboard/        # Dashboard components
+│   │   ├── contexts/
+│   │   │   ├── auth-context.tsx
+│   │   │   └── notification-context.tsx
+│   │   ├── hooks/
+│   │   │   ├── use-auth.ts
+│   │   │   ├── use-purifiers.ts
+│   │   │   ├── use-purifier.ts
+│   │   │   ├── use-filters.ts
+│   │   │   └── use-purifier-types.ts
+│   │   ├── services/
+│   │   │   ├── firebase.ts
+│   │   │   ├── auth-service.ts
+│   │   │   ├── purifier-service.ts
+│   │   │   ├── filter-service.ts
+│   │   │   ├── filter-status-service.ts
+│   │   │   └── activity-log-service.ts
+│   │   ├── pages/
+│   │   │   ├── auth/
+│   │   │   ├── dashboard/
+│   │   │   ├── purifiers/
+│   │   │   └── history/
+│   │   ├── types/
+│   │   │   ├── index.ts
+│   │   │   ├── purifier.ts
+│   │   │   ├── filter.ts
+│   │   │   └── errors.ts
+│   │   ├── lib/
+│   │   │   └── utils.ts          # Utility functions
+│   │   ├── config/
+│   │   │   └── firebase.ts       # Firebase config
+│   │   ├── data/
+│   │   │   └── purifier-types.ts # Default purifier types
+│   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   └── index.css
+│   ├── .env.example
+│   ├── index.html
+│   ├── package.json
+│   ├── tailwind.config.js
+│   ├── tsconfig.json
+│   ├── vite.config.ts
+│   └── components.json           # shadcn/ui config
 ├── docs/
 │   ├── ARCHITECTURE.md
 │   ├── CONVENTIONS.md
 │   └── REQUIREMENTS.md
-├── .env.example
 ├── .gitignore
-├── index.html
-├── package.json
-├── tailwind.config.js
-├── tsconfig.json
-├── vite.config.ts
-├── components.json           # shadcn/ui config
 └── CLAUDE.md
 ```
 
