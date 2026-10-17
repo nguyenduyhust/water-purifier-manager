@@ -6,26 +6,28 @@ import {
   addDoc,
   updateDoc,
   query,
-  where,
   orderBy,
   onSnapshot,
   Timestamp,
 } from 'firebase/firestore';
 import { db } from '@/config/firebase';
-import type { Filter, CreateFilterData, UpdateFilterData } from '@/types';
+import type { Actor, Filter, CreateFilterData, UpdateFilterData } from '@/types';
 import { activityLogService } from './activity-log-service';
 
 const PURIFIERS_COLLECTION = 'purifiers';
 const FILTERS_SUBCOLLECTION = 'filters';
 
+// Access to filters follows the parent purifier, so members query them without a userId filter.
+function filtersQuery(purifierId: string) {
+  return query(
+    collection(db, PURIFIERS_COLLECTION, purifierId, FILTERS_SUBCOLLECTION),
+    orderBy('position', 'asc')
+  );
+}
+
 export const filterService = {
-  async getByPurifierId(purifierId: string, userId: string): Promise<Filter[]> {
-    const q = query(
-      collection(db, PURIFIERS_COLLECTION, purifierId, FILTERS_SUBCOLLECTION),
-      where('userId', '==', userId),
-      orderBy('position', 'asc')
-    );
-    const snapshot = await getDocs(q);
+  async getByPurifierId(purifierId: string): Promise<Filter[]> {
+    const snapshot = await getDocs(filtersQuery(purifierId));
     return snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -89,48 +91,36 @@ export const filterService = {
   async replaceFilter(
     purifierId: string,
     filterId: string,
-    userId: string,
     replacedAt: Date,
-    notes?: string,
-    // Denormalized data for activity log
-    purifierName?: string,
-    filterName?: string,
-    filterPosition?: number
+    actor: Actor,
+    details: { purifierName: string; filterName?: string; filterPosition?: number; notes?: string }
   ): Promise<void> {
-    // Update filter's lastReplacedAt
     await this.update(purifierId, filterId, { lastReplacedAt: replacedAt });
 
-    // Log activity (replaces old filterReplacements collection)
-    await activityLogService.add({
-      userId,
+    await activityLogService.add(purifierId, {
       type: 'filter_replaced',
       timestamp: replacedAt,
-      purifierId,
-      purifierName: purifierName || '',
+      purifierName: details.purifierName,
       filterId,
-      filterName,
-      filterPosition,
-      notes,
+      filterName: details.filterName,
+      filterPosition: details.filterPosition,
+      notes: details.notes,
+      actor,
     });
   },
 
-  subscribeByPurifierId(
-    purifierId: string,
-    userId: string,
-    callback: (filters: Filter[]) => void
-  ): () => void {
-    const q = query(
-      collection(db, PURIFIERS_COLLECTION, purifierId, FILTERS_SUBCOLLECTION),
-      where('userId', '==', userId),
-      orderBy('position', 'asc')
+  subscribeByPurifierId(purifierId: string, callback: (filters: Filter[]) => void): () => void {
+    return onSnapshot(
+      filtersQuery(purifierId),
+      (snapshot) => {
+        const filters = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as Filter[];
+        callback(filters);
+      },
+      // Losing access to a shared purifier ends with no filters rather than an uncaught error.
+      () => callback([])
     );
-
-    return onSnapshot(q, (snapshot) => {
-      const filters = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      })) as Filter[];
-      callback(filters);
-    });
   },
 };

@@ -55,7 +55,7 @@ export function useAllFilters(): UseAllFiltersReturn {
     const unsubscribes: (() => void)[] = [];
 
     purifiers.forEach((purifier) => {
-      const unsubscribe = purifierService.subscribeToFilters(purifier.id, user.uid, (filters: Filter[]) => {
+      const unsubscribe = purifierService.subscribeToFilters(purifier.id, (filters: Filter[]) => {
         setAllFilters((prev) => {
           const newMap = new Map(prev);
           newMap.set(purifier.id, filters);

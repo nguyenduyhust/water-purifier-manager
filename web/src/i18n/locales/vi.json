@@ -153,7 +153,77 @@
     "noHistory": "Chưa có lịch sử",
     "noHistoryDescription": "Hoạt động sẽ xuất hiện ở đây khi bạn thêm máy lọc hoặc thay lõi lọc.",
     "purifierCreated": "Đã thêm máy lọc",
-    "filterReplaced": "Đã thay lõi lọc"
+    "filterReplaced": "Đã thay lõi lọc",
+    "by": "bởi {{name}}"
+  },
+  "sharing": {
+    "share": "Chia sẻ",
+    "sharing": "Chia sẻ",
+    "shareTitle": "Chia sẻ \"{{name}}\"",
+    "shareDescription": "Mời người khác xem hoặc cùng quản lý máy lọc này.",
+    "roles": {
+      "owner": "Chủ sở hữu",
+      "editor": "Người quản lý",
+      "viewer": "Người xem"
+    },
+    "roleDescriptions": {
+      "editor": "Sửa thông tin và thay lõi",
+      "viewer": "Chỉ được xem"
+    },
+    "members": "Người có quyền truy cập",
+    "you": "bạn",
+    "invitePeople": "Mời người khác",
+    "role": "Quyền",
+    "emailOptional": "Email (không bắt buộc)",
+    "emailPlaceholder": "ten@example.com",
+    "emailHint": "Nếu nhập email, chỉ người đó dùng được lời mời. Nếu không, ai có link cũng dùng được.",
+    "createInvite": "Tạo link mời",
+    "inviteCreated": "Đã tạo lời mời",
+    "inviteCreatedDescription": "Sao chép link và gửi qua Zalo, Messenger…",
+    "copyLink": "Sao chép link",
+    "linkCopied": "Đã sao chép link",
+    "pendingInvites": "Lời mời đang chờ",
+    "linkInvite": "Bất kỳ ai có link",
+    "expiresOn": "Hết hạn {{date}}",
+    "revoke": "Thu hồi",
+    "inviteRevoked": "Đã thu hồi lời mời",
+    "remove": "Xóa",
+    "removeMemberTitle": "Xóa {{name}}?",
+    "removeMemberDescription": "Người này sẽ không còn thấy máy lọc này nữa.",
+    "memberRemoved": "Đã xóa khỏi máy lọc",
+    "leave": "Rời khỏi",
+    "leaveTitle": "Rời khỏi \"{{name}}\"?",
+    "leaveDescription": "Bạn sẽ không còn thấy máy lọc này, trừ khi được mời lại.",
+    "left": "Bạn đã rời khỏi máy lọc",
+    "shared": "Được chia sẻ",
+    "sharedBy": "Được chia sẻ bởi {{name}}",
+    "yourRole": "Quyền của bạn: {{role}}",
+    "viewOnly": "Bạn chỉ có quyền xem máy lọc này.",
+    "invitesForYou": "Lời mời dành cho bạn",
+    "inviteFrom": "{{name}} mời bạn vào \"{{purifier}}\" với quyền {{role}}",
+    "accept": "Chấp nhận",
+    "decline": "Từ chối",
+    "accepted": "Bạn đã có quyền truy cập \"{{name}}\"",
+    "invitePageTitle": "Lời mời máy lọc",
+    "invitePageDescription": "{{name}} mời bạn vào \"{{purifier}}\".",
+    "joinAs": "Bạn sẽ tham gia với quyền {{role}}: {{description}}.",
+    "openPurifier": "Mở máy lọc",
+    "backToDashboard": "Về trang tổng quan",
+    "problems": {
+      "notFound": "Lời mời không tồn tại hoặc đã bị thu hồi.",
+      "expired": "Lời mời đã hết hạn. Hãy nhờ chủ máy gửi lời mời mới.",
+      "used": "Lời mời này đã được sử dụng.",
+      "declined": "Lời mời này đã bị từ chối.",
+      "wrongEmail": "Lời mời này được gửi tới {{email}}. Hãy đăng nhập bằng email đó để chấp nhận.",
+      "unverifiedEmail": "Hãy xác minh địa chỉ email trước khi chấp nhận lời mời.",
+      "ownPurifier": "Đây là máy lọc của bạn.",
+      "alreadyMember": "Bạn đã có quyền truy cập máy lọc này."
+    },
+    "errors": {
+      "generic": "Đã xảy ra lỗi. Vui lòng thử lại.",
+      "inviteFailed": "Không tạo được lời mời.",
+      "acceptFailed": "Không chấp nhận được lời mời."
+    }
   },
   "purifierTypes": {
     "kangaroo-kg108": {

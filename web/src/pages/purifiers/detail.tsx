@@ -11,10 +11,14 @@ import {
   Calendar,
   Trash2,
   Edit,
+  Share2,
+  LogOut,
+  Users,
 } from 'lucide-react';
 import { AppLayout } from '@/components/layout/app-layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -27,6 +31,9 @@ import {
 } from '@/components/ui/alert-dialog';
 import { usePurifier } from '@/hooks/use-purifier';
 import { usePurifiers } from '@/hooks/use-purifiers';
+import { useSharing } from '@/hooks/use-sharing';
+import { canEdit } from '@/lib/sharing';
+import { ShareDialog } from '@/components/sharing/share-dialog';
 import { FilterCard } from '@/components/filter/filter-card';
 import { ReplaceFilterDialog } from '@/components/filter/replace-filter-dialog';
 import { toast } from '@/hooks/use-toast';
@@ -37,9 +44,13 @@ export function PurifierDetailPage() {
   const locale = i18n.language === 'vi' ? vi : enUS;
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { purifier, filters, loading } = usePurifier(id);
+  const { purifier, filters, role, loading } = usePurifier(id);
   const { deletePurifier } = usePurifiers();
+  const { leave } = useSharing(purifier);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [showShareDialog, setShowShareDialog] = useState(false);
+  const [showLeaveDialog, setShowLeaveDialog] = useState(false);
+  const [isLeaving, setIsLeaving] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState<FilterWithStatus | null>(null);
   const [showReplaceDialog, setShowReplaceDialog] = useState(false);
@@ -65,6 +76,25 @@ export function PurifierDetailPage() {
     } finally {
       setIsDeleting(false);
       setShowDeleteDialog(false);
+    }
+  };
+
+  const handleLeave = async () => {
+    setIsLeaving(true);
+    try {
+      await leave();
+      toast({ title: t('sharing.left') });
+      navigate('/purifiers');
+    } catch (error) {
+      console.error('Leave purifier error:', error);
+      toast({
+        variant: 'destructive',
+        title: t('common.error'),
+        description: t('sharing.errors.generic'),
+      });
+    } finally {
+      setIsLeaving(false);
+      setShowLeaveDialog(false);
     }
   };
 
@@ -102,6 +132,9 @@ export function PurifierDetailPage() {
     );
   }
 
+  const isOwner = role === 'owner';
+  const memberCount = purifier.memberIds?.length ?? 0;
+
   const installationDate =
     purifier.installationDate instanceof Timestamp
       ? purifier.installationDate.toDate()
@@ -125,23 +158,52 @@ export function PurifierDetailPage() {
               {purifier.typeName && (
                 <p className="text-muted-foreground">{purifier.typeName}</p>
               )}
+              {!isOwner && role && (
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <Badge variant="secondary" className="gap-1">
+                    <Users className="h-3 w-3" aria-hidden="true" />
+                    {purifier.ownerName
+                      ? t('sharing.sharedBy', { name: purifier.ownerName })
+                      : t('sharing.shared')}
+                  </Badge>
+                  <span className="text-sm text-muted-foreground">
+                    {t('sharing.yourRole', { role: t(`sharing.roles.${role}`) })}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
-          <div className="flex gap-2">
-            <Link to={`/purifiers/${id}/edit`}>
-              <Button variant="outline" size="sm">
-                <Edit className="mr-2 h-4 w-4" />
-                {t('common.edit')}
+          <div className="flex flex-wrap gap-2">
+            {isOwner && (
+              <Button variant="outline" size="sm" onClick={() => setShowShareDialog(true)}>
+                <Share2 className="mr-2 h-4 w-4" />
+                {t('sharing.share')}
+                {memberCount > 0 && <span className="ml-1 text-muted-foreground">({memberCount})</span>}
               </Button>
-            </Link>
-            <Button
-              variant="destructive"
-              size="sm"
-              onClick={() => setShowDeleteDialog(true)}
-            >
-              <Trash2 className="mr-2 h-4 w-4" />
-              {t('common.delete')}
-            </Button>
+            )}
+            {canEdit(role) && (
+              <Link to={`/purifiers/${id}/edit`}>
+                <Button variant="outline" size="sm">
+                  <Edit className="mr-2 h-4 w-4" />
+                  {t('common.edit')}
+                </Button>
+              </Link>
+            )}
+            {isOwner ? (
+              <Button
+                variant="destructive"
+                size="sm"
+                onClick={() => setShowDeleteDialog(true)}
+              >
+                <Trash2 className="mr-2 h-4 w-4" />
+                {t('common.delete')}
+              </Button>
+            ) : (
+              <Button variant="outline" size="sm" onClick={() => setShowLeaveDialog(true)}>
+                <LogOut className="mr-2 h-4 w-4" />
+                {t('sharing.leave')}
+              </Button>
+            )}
           </div>
         </div>
 
@@ -174,12 +236,15 @@ export function PurifierDetailPage() {
           <h2 className="text-xl font-semibold mb-4">
             {t('filter.filters')} ({filters.length})
           </h2>
+          {role === 'viewer' && (
+            <p className="text-sm text-muted-foreground mb-4">{t('sharing.viewOnly')}</p>
+          )}
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {filters.map((filter) => (
               <FilterCard
                 key={filter.id}
                 filter={filter}
-                onReplace={handleReplaceFilter}
+                onReplace={canEdit(role) ? handleReplaceFilter : undefined}
               />
             ))}
           </div>
@@ -208,6 +273,27 @@ export function PurifierDetailPage() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      {/* Leave Confirmation Dialog */}
+      <AlertDialog open={showLeaveDialog} onOpenChange={setShowLeaveDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{t('sharing.leaveTitle', { name: purifier.name })}</AlertDialogTitle>
+            <AlertDialogDescription>{t('sharing.leaveDescription')}</AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isLeaving}>{t('common.cancel')}</AlertDialogCancel>
+            <AlertDialogAction onClick={handleLeave} disabled={isLeaving}>
+              {isLeaving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {t('sharing.leave')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {isOwner && (
+        <ShareDialog purifier={purifier} open={showShareDialog} onOpenChange={setShowShareDialog} />
+      )}
 
       {/* Replace Filter Dialog */}
       <ReplaceFilterDialog

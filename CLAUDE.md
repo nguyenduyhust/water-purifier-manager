@@ -22,8 +22,11 @@ npm install
 # Run development server
 npm run dev
 
-# Run tests
-npm run test
+# Run against local Firebase emulators (start them first: cd firebase && npx firebase emulators:start --only auth,firestore --project demo-water-purifier)
+npm run dev:emulator
+
+# Firestore rules tests (from firebase/)
+cd ../firebase && npm test
 
 # Build for production
 npm run build
@@ -219,7 +222,7 @@ const { purifierTypes, getPurifierTypeById } = usePurifierTypes();
 
 ## Known Issues & Gotchas
 
-- **Firebase Emulators:** For local development, configure emulators in `firebase.ts`
+- **Firebase Emulators:** `npm run dev:emulator` (web) connects to the local Auth/Firestore emulators using `web/.env.emulator`. The emulator test tooling pins firebase-tools 13 because newer versions need Java 21
 - **Firestore Indexes:** Compound queries need composite indexes — add them to `firebase/firestore.indexes.json` and deploy
 - **Auth Persistence:** Firebase handles persistence automatically; don't implement custom token storage
 
@@ -229,20 +232,22 @@ const { purifierTypes, getPurifierTypeById } = usePurifierTypes();
 
 | Collection | Description |
 |------------|-------------|
-| `purifiers` | User's water purifiers |
+| `purifiers` | Water purifiers; `userId` is the owner, `memberIds`/`roles`/`memberProfiles` list shared members |
 | `purifiers/{id}/filters` | Filter cartridges (subcollection) |
-| `activityLogs` | Unified activity history (purifier created, filter replaced) |
+| `purifiers/{id}/logs` | History for the purifier, visible to all its members (`actorId`/`actorName`) |
+| `invites` | Sharing invites; the document id is the secret in the invite link |
+| `activityLogs` | Legacy history from before sharing; read-only for its owner |
 
 ### Key Relationships
 
 - Purifier → PurifierType (via `typeId`, types defined in client code)
 - Filter → Purifier (via `purifierId`, also subcollection)
 - ActivityLog → Purifier/Filter (via `purifierId`, `filterId`)
-- All user data filtered by `userId`
+- Access: owner via `userId`, shared members via `memberIds` with role `editor` or `viewer` (see FR-009 in `docs/REQUIREMENTS.md`). Owned and shared purifiers are fetched with separate queries and merged
 
 ### Firestore Security Rules
 
-Source of truth: [`firebase/firestore.rules`](firebase/firestore.rules). Every document carries `userId` and is readable/writable only by its owner.
+Source of truth: [`firebase/firestore.rules`](firebase/firestore.rules), covered by emulator tests in `firebase/tests/`. Owners have full control; editors can edit details and replace filters; viewers read only; filters and logs follow their purifier's access.
 
 ### Required Composite Indexes
 
@@ -251,6 +256,7 @@ Defined in `firebase/firestore.indexes.json`:
 | Collection | Fields | Query scope |
 |------------|--------|-------------|
 | `purifiers` | `userId` Asc, `createdAt` Desc | Collection |
+| `purifiers` | `memberIds` Array-contains, `createdAt` Desc | Collection |
 | `activityLogs` | `userId` Asc, `timestamp` Desc | Collection |
 | `filters` | `userId` Asc, `position` Asc | Collection group |
 

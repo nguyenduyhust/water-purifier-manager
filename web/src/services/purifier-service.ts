@@ -3,7 +3,6 @@ import {
   doc,
   getDocs,
   getDoc,
-  addDoc,
   updateDoc,
   query,
   where,
@@ -11,163 +10,178 @@ import {
   onSnapshot,
   Timestamp,
   writeBatch,
+  type DocumentReference,
+  type QuerySnapshot,
 } from 'firebase/firestore';
 import { db } from '@/config/firebase';
-import type { Purifier, CreatePurifierData, UpdatePurifierData, Filter } from '@/types';
+import type { Actor, Purifier, CreatePurifierData, UpdatePurifierData, Filter } from '@/types';
 import { filterService } from './filter-service';
 import { activityLogService } from './activity-log-service';
 
 const COLLECTION_NAME = 'purifiers';
+// Firestore batches hold at most 500 writes.
+const BATCH_LIMIT = 450;
+
+// Owned purifiers are found by userId, shared ones by memberIds; each needs its own query.
+function ownedQuery(userId: string) {
+  return query(collection(db, COLLECTION_NAME), where('userId', '==', userId), orderBy('createdAt', 'desc'));
+}
+
+function sharedQuery(userId: string) {
+  return query(
+    collection(db, COLLECTION_NAME),
+    where('memberIds', 'array-contains', userId),
+    orderBy('createdAt', 'desc')
+  );
+}
+
+function toPurifiers(snapshot: QuerySnapshot): Purifier[] {
+  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }) as Purifier);
+}
+
+function newestFirst(purifiers: Purifier[]): Purifier[] {
+  return [...purifiers].sort((a, b) => (b.createdAt?.toMillis() ?? 0) - (a.createdAt?.toMillis() ?? 0));
+}
+
+async function deleteInBatches(refs: DocumentReference[]): Promise<void> {
+  for (let i = 0; i < refs.length; i += BATCH_LIMIT) {
+    const batch = writeBatch(db);
+    refs.slice(i, i + BATCH_LIMIT).forEach((ref) => batch.delete(ref));
+    await batch.commit();
+  }
+}
 
 export const purifierService = {
   async getAll(userId: string): Promise<Purifier[]> {
-    const q = query(
-      collection(db, COLLECTION_NAME),
-      where('userId', '==', userId),
-      orderBy('createdAt', 'desc')
-    );
-    const snapshot = await getDocs(q);
-    return snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as Purifier[];
+    const [owned, shared] = await Promise.all([getDocs(ownedQuery(userId)), getDocs(sharedQuery(userId))]);
+    return newestFirst([...toPurifiers(owned), ...toPurifiers(shared)]);
   },
 
   async getById(id: string): Promise<Purifier | null> {
-    const docRef = doc(db, COLLECTION_NAME, id);
-    const docSnap = await getDoc(docRef);
-
+    const docSnap = await getDoc(doc(db, COLLECTION_NAME, id));
     if (!docSnap.exists()) {
       return null;
     }
-
-    return {
-      id: docSnap.id,
-      ...docSnap.data(),
-    } as Purifier;
+    return { id: docSnap.id, ...docSnap.data() } as Purifier;
   },
 
-  async create(data: CreatePurifierData, filterTemplates: { position: number; name: string; intervalMonths: number }[]): Promise<string> {
+  async create(
+    data: CreatePurifierData,
+    filterTemplates: { position: number; name: string; intervalMonths: number }[],
+    actor: Actor
+  ): Promise<string> {
     const now = Timestamp.now();
+    const installedAt = Timestamp.fromDate(data.installationDate);
+    const purifierRef = doc(collection(db, COLLECTION_NAME));
 
-    const purifierData = {
+    // One batch so a purifier never exists without its filters.
+    const batch = writeBatch(db);
+    batch.set(purifierRef, {
       userId: data.userId,
       typeId: data.typeId,
       typeName: data.typeName || '',
       name: data.name,
       location: data.location || '',
-      installationDate: Timestamp.fromDate(data.installationDate),
+      installationDate: installedAt,
       notes: data.notes || '',
       createdAt: now,
       updatedAt: now,
-    };
+    });
 
-    const docRef = await addDoc(collection(db, COLLECTION_NAME), purifierData);
-
-    // Create filters for this purifier
-    const batch = writeBatch(db);
-    const filtersCollection = collection(db, COLLECTION_NAME, docRef.id, 'filters');
-
+    const filtersCollection = collection(db, COLLECTION_NAME, purifierRef.id, 'filters');
     for (const template of filterTemplates) {
-      const filterRef = doc(filtersCollection);
-      batch.set(filterRef, {
-        purifierId: docRef.id,
+      batch.set(doc(filtersCollection), {
+        purifierId: purifierRef.id,
         userId: data.userId,
         position: template.position,
         name: template.name,
         intervalMonths: template.intervalMonths,
-        lastReplacedAt: Timestamp.fromDate(data.installationDate),
+        lastReplacedAt: installedAt,
         createdAt: now,
         updatedAt: now,
       });
     }
-
     await batch.commit();
 
-    // Log activity
-    await activityLogService.add({
-      userId: data.userId,
+    await activityLogService.add(purifierRef.id, {
       type: 'purifier_created',
       timestamp: data.installationDate,
-      purifierId: docRef.id,
       purifierName: data.name,
+      actor,
     });
 
-    return docRef.id;
+    return purifierRef.id;
   },
 
   async update(id: string, data: UpdatePurifierData): Promise<void> {
-    const docRef = doc(db, COLLECTION_NAME, id);
-    await updateDoc(docRef, {
+    await updateDoc(doc(db, COLLECTION_NAME, id), {
       ...data,
       updatedAt: Timestamp.now(),
     });
   },
 
+  /**
+   * Owner only: removes the purifier with its filters, history and pending invites
+   */
   async delete(id: string, userId: string): Promise<void> {
-    // First delete all filters in the subcollection
-    const filters = await filterService.getByPurifierId(id, userId);
-    const batch = writeBatch(db);
+    const [filters, logs, invites] = await Promise.all([
+      getDocs(collection(db, COLLECTION_NAME, id, 'filters')),
+      getDocs(collection(db, COLLECTION_NAME, id, 'logs')),
+      getDocs(query(collection(db, 'invites'), where('createdBy', '==', userId), where('purifierId', '==', id))),
+    ]);
 
-    for (const filter of filters) {
-      const filterRef = doc(db, COLLECTION_NAME, id, 'filters', filter.id);
-      batch.delete(filterRef);
-    }
-
-    // Delete the purifier document
-    const purifierRef = doc(db, COLLECTION_NAME, id);
-    batch.delete(purifierRef);
-
-    await batch.commit();
+    await deleteInBatches([...filters.docs, ...logs.docs, ...invites.docs].map((d) => d.ref));
+    // Last, so the purifier's rules still apply while its children are deleted.
+    await deleteInBatches([doc(db, COLLECTION_NAME, id)]);
   },
 
-  subscribeToAll(
-    userId: string,
-    callback: (purifiers: Purifier[]) => void
-  ): () => void {
-    const q = query(
-      collection(db, COLLECTION_NAME),
-      where('userId', '==', userId),
-      orderBy('createdAt', 'desc')
+  subscribeToAll(userId: string, callback: (purifiers: Purifier[]) => void): () => void {
+    let owned: Purifier[] | null = null;
+    let shared: Purifier[] | null = null;
+    const emit = () => {
+      if (owned && shared) callback(newestFirst([...owned, ...shared]));
+    };
+
+    const unsubscribeOwned = onSnapshot(ownedQuery(userId), (snapshot) => {
+      owned = toPurifiers(snapshot);
+      emit();
+    });
+    const unsubscribeShared = onSnapshot(
+      sharedQuery(userId),
+      (snapshot) => {
+        shared = toPurifiers(snapshot);
+        emit();
+      },
+      (error) => {
+        // Keep owned purifiers visible even if the shared query fails (e.g. index still building).
+        console.error('Shared purifiers subscription error:', error);
+        shared = [];
+        emit();
+      }
     );
 
-    return onSnapshot(q, (snapshot) => {
-      const purifiers = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      })) as Purifier[];
-      callback(purifiers);
-    });
+    return () => {
+      unsubscribeOwned();
+      unsubscribeShared();
+    };
   },
 
-  subscribeToOne(
-    id: string,
-    callback: (purifier: Purifier | null) => void
-  ): () => void {
-    const docRef = doc(db, COLLECTION_NAME, id);
-
-    return onSnapshot(docRef, (snapshot) => {
-      if (!snapshot.exists()) {
-        callback(null);
-        return;
-      }
-      callback({
-        id: snapshot.id,
-        ...snapshot.data(),
-      } as Purifier);
-    });
+  subscribeToOne(id: string, callback: (purifier: Purifier | null) => void): () => void {
+    return onSnapshot(
+      doc(db, COLLECTION_NAME, id),
+      (snapshot) => {
+        callback(snapshot.exists() ? ({ id: snapshot.id, ...snapshot.data() } as Purifier) : null);
+      },
+      // Losing access (removed from a shared purifier) reads like a missing purifier.
+      () => callback(null)
+    );
   },
 
-  // Get filters for a purifier
-  async getFilters(purifierId: string, userId: string): Promise<Filter[]> {
-    return filterService.getByPurifierId(purifierId, userId);
+  async getFilters(purifierId: string): Promise<Filter[]> {
+    return filterService.getByPurifierId(purifierId);
   },
 
-  subscribeToFilters(
-    purifierId: string,
-    userId: string,
-    callback: (filters: Filter[]) => void
-  ): () => void {
-    return filterService.subscribeByPurifierId(purifierId, userId, callback);
+  subscribeToFilters(purifierId: string, callback: (filters: Filter[]) => void): () => void {
+    return filterService.subscribeByPurifierId(purifierId, callback);
   },
 };

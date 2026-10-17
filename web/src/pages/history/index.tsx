@@ -101,6 +101,11 @@ export function HistoryPage() {
                                   {event.filterPosition}. {event.filterName}
                                 </p>
                               )}
+                              {event.actorName && (
+                                <p className="text-xs text-muted-foreground mt-1">
+                                  {t('history.by', { name: event.actorName })}
+                                </p>
+                              )}
                               {event.notes && (
                                 <p className="text-sm text-muted-foreground mt-1 italic">
                                   "{event.notes}"

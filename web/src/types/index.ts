@@ -28,10 +28,20 @@ export interface CreatePurifierTypeData {
   filterTemplates: FilterTemplate[];
 }
 
+// Sharing
+export type MemberRole = 'editor' | 'viewer';
+export type AccessRole = 'owner' | MemberRole;
+
+export interface MemberProfile {
+  name: string;
+  email: string | null;
+  joinedAt?: Timestamp;
+}
+
 // Purifier
 export interface Purifier {
   id: string;
-  userId: string;
+  userId: string; // Owner
   typeId: string;
   typeName?: string; // Denormalized for display
   name: string;
@@ -40,6 +50,34 @@ export interface Purifier {
   notes?: string;
   createdAt: Timestamp;
   updatedAt: Timestamp;
+  ownerName?: string; // Shown to members; set by the owner when inviting
+  // Shared members, owner excluded
+  memberIds?: string[];
+  roles?: Record<string, MemberRole>;
+  memberProfiles?: Record<string, MemberProfile>;
+}
+
+export type InviteStatus = 'pending' | 'accepted' | 'declined';
+
+export interface Invite {
+  id: string;
+  purifierId: string;
+  purifierName: string;
+  role: MemberRole;
+  email: string | null; // null = link invite
+  status: InviteStatus;
+  createdBy: string;
+  createdByName: string;
+  createdAt: Timestamp;
+  expiresAt: Timestamp;
+  acceptedBy?: string;
+  acceptedAt?: Timestamp;
+}
+
+// Who performed an action, recorded on history entries
+export interface Actor {
+  id: string;
+  name: string;
 }
 
 export interface CreatePurifierData {
@@ -142,12 +180,15 @@ export interface UserPreferences {
   updatedAt: Timestamp;
 }
 
-// Activity Log - unified history for all events
+// Activity Log - history entries, stored in purifiers/{id}/logs
+// (older entries live in the legacy top-level activityLogs collection)
 export type ActivityType = 'purifier_created' | 'purifier_updated' | 'purifier_deleted' | 'filter_replaced';
 
 export interface ActivityLog {
   id: string;
-  userId: string;
+  userId?: string; // Legacy entries only
+  actorId?: string;
+  actorName?: string;
   type: ActivityType;
   timestamp: Timestamp;
   // Purifier info (denormalized)
@@ -163,13 +204,12 @@ export interface ActivityLog {
 }
 
 export interface CreateActivityLogData {
-  userId: string;
-  type: ActivityType;
+  type: 'purifier_created' | 'filter_replaced';
   timestamp: Date;
-  purifierId: string;
   purifierName: string;
   filterId?: string;
   filterName?: string;
   filterPosition?: number;
   notes?: string;
+  actor: Actor;
 }

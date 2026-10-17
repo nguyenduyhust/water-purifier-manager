@@ -254,6 +254,7 @@
 // purifiers/{purifierId} — new optional fields; userId stays the owner
 interface Purifier {
   userId: string;                                   // owner
+  ownerName?: string;                               // shown to members; written by the owner when inviting
   memberIds?: string[];                             // shared members, owner excluded
   roles?: Record<string, 'editor' | 'viewer'>;      // keyed by member uid
   memberProfiles?: Record<string, { name: string; email: string | null; joinedAt: Timestamp }>;

@@ -8,6 +8,7 @@ import { useAllFilters } from '@/hooks/use-all-filters';
 import { usePurifiers } from '@/hooks/use-purifiers';
 import { FilterStatusBadge } from '@/components/filter/filter-status-badge';
 import { Loader2 } from 'lucide-react';
+import { PendingInvites } from '@/components/sharing/pending-invites';
 
 export function DashboardPage() {
   const { t } = useTranslation();
@@ -46,6 +47,8 @@ export function DashboardPage() {
             </Button>
           </Link>
         </div>
+
+        <PendingInvites />
 
         {/* Stats */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">

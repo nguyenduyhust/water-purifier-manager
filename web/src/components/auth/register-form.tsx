@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FirebaseError } from 'firebase/app';
 import { Loader2 } from 'lucide-react';
 import { useAuth } from '@/contexts/auth-context';
+import { takeReturnTo } from '@/lib/return-to';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -42,6 +43,7 @@ type RegisterFormValues = z.infer<typeof registerSchema>;
 export function RegisterForm() {
   const { signUp, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -62,7 +64,7 @@ export function RegisterForm() {
 
     try {
       await signUp(data.email, data.password, data.name);
-      navigate('/');
+      navigate(takeReturnTo(location), { replace: true });
     } catch (err) {
       console.error('Register error:', err);
       if (err instanceof FirebaseError) {
@@ -93,7 +95,7 @@ export function RegisterForm() {
 
     try {
       await signInWithGoogle();
-      navigate('/');
+      navigate(takeReturnTo(location), { replace: true });
     } catch (err) {
       console.error('Google sign up error:', err);
       if (err instanceof FirebaseError) {
@@ -239,7 +241,7 @@ export function RegisterForm() {
 
             <p className="text-center text-sm text-muted-foreground">
               Already have an account?{' '}
-              <Link to="/login" className="text-primary hover:underline">
+              <Link to="/login" state={location.state} className="text-primary hover:underline">
                 Sign in
               </Link>
             </p>

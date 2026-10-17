@@ -11,7 +11,8 @@ import {
 import { db } from '@/config/firebase';
 import type { ActivityLog, CreateActivityLogData } from '@/types';
 
-const COLLECTION_NAME = 'activityLogs';
+const LEGACY_COLLECTION = 'activityLogs';
+const HISTORY_LIMIT = 50;
 
 export interface HistoryEvent {
   id: string;
@@ -23,68 +24,73 @@ export interface HistoryEvent {
   filterName?: string;
   filterPosition?: number;
   notes?: string;
+  actorId?: string;
+  actorName?: string;
+}
+
+function logsCollection(purifierId: string) {
+  return collection(db, 'purifiers', purifierId, 'logs');
+}
+
+function toHistoryEvent(log: ActivityLog): HistoryEvent {
+  return {
+    id: log.id,
+    type: log.type as HistoryEvent['type'],
+    timestamp: log.timestamp instanceof Timestamp ? log.timestamp.toDate() : new Date(log.timestamp),
+    purifierId: log.purifierId,
+    purifierName: log.purifierName,
+    filterId: log.filterId ?? undefined,
+    filterName: log.filterName ?? undefined,
+    filterPosition: log.filterPosition ?? undefined,
+    notes: log.notes ?? undefined,
+    actorId: log.actorId,
+    actorName: log.actorName,
+  };
 }
 
 export const activityLogService = {
   /**
-   * Add a new activity log entry
+   * Add a history entry to the purifier's log, visible to everyone it is shared with
    */
-  async add(data: CreateActivityLogData): Promise<string> {
-    const now = Timestamp.now();
-
-    const logData = {
-      userId: data.userId,
+  async add(purifierId: string, data: CreateActivityLogData): Promise<string> {
+    const docRef = await addDoc(logsCollection(purifierId), {
       type: data.type,
       timestamp: Timestamp.fromDate(data.timestamp),
-      purifierId: data.purifierId,
+      purifierId,
       purifierName: data.purifierName,
       filterId: data.filterId || null,
       filterName: data.filterName || null,
       filterPosition: data.filterPosition || null,
-      notes: data.notes || null,
-      createdAt: now,
-    };
-
-    const docRef = await addDoc(collection(db, COLLECTION_NAME), logData);
+      notes: data.notes?.trim() || null,
+      actorId: data.actor.id,
+      actorName: data.actor.name,
+      createdAt: Timestamp.now(),
+    });
     return docRef.id;
   },
 
   /**
-   * Get activity logs for a user with pagination
+   * Recent history across the given purifiers plus the user's legacy entries
    */
-  async getByUserId(userId: string, limitCount = 50): Promise<ActivityLog[]> {
-    const q = query(
-      collection(db, COLLECTION_NAME),
+  async getHistory(userId: string, purifierIds: string[]): Promise<HistoryEvent[]> {
+    const legacyQuery = query(
+      collection(db, LEGACY_COLLECTION),
       where('userId', '==', userId),
       orderBy('timestamp', 'desc'),
-      limit(limitCount)
+      limit(HISTORY_LIMIT)
+    );
+    const purifierQueries = purifierIds.map((id) =>
+      query(logsCollection(id), orderBy('timestamp', 'desc'), limit(HISTORY_LIMIT))
     );
 
-    const snapshot = await getDocs(q);
-    return snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as ActivityLog[];
-  },
+    const snapshots = await Promise.all([legacyQuery, ...purifierQueries].map((q) => getDocs(q)));
+    const logs = snapshots.flatMap((snapshot) =>
+      snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }) as ActivityLog)
+    );
 
-  /**
-   * Get history events for a user (transformed for UI display)
-   */
-  async getHistory(userId: string, limitCount = 50): Promise<HistoryEvent[]> {
-    const logs = await this.getByUserId(userId, limitCount);
-
-    return logs.map((log: ActivityLog) => ({
-      id: log.id,
-      type: log.type as 'purifier_created' | 'filter_replaced',
-      timestamp: log.timestamp instanceof Timestamp
-        ? log.timestamp.toDate()
-        : new Date(log.timestamp),
-      purifierId: log.purifierId,
-      purifierName: log.purifierName,
-      filterId: log.filterId,
-      filterName: log.filterName,
-      filterPosition: log.filterPosition,
-      notes: log.notes,
-    }));
+    return logs
+      .map(toHistoryEvent)
+      .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
+      .slice(0, HISTORY_LIMIT);
   },
 };

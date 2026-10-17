@@ -3,9 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { format } from 'date-fns';
 import { vi, enUS } from 'date-fns/locale';
 import { Timestamp } from 'firebase/firestore';
-import { MapPin, Calendar, ChevronRight, AlertCircle, AlertTriangle, CheckCircle } from 'lucide-react';
+import { MapPin, Calendar, ChevronRight, AlertCircle, AlertTriangle, CheckCircle, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useAuth } from '@/contexts/auth-context';
+import { getAccessRole } from '@/lib/sharing';
 import type { Purifier, FilterWithStatus } from '@/types';
 
 interface PurifierCardProps {
@@ -16,6 +18,9 @@ interface PurifierCardProps {
 export function PurifierCard({ purifier, filters = [] }: PurifierCardProps) {
   const { t, i18n } = useTranslation();
   const locale = i18n.language === 'vi' ? vi : enUS;
+  const { user } = useAuth();
+  const role = getAccessRole(purifier, user?.uid);
+  const memberCount = purifier.memberIds?.length ?? 0;
 
   const installationDate =
     purifier.installationDate instanceof Timestamp
@@ -36,6 +41,21 @@ export function PurifierCard({ purifier, filters = [] }: PurifierCardProps) {
           </div>
           {purifier.typeName && (
             <p className="text-sm text-muted-foreground">{purifier.typeName}</p>
+          )}
+          {role && role !== 'owner' ? (
+            <div>
+              <Badge variant="secondary" className="gap-1">
+                <Users className="h-3 w-3" aria-hidden="true" />
+                {t('sharing.shared')} · {t(`sharing.roles.${role}`)}
+              </Badge>
+            </div>
+          ) : (
+            memberCount > 0 && (
+              <p className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Users className="h-3 w-3" aria-hidden="true" />
+                {t('sharing.sharing')} ({memberCount})
+              </p>
+            )
           )}
         </CardHeader>
         <CardContent className="space-y-3">

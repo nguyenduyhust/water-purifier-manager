@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -20,6 +20,7 @@ import {
 import { usePurifier } from '@/hooks/use-purifier';
 import { usePurifiers } from '@/hooks/use-purifiers';
 import { toast } from '@/hooks/use-toast';
+import { canEdit } from '@/lib/sharing';
 
 const editPurifierSchema = z.object({
   name: z.string().min(1, 'Name is required').max(100),
@@ -33,7 +34,7 @@ export function EditPurifierPage() {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { purifier, loading: loadingPurifier } = usePurifier(id);
+  const { purifier, role, loading: loadingPurifier } = usePurifier(id);
   const { updatePurifier } = usePurifiers();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -100,6 +101,11 @@ export function EditPurifierPage() {
         </div>
       </AppLayout>
     );
+  }
+
+  // Viewers can open the URL but not edit; send them back to the details.
+  if (!canEdit(role)) {
+    return <Navigate to={`/purifiers/${id}`} replace />;
   }
 
   return (

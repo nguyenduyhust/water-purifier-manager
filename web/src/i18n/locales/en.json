@@ -153,7 +153,77 @@
     "noHistory": "No history yet",
     "noHistoryDescription": "Activities will appear here once you add purifiers or replace filters.",
     "purifierCreated": "Purifier added",
-    "filterReplaced": "Filter replaced"
+    "filterReplaced": "Filter replaced",
+    "by": "by {{name}}"
+  },
+  "sharing": {
+    "share": "Share",
+    "sharing": "Sharing",
+    "shareTitle": "Share \"{{name}}\"",
+    "shareDescription": "Invite people to view or manage this purifier.",
+    "roles": {
+      "owner": "Owner",
+      "editor": "Editor",
+      "viewer": "Viewer"
+    },
+    "roleDescriptions": {
+      "editor": "Can edit details and replace filters",
+      "viewer": "Can only view"
+    },
+    "members": "People with access",
+    "you": "you",
+    "invitePeople": "Invite someone",
+    "role": "Role",
+    "emailOptional": "Email (optional)",
+    "emailPlaceholder": "name@example.com",
+    "emailHint": "With an email, only that person can use the invite. Without one, anyone with the link can.",
+    "createInvite": "Create invite link",
+    "inviteCreated": "Invite created",
+    "inviteCreatedDescription": "Copy the link and send it, e.g. via Zalo or Messenger.",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied",
+    "pendingInvites": "Pending invites",
+    "linkInvite": "Anyone with the link",
+    "expiresOn": "Expires {{date}}",
+    "revoke": "Revoke",
+    "inviteRevoked": "Invite revoked",
+    "remove": "Remove",
+    "removeMemberTitle": "Remove {{name}}?",
+    "removeMemberDescription": "They will no longer see this purifier.",
+    "memberRemoved": "Removed from purifier",
+    "leave": "Leave",
+    "leaveTitle": "Leave \"{{name}}\"?",
+    "leaveDescription": "You will no longer see this purifier unless you are invited again.",
+    "left": "You left the purifier",
+    "shared": "Shared",
+    "sharedBy": "Shared by {{name}}",
+    "yourRole": "Your role: {{role}}",
+    "viewOnly": "You have view-only access to this purifier.",
+    "invitesForYou": "Invites for you",
+    "inviteFrom": "{{name}} invited you to \"{{purifier}}\" as {{role}}",
+    "accept": "Accept",
+    "decline": "Decline",
+    "accepted": "You now have access to \"{{name}}\"",
+    "invitePageTitle": "Purifier invite",
+    "invitePageDescription": "{{name}} invited you to \"{{purifier}}\".",
+    "joinAs": "You will join as {{role}}: {{description}}.",
+    "openPurifier": "Open purifier",
+    "backToDashboard": "Back to dashboard",
+    "problems": {
+      "notFound": "This invite doesn't exist or was revoked.",
+      "expired": "This invite has expired. Ask the owner for a new one.",
+      "used": "This invite has already been used.",
+      "declined": "This invite was declined.",
+      "wrongEmail": "This invite was sent to {{email}}. Sign in with that email to accept it.",
+      "unverifiedEmail": "Verify your email address before accepting this invite.",
+      "ownPurifier": "This is your own purifier.",
+      "alreadyMember": "You already have access to this purifier."
+    },
+    "errors": {
+      "generic": "Something went wrong. Please try again.",
+      "inviteFailed": "Could not create the invite.",
+      "acceptFailed": "Could not accept the invite."
+    }
   },
   "purifierTypes": {
     "kangaroo-kg108": {

@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useAuth } from '@/contexts/auth-context';
 import { filterService } from '@/services/filter-service';
+import { actorFromUser } from '@/lib/sharing';
 import type { UpdateFilterData } from '@/types';
 
 interface ReplaceFilterOptions {
@@ -27,16 +28,12 @@ export function useFilters(): UseFiltersReturn {
   const replaceFilter = useCallback(
     async (purifierId: string, filterId: string, replacedAt: Date, notes?: string, options?: ReplaceFilterOptions) => {
       if (!user) throw new Error('User not authenticated');
-      await filterService.replaceFilter(
-        purifierId,
-        filterId,
-        user.uid,
-        replacedAt,
+      await filterService.replaceFilter(purifierId, filterId, replacedAt, actorFromUser(user), {
+        purifierName: options?.purifierName ?? '',
+        filterName: options?.filterName,
+        filterPosition: options?.filterPosition,
         notes,
-        options?.purifierName,
-        options?.filterName,
-        options?.filterPosition
-      );
+      });
     },
     [user]
   );
