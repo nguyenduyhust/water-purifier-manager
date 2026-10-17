@@ -5,4 +5,8 @@
 // Firebase.xcconfig, which is not committed — see ios/README.md.
 GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.not-configured
 
+// Invite links point at the web app's /invite page. "$()" stops xcconfig
+// from reading "//" as a comment.
+WEB_APP_URL = https:/$()/water-purifier-manager.vercel.app
+
 #include? "Firebase.xcconfig"

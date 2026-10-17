@@ -1,10 +1,35 @@
 import FirebaseFirestore
 import Foundation
 
+enum MemberRole: String, Codable, CaseIterable, Identifiable {
+    case editor
+    case viewer
+
+    var id: String { rawValue }
+}
+
+enum AccessRole: Equatable {
+    case owner
+    case member(MemberRole)
+
+    var canEdit: Bool {
+        switch self {
+        case .owner, .member(.editor): true
+        case .member(.viewer): false
+        }
+    }
+}
+
+struct MemberProfile: Codable, Hashable {
+    var name: String
+    var email: String?
+    var joinedAt: Date?
+}
+
 /// A document in `purifiers`. Field names match the web app's Firestore schema.
 struct Purifier: Identifiable, Codable, Hashable {
     @DocumentID var id: String?
-    var userId: String
+    var userId: String  // owner
     var typeId: String
     var typeName: String?
     var name: String
@@ -13,6 +38,18 @@ struct Purifier: Identifiable, Codable, Hashable {
     var notes: String?
     var createdAt: Date?
     var updatedAt: Date?
+    var ownerName: String?
+    // Shared members, owner excluded
+    var memberIds: [String]?
+    // Raw strings so an unknown role from a newer client can't break decoding.
+    var roles: [String: String]?
+    var memberProfiles: [String: MemberProfile]?
+
+    func accessRole(for uid: String) -> AccessRole? {
+        if userId == uid { return .owner }
+        guard memberIds?.contains(uid) == true, let role = roles?[uid].flatMap(MemberRole.init(rawValue:)) else { return nil }
+        return .member(role)
+    }
 
     /// Prefers the bundled catalog so the type name follows the current language.
     var displayTypeName: String {

@@ -16,14 +16,15 @@ final class HistoryStore {
         self.userId = userId
     }
 
-    func load() async {
+    /// History lives under each purifier, including ones shared with the user.
+    func load(purifierIds: [String]) async {
         isLoading = true
         defer {
             isLoading = false
             hasLoaded = true
         }
         do {
-            logs = try await repository.fetchRecent(userId: userId)
+            logs = try await repository.fetchRecent(userId: userId, purifierIds: purifierIds)
         } catch {
             errorMessage = error.localizedDescription
         }

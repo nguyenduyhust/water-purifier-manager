@@ -26,4 +26,7 @@ struct ActivityLog: Identifiable, Decodable, Hashable {
     var filterName: String?
     var filterPosition: Int?
     var notes: String?
+    // Who did it; missing on entries written before sharing existed
+    var actorId: String?
+    var actorName: String?
 }

@@ -10,7 +10,7 @@ struct DashboardStats {
     var okFilters = 0
 }
 
-/// Live purifiers and filters for the signed-in user, shared by every tab.
+/// Live purifiers (owned and shared with the user) and their filters, shared by every tab.
 @MainActor
 @Observable
 final class PurifierStore {
@@ -22,31 +22,41 @@ final class PurifierStore {
     /// Statuses are relative to this; refreshed when the app returns to the foreground.
     private(set) var now = Date.now
 
-    let userId: String
+    let user: AuthUser
+    var userId: String { user.uid }
 
     @ObservationIgnored private let repository = PurifierRepository()
+    @ObservationIgnored private let sharing = SharingRepository()
     @ObservationIgnored private let notifications: NotificationScheduler
-    @ObservationIgnored private var purifiersListener: ListenerRegistration?
+    @ObservationIgnored private var ownedListener: ListenerRegistration?
+    @ObservationIgnored private var sharedListener: ListenerRegistration?
+    @ObservationIgnored private var owned: [Purifier]?
+    @ObservationIgnored private var shared: [Purifier]?
     @ObservationIgnored private var filterListeners: [String: ListenerRegistration] = [:]
     @ObservationIgnored private var rescheduleTask: Task<Void, Never>?
 
-    init(userId: String, notifications: NotificationScheduler = .shared) {
-        self.userId = userId
+    init(user: AuthUser, notifications: NotificationScheduler = .shared) {
+        self.user = user
         self.notifications = notifications
     }
 
     // MARK: Lifecycle
 
     func start() {
-        guard purifiersListener == nil else { return }
-        purifiersListener = repository.listenToPurifiers(userId: userId) { [weak self] result in
-            MainActor.assumeIsolated { self?.handlePurifiers(result) }
+        guard ownedListener == nil else { return }
+        ownedListener = repository.listenToPurifiers(userId: userId, shared: false) { [weak self] result in
+            MainActor.assumeIsolated { self?.handlePurifiers(result, shared: false) }
+        }
+        sharedListener = repository.listenToPurifiers(userId: userId, shared: true) { [weak self] result in
+            MainActor.assumeIsolated { self?.handlePurifiers(result, shared: true) }
         }
     }
 
     func stop() {
-        purifiersListener?.remove()
-        purifiersListener = nil
+        ownedListener?.remove()
+        sharedListener?.remove()
+        ownedListener = nil
+        sharedListener = nil
         filterListeners.values.forEach { $0.remove() }
         filterListeners = [:]
         rescheduleTask?.cancel()
@@ -61,6 +71,10 @@ final class PurifierStore {
 
     func purifier(id: String) -> Purifier? {
         purifiers.first { $0.id == id }
+    }
+
+    func role(for purifier: Purifier) -> AccessRole? {
+        purifier.accessRole(for: userId)
     }
 
     func filterItems(for purifierId: String) -> [FilterItem] {
@@ -86,7 +100,7 @@ final class PurifierStore {
     // MARK: Actions
 
     func create(_ newPurifier: NewPurifier) async throws {
-        try await repository.create(newPurifier, userId: userId)
+        try await repository.create(newPurifier, owner: user.actor)
     }
 
     func update(purifierId: String, name: String, location: String, notes: String) async throws {
@@ -94,11 +108,15 @@ final class PurifierStore {
     }
 
     func delete(purifierId: String) async throws {
-        try await repository.delete(purifierId: purifierId, userId: userId)
+        try await repository.delete(purifierId: purifierId, ownerId: userId)
     }
 
     func replaceFilter(_ item: FilterItem, replacedAt: Date, notes: String) async throws {
-        try await repository.replaceFilter(item, replacedAt: replacedAt, notes: notes)
+        try await repository.replaceFilter(item, replacedAt: replacedAt, notes: notes, actor: user.actor)
+    }
+
+    func leave(purifierId: String) async throws {
+        try await sharing.removeMember(purifierId: purifierId, memberId: userId)
     }
 
     func scheduleNotifications() {
@@ -130,18 +148,26 @@ final class PurifierStore {
         }
     }
 
-    private func handlePurifiers(_ result: Result<[Purifier], Error>) {
+    private func handlePurifiers(_ result: Result<[Purifier], Error>, shared isShared: Bool) {
         switch result {
+        case .success(let list):
+            if isShared { shared = list } else { owned = list }
         case .failure(let error):
-            loadError = error.localizedDescription
-            isLoading = false
-        case .success(let purifiers):
-            self.purifiers = purifiers
-            syncFilterListeners()
-            if purifiers.isEmpty {
-                isLoading = false
-                scheduleNotifications()
+            // Keep owned purifiers usable if only the shared query fails.
+            if isShared {
+                shared = []
+            } else {
+                owned = []
+                loadError = error.localizedDescription
             }
+        }
+
+        guard let owned, let shared else { return }
+        purifiers = (owned + shared).sorted { ($0.createdAt ?? .distantPast) > ($1.createdAt ?? .distantPast) }
+        syncFilterListeners()
+        if purifiers.isEmpty {
+            isLoading = false
+            scheduleNotifications()
         }
     }
 
@@ -155,7 +181,7 @@ final class PurifierStore {
         }
 
         for id in ids where filterListeners[id] == nil {
-            filterListeners[id] = repository.listenToFilters(purifierId: id, userId: userId) { [weak self] result in
+            filterListeners[id] = repository.listenToFilters(purifierId: id) { [weak self] result in
                 MainActor.assumeIsolated { self?.handleFilters(result, purifierId: id) }
             }
         }
@@ -163,8 +189,9 @@ final class PurifierStore {
 
     private func handleFilters(_ result: Result<[Filter], Error>, purifierId: String) {
         switch result {
-        case .failure(let error):
-            loadError = error.localizedDescription
+        case .failure:
+            // Usually access was just removed; the purifier listener drops it next.
+            filtersByPurifier[purifierId] = []
         case .success(let filters):
             filtersByPurifier[purifierId] = filters
             scheduleNotifications()
