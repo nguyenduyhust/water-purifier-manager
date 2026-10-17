@@ -156,6 +156,24 @@
     "filterReplaced": "Filter replaced",
     "by": "by {{name}}"
   },
+  "account": {
+    "deleteTitle": "Delete account",
+    "deleteDescription": "This permanently deletes your account and your data:",
+    "deleteOwned": "Purifiers you own, with their filters, history and invites. People you shared them with lose access.",
+    "deleteShared": "You are removed from purifiers others shared with you. Entries you added to their history stay with your name.",
+    "deleteIrreversible": "This cannot be undone.",
+    "deletePasswordLabel": "Enter your password to confirm",
+    "deleteGoogleHint": "You'll be asked to sign in with Google again to confirm.",
+    "deleteUseIos": "You signed in with Apple. Delete your account from the iOS app: Settings → Delete account.",
+    "deleteWrongAccount": "Sign in with the same Google account you use here.",
+    "deleteConfirm": "Delete account",
+    "deleteFailed": "Could not delete your account. Please try again.",
+    "deleted": "Your account has been deleted"
+  },
+  "legal": {
+    "privacy": "Privacy Policy",
+    "support": "Support"
+  },
   "sharing": {
     "share": "Share",
     "sharing": "Sharing",

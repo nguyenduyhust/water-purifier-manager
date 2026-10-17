@@ -1684,6 +1684,86 @@
           }
         }
       }
+    },
+    "Delete account": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa tài khoản"
+          }
+        }
+      }
+    },
+    "Delete account?": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa tài khoản?"
+          }
+        }
+      }
+    },
+    "Permanently deletes your account, the purifiers you own and their history. You are removed from purifiers shared with you.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa vĩnh viễn tài khoản, các máy lọc bạn sở hữu và lịch sử của chúng. Bạn sẽ bị gỡ khỏi các máy lọc được chia sẻ với bạn."
+          }
+        }
+      }
+    },
+    "Purifiers you own are deleted with their filters, history and invites, and the people you shared them with lose access. Entries you added to others' purifiers stay in their history. This cannot be undone.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Các máy lọc bạn sở hữu sẽ bị xóa cùng lõi lọc, lịch sử và lời mời, những người được chia sẻ sẽ mất quyền truy cập. Các mục bạn đã thêm vào máy lọc của người khác vẫn còn trong lịch sử của họ. Không thể hoàn tác."
+          }
+        }
+      }
+    },
+    "Deleting account…": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đang xóa tài khoản…"
+          }
+        }
+      }
+    },
+    "Enter your password to confirm.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhập mật khẩu để xác nhận."
+          }
+        }
+      }
+    },
+    "Privacy Policy": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chính sách quyền riêng tư"
+          }
+        }
+      }
+    },
+    "Support": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hỗ trợ"
+          }
+        }
+      }
     }
   },
   "version": "1.0"
