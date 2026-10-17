@@ -60,7 +60,8 @@ struct FilterStatusBadge: View {
 /// A filter on the purifier detail screen.
 struct FilterRow: View {
     let item: FilterItem
-    let onReplace: () -> Void
+    /// Nil hides the button, e.g. for viewers.
+    let onReplace: (() -> Void)?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -92,9 +93,11 @@ struct FilterRow: View {
                     .font(.subheadline.weight(.medium))
                     .foregroundStyle(item.schedule.status.color)
                 Spacer()
-                Button("Replace", action: onReplace)
-                    .buttonStyle(.bordered)
-                    .controlSize(.small)
+                if let onReplace {
+                    Button("Replace", action: onReplace)
+                        .buttonStyle(.bordered)
+                        .controlSize(.small)
+                }
             }
         }
         .padding(.vertical, 4)

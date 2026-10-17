@@ -1,6 +1,16 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "%@ (you)": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (bạn)"
+          }
+        }
+      }
+    },
     "%@ in %@ is due in %lld days.": {
       "localizations": {
         "vi": {
@@ -17,6 +27,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@ của %2$@ đến hạn thay hôm nay."
+          }
+        }
+      }
+    },
+    "%@ invited you to \"%@\" as %@": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ mời bạn vào \"%2$@\" với quyền %3$@"
+          }
+        }
+      }
+    },
+    "%@ · Expires %@": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · Hết hạn %2$@"
+          }
+        }
+      }
+    },
+    "%@. With an email, only that person can use the invite. Without one, anyone with the link can. Invites expire after 7 days.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. Nếu nhập email, chỉ người đó dùng được lời mời; nếu không, ai có link cũng dùng được. Lời mời hết hạn sau 7 ngày."
           }
         }
       }
@@ -45,6 +85,26 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "Accept": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chấp nhận"
+          }
+        }
+      }
+    },
+    "Accept invite": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chấp nhận lời mời"
           }
         }
       }
@@ -149,6 +209,16 @@
         }
       }
     },
+    "Anyone with the link": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bất kỳ ai có link"
+          }
+        }
+      }
+    },
     "Are you sure you want to delete \"%@\"? All of its filters will be deleted too. This can't be undone.": {
       "localizations": {
         "vi": {
@@ -175,6 +245,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "Quay lại đăng nhập"
+          }
+        }
+      }
+    },
+    "by %@": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "bởi %@"
+          }
+        }
+      }
+    },
+    "Can edit details and replace filters": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sửa thông tin và thay lõi"
+          }
+        }
+      }
+    },
+    "Can only view": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chỉ được xem"
           }
         }
       }
@@ -229,6 +329,36 @@
         }
       }
     },
+    "Copy link": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sao chép link"
+          }
+        }
+      }
+    },
+    "Could not accept the invite.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không chấp nhận được lời mời."
+          }
+        }
+      }
+    },
+    "Could not create the invite.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không tạo được lời mời."
+          }
+        }
+      }
+    },
     "Create account": {
       "localizations": {
         "vi": {
@@ -239,12 +369,32 @@
         }
       }
     },
+    "Create invite link": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tạo link mời"
+          }
+        }
+      }
+    },
     "Dashboard": {
       "localizations": {
         "vi": {
           "stringUnit": {
             "state": "translated",
             "value": "Tổng quan"
+          }
+        }
+      }
+    },
+    "Decline": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Từ chối"
           }
         }
       }
@@ -285,6 +435,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Chưa có tài khoản? Đăng ký"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xong"
           }
         }
       }
@@ -359,12 +519,32 @@
         }
       }
     },
+    "Editor": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Người quản lý"
+          }
+        }
+      }
+    },
     "Email": {
       "localizations": {
         "vi": {
           "stringUnit": {
             "state": "translated",
             "value": "Email"
+          }
+        }
+      }
+    },
+    "Email (optional)": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Email (không bắt buộc)"
           }
         }
       }
@@ -433,16 +613,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Thêm máy lọc thất bại. Vui lòng thử lại."
-          }
-        }
-      }
-    },
-    "Failed to delete purifier. Please try again.": {
-      "localizations": {
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Xóa máy lọc thất bại. Vui lòng thử lại."
           }
         }
       }
@@ -567,6 +737,16 @@
         }
       }
     },
+    "https://…/invite/…": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://…/invite/…"
+          }
+        }
+      }
+    },
     "Installation date": {
       "localizations": {
         "vi": {
@@ -597,6 +777,66 @@
         }
       }
     },
+    "Invite link": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Link mời"
+          }
+        }
+      }
+    },
+    "Invite someone": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mời người khác"
+          }
+        }
+      }
+    },
+    "Invited by": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Người mời"
+          }
+        }
+      }
+    },
+    "Invites for you": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lời mời dành cho bạn"
+          }
+        }
+      }
+    },
+    "Join a purifier": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tham gia máy lọc"
+          }
+        }
+      }
+    },
+    "Join with invite link": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tham gia bằng link mời"
+          }
+        }
+      }
+    },
     "Language": {
       "localizations": {
         "vi": {
@@ -613,6 +853,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Thay lần cuối"
+          }
+        }
+      }
+    },
+    "Leave": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rời khỏi"
+          }
+        }
+      }
+    },
+    "Leave \"%@\"?": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rời khỏi \"%@\"?"
           }
         }
       }
@@ -785,6 +1045,16 @@
         }
       }
     },
+    "Owner": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chủ sở hữu"
+          }
+        }
+      }
+    },
     "Password": {
       "localizations": {
         "vi": {
@@ -811,6 +1081,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mật khẩu không khớp"
+          }
+        }
+      }
+    },
+    "Paste the invite link you received from the purifier's owner.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dán link mời mà chủ máy lọc đã gửi cho bạn."
+          }
+        }
+      }
+    },
+    "Pending invites": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lời mời đang chờ"
+          }
+        }
+      }
+    },
+    "People with access": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Người có quyền truy cập"
           }
         }
       }
@@ -905,6 +1205,26 @@
         }
       }
     },
+    "Remove": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa"
+          }
+        }
+      }
+    },
+    "Remove this person?": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa người này?"
+          }
+        }
+      }
+    },
     "Replace": {
       "localizations": {
         "vi": {
@@ -945,6 +1265,26 @@
         }
       }
     },
+    "Revoke": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thu hồi"
+          }
+        }
+      }
+    },
+    "Role": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quyền"
+          }
+        }
+      }
+    },
     "Save": {
       "localizations": {
         "vi": {
@@ -965,6 +1305,16 @@
         }
       }
     },
+    "Send invite link": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gửi link mời"
+          }
+        }
+      }
+    },
     "Send reset link": {
       "localizations": {
         "vi": {
@@ -981,6 +1331,46 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cài đặt"
+          }
+        }
+      }
+    },
+    "Share": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chia sẻ"
+          }
+        }
+      }
+    },
+    "Share (%lld)": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chia sẻ (%lld)"
+          }
+        }
+      }
+    },
+    "Shared by": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Được chia sẻ bởi"
+          }
+        }
+      }
+    },
+    "Shared · %@": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Được chia sẻ · %@"
           }
         }
       }
@@ -1025,6 +1415,16 @@
         }
       }
     },
+    "Something went wrong. Please try again.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đã xảy ra lỗi. Vui lòng thử lại."
+          }
+        }
+      }
+    },
     "The app follows your iPhone's language. You can choose a different language for this app in Settings.": {
       "localizations": {
         "vi": {
@@ -1045,12 +1445,82 @@
         }
       }
     },
+    "They will no longer see this purifier.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Người này sẽ không còn thấy máy lọc này nữa."
+          }
+        }
+      }
+    },
     "This email is already in use": {
       "localizations": {
         "vi": {
           "stringUnit": {
             "state": "translated",
             "value": "Email này đã được sử dụng"
+          }
+        }
+      }
+    },
+    "This invite doesn't exist or was revoked.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lời mời không tồn tại hoặc đã bị thu hồi."
+          }
+        }
+      }
+    },
+    "This invite has already been used.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lời mời này đã được sử dụng."
+          }
+        }
+      }
+    },
+    "This invite has expired. Ask the owner for a new one.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lời mời đã hết hạn. Hãy nhờ chủ máy gửi lời mời mới."
+          }
+        }
+      }
+    },
+    "This invite was declined.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lời mời này đã bị từ chối."
+          }
+        }
+      }
+    },
+    "This invite was sent to %@. Sign in with that email to accept it.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lời mời này được gửi tới %@. Hãy đăng nhập bằng email đó để chấp nhận."
+          }
+        }
+      }
+    },
+    "This is your own purifier.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đây là máy lọc của bạn."
           }
         }
       }
@@ -1115,12 +1585,32 @@
         }
       }
     },
+    "Verify your email address before accepting this invite.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hãy xác minh địa chỉ email trước khi chấp nhận lời mời."
+          }
+        }
+      }
+    },
     "Version": {
       "localizations": {
         "vi": {
           "stringUnit": {
             "state": "translated",
             "value": "Phiên bản"
+          }
+        }
+      }
+    },
+    "Viewer": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Người xem"
           }
         }
       }
@@ -1145,12 +1635,52 @@
         }
       }
     },
+    "You already have access to this purifier.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bạn đã có quyền truy cập máy lọc này."
+          }
+        }
+      }
+    },
+    "You have view-only access to this purifier.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bạn chỉ có quyền xem máy lọc này."
+          }
+        }
+      }
+    },
+    "You will no longer see this purifier unless you are invited again.": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bạn sẽ không còn thấy máy lọc này, trừ khi được mời lại."
+          }
+        }
+      }
+    },
     "You'll be reminded %lld days before and on the day each filter is due, at %lld:00.": {
       "localizations": {
         "vi": {
           "stringUnit": {
             "state": "translated",
             "value": "Bạn sẽ được nhắc trước %1$lld ngày và vào đúng ngày đến hạn thay mỗi lõi, lúc %2$lld:00."
+          }
+        }
+      }
+    },
+    "Your role": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quyền của bạn"
           }
         }
       }

@@ -10,11 +10,22 @@ struct AuthUser: Equatable {
     let uid: String
     let email: String?
     let displayName: String?
+    let isEmailVerified: Bool
 
     init(_ user: User) {
-        uid = user.uid
-        email = user.email
-        displayName = user.displayName
+        self.init(uid: user.uid, email: user.email, displayName: user.displayName, isEmailVerified: user.isEmailVerified)
+    }
+
+    init(uid: String, email: String?, displayName: String?, isEmailVerified: Bool) {
+        self.uid = uid
+        self.email = email
+        self.displayName = displayName
+        self.isEmailVerified = isEmailVerified
+    }
+
+    /// How this user appears to others on shared purifiers and in history.
+    var actor: Actor {
+        Actor(id: uid, name: displayName ?? email ?? "")
     }
 }
 

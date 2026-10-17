@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/contexts/auth-context';
 import { activityLogService, type HistoryEvent } from '@/services/activity-log-service';
+import { purifierService } from '@/services/purifier-service';
 
 interface UseHistoryReturn {
   events: HistoryEvent[];
@@ -15,7 +16,7 @@ export function useHistory(): UseHistoryReturn {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const fetchHistory = async () => {
+  const fetchHistory = useCallback(async () => {
     if (!user) {
       setEvents([]);
       setLoading(false);
@@ -26,19 +27,20 @@ export function useHistory(): UseHistoryReturn {
     setError(null);
 
     try {
-      const data = await activityLogService.getHistory(user.uid);
-      setEvents(data);
+      // History lives under each purifier, including ones shared with the user.
+      const purifiers = await purifierService.getAll(user.uid);
+      setEvents(await activityLogService.getHistory(user.uid, purifiers.map((p) => p.id)));
     } catch (err) {
       console.error('History fetch error:', err);
       setError(err instanceof Error ? err : new Error('Failed to fetch history'));
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
 
   useEffect(() => {
     fetchHistory();
-  }, [user]);
+  }, [fetchHistory]);
 
   return {
     events,

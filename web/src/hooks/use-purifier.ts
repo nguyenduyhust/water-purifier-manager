@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/auth-context';
 import { purifierService } from '@/services/purifier-service';
 import { filterStatusService } from '@/services/filter-status-service';
-import type { Purifier, Filter, FilterWithStatus } from '@/types';
+import { getAccessRole } from '@/lib/sharing';
+import type { AccessRole, Purifier, Filter, FilterWithStatus } from '@/types';
 
 interface UsePurifierReturn {
   purifier: Purifier | null;
   filters: FilterWithStatus[];
+  /** The signed-in user's access, null while loading or without access */
+  role: AccessRole | null;
   loading: boolean;
   error: Error | null;
 }
@@ -38,7 +41,7 @@ export function usePurifier(purifierId: string | undefined): UsePurifierReturn {
     });
 
     // Subscribe to filters
-    const unsubscribeFilters = purifierService.subscribeToFilters(purifierId, user.uid, (data: Filter[]) => {
+    const unsubscribeFilters = purifierService.subscribeToFilters(purifierId, (data: Filter[]) => {
       const filtersWithStatus = filterStatusService.calculateAllStatuses(data);
       setFilters(filterStatusService.sortByUrgency(filtersWithStatus));
       setLoading(false);
@@ -53,6 +56,7 @@ export function usePurifier(purifierId: string | undefined): UsePurifierReturn {
   return {
     purifier,
     filters,
+    role: purifier ? getAccessRole(purifier, user?.uid) : null,
     loading,
     error,
   };

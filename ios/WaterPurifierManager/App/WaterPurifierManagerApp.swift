@@ -1,4 +1,6 @@
+import FirebaseAuth
 import FirebaseCore
+import FirebaseFirestore
 import GoogleSignIn
 import SwiftUI
 import UserNotifications
@@ -28,10 +30,43 @@ enum FirebaseBootstrap {
     /// committed to the repo (see ios/README.md).
     static func configure() -> Bool {
         if FirebaseApp.app() != nil { return true }
-        guard Bundle.main.url(forResource: "GoogleService-Info", withExtension: "plist") != nil else { return false }
-        FirebaseApp.configure()
+        guard
+            let url = Bundle.main.url(forResource: "GoogleService-Info", withExtension: "plist"),
+            let options = FirebaseOptions(contentsOfFile: url.path)
+        else { return false }
+
+        #if DEBUG
+        if usesEmulators {
+            // Same demo project as `npm run dev:emulator`, so the emulator's rules apply.
+            options.projectID = "demo-water-purifier"
+        }
+        #endif
+
+        FirebaseApp.configure(options: options)
+
+        #if DEBUG
+        if usesEmulators {
+            Auth.auth().useEmulator(withHost: "127.0.0.1", port: 9099)
+            let settings = Firestore.firestore().settings
+            settings.host = "127.0.0.1:8080"
+            settings.isSSLEnabled = false
+            settings.cacheSettings = MemoryCacheSettings()
+            Firestore.firestore().settings = settings
+            // UI tests start each run from the sign-in screen.
+            if ProcessInfo.processInfo.arguments.contains("-signOutOnLaunch") {
+                try? Auth.auth().signOut()
+            }
+        }
+        #endif
         return true
     }
+
+    #if DEBUG
+    /// Launch with `-useFirebaseEmulators` (UI tests do) to use the local emulators in firebase/.
+    private static var usesEmulators: Bool {
+        ProcessInfo.processInfo.arguments.contains("-useFirebaseEmulators")
+    }
+    #endif
 }
 
 final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {

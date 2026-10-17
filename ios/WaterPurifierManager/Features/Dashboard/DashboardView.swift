@@ -6,6 +6,8 @@ struct DashboardView: View {
 
     var body: some View {
         List {
+            PendingInvitesSection()
+
             if store.purifiers.isEmpty {
                 if !store.isLoading {
                     ContentUnavailableView {

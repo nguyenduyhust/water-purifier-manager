@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/contexts/auth-context';
 import { purifierService } from '@/services/purifier-service';
+import { actorFromUser } from '@/lib/sharing';
 import type { Purifier, CreatePurifierData, UpdatePurifierData } from '@/types';
 import type { FilterTemplate } from '@/types';
 
@@ -53,7 +54,7 @@ export function usePurifiers(): UsePurifiersReturn {
         intervalMonths: t.defaultIntervalMonths,
       }));
 
-      return purifierService.create(fullData, templates);
+      return purifierService.create(fullData, templates, actorFromUser(user));
     },
     [user]
   );

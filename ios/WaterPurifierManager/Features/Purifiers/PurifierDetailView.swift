@@ -7,16 +7,18 @@ struct PurifierDetailView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var isEditing = false
+    @State private var isSharing = false
     @State private var isConfirmingDelete = false
-    @State private var isDeleting = false
+    @State private var isConfirmingLeave = false
+    @State private var isLeavingOrDeleting = false
     @State private var replacingItem: FilterItem?
     @State private var errorMessage: String?
 
     var body: some View {
         Group {
-            if let purifier = store.purifier(id: purifierId) {
-                content(for: purifier)
-            } else if !isDeleting {
+            if let purifier = store.purifier(id: purifierId), let role = store.role(for: purifier) {
+                content(for: purifier, role: role)
+            } else if !isLeavingOrDeleting {
                 ContentUnavailableView(
                     "Purifier not found",
                     systemImage: "questionmark.circle",
@@ -28,9 +30,17 @@ struct PurifierDetailView: View {
         .errorAlert($errorMessage)
     }
 
-    private func content(for purifier: Purifier) -> some View {
+    private func content(for purifier: Purifier, role: AccessRole) -> some View {
         List {
             Section("Details") {
+                if case .member(let memberRole) = role {
+                    LabeledContent("Shared by") {
+                        Text(purifier.ownerName ?? String(localized: "Owner"))
+                    }
+                    LabeledContent("Your role") {
+                        Text(memberRole.title)
+                    }
+                }
                 LabeledContent("Type", value: purifier.displayTypeName)
                 if let location = purifier.location, !location.isEmpty {
                     LabeledContent("Location", value: location)
@@ -46,9 +56,15 @@ struct PurifierDetailView: View {
                 }
             }
 
-            Section("Filters") {
+            Section {
                 ForEach(store.filterItems(for: purifierId)) { item in
-                    FilterRow(item: item) { replacingItem = item }
+                    FilterRow(item: item, onReplace: role.canEdit ? { replacingItem = item } : nil)
+                }
+            } header: {
+                Text("Filters")
+            } footer: {
+                if !role.canEdit {
+                    Text("You have view-only access to this purifier.")
                 }
             }
         }
@@ -56,15 +72,33 @@ struct PurifierDetailView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Menu {
-                    Button {
-                        isEditing = true
-                    } label: {
-                        Label("Edit", systemImage: "pencil")
+                    if role == .owner {
+                        Button {
+                            isSharing = true
+                        } label: {
+                            let count = purifier.memberIds?.count ?? 0
+                            Label(count > 0 ? "Share (\(count))" : "Share", systemImage: "person.badge.plus")
+                        }
                     }
-                    Button(role: .destructive) {
-                        isConfirmingDelete = true
-                    } label: {
-                        Label("Delete purifier", systemImage: "trash")
+                    if role.canEdit {
+                        Button {
+                            isEditing = true
+                        } label: {
+                            Label("Edit", systemImage: "pencil")
+                        }
+                    }
+                    if role == .owner {
+                        Button(role: .destructive) {
+                            isConfirmingDelete = true
+                        } label: {
+                            Label("Delete purifier", systemImage: "trash")
+                        }
+                    } else {
+                        Button(role: .destructive) {
+                            isConfirmingLeave = true
+                        } label: {
+                            Label("Leave", systemImage: "rectangle.portrait.and.arrow.right")
+                        }
                     }
                 } label: {
                     Label("More", systemImage: "ellipsis.circle")
@@ -74,6 +108,9 @@ struct PurifierDetailView: View {
         .sheet(isPresented: $isEditing) {
             NavigationStack { PurifierFormView(mode: .edit(purifier)) }
         }
+        .sheet(isPresented: $isSharing) {
+            NavigationStack { ShareView(purifierId: purifierId) }
+        }
         .sheet(item: $replacingItem) { item in
             NavigationStack { ReplaceFilterSheet(item: item) }
         }
@@ -82,21 +119,35 @@ struct PurifierDetailView: View {
             isPresented: $isConfirmingDelete,
             titleVisibility: .visible
         ) {
-            Button("Delete", role: .destructive) { delete() }
+            Button("Delete", role: .destructive) {
+                finish { try await store.delete(purifierId: purifierId) }
+            }
         } message: {
             Text("Are you sure you want to delete \"\(purifier.name)\"? All of its filters will be deleted too. This can't be undone.")
         }
+        .confirmationDialog(
+            "Leave \"\(purifier.name)\"?",
+            isPresented: $isConfirmingLeave,
+            titleVisibility: .visible
+        ) {
+            Button("Leave", role: .destructive) {
+                finish { try await store.leave(purifierId: purifierId) }
+            }
+        } message: {
+            Text("You will no longer see this purifier unless you are invited again.")
+        }
     }
 
-    private func delete() {
-        isDeleting = true
+    /// Deleting or leaving: the purifier disappears from the store, so close the screen.
+    private func finish(_ action: @escaping () async throws -> Void) {
+        isLeavingOrDeleting = true
         Task {
             do {
-                try await store.delete(purifierId: purifierId)
+                try await action()
                 dismiss()
             } catch {
-                isDeleting = false
-                errorMessage = String(localized: "Failed to delete purifier. Please try again.")
+                isLeavingOrDeleting = false
+                errorMessage = String(localized: "Something went wrong. Please try again.")
             }
         }
     }

@@ -21,6 +21,13 @@
 			remoteGlobalIDString = 7A1F00000000000000005401;
 			remoteInfo = WaterPurifierManager;
 		};
+		7A1F00000000000000005501 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A1F00000000000000005001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A1F00000000000000005401;
+			remoteInfo = WaterPurifierManager;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +37,7 @@
 		7A1F00000000000000004605 /* App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = App.xcconfig; sourceTree = "<group>"; };
 		7A1F00000000000000004606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A1F00000000000000004607 /* WaterPurifierManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WaterPurifierManager.entitlements; sourceTree = "<group>"; };
+		7A1F00000000000000005502 /* WaterPurifierManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaterPurifierManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -41,6 +49,11 @@
 		7A1F00000000000000004702 /* WaterPurifierManagerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = WaterPurifierManagerTests;
+			sourceTree = "<group>";
+		};
+		7A1F00000000000000005503 /* WaterPurifierManagerUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = WaterPurifierManagerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -63,6 +76,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A1F00000000000000005504 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -71,6 +91,7 @@
 			children = (
 				7A1F00000000000000004701 /* WaterPurifierManager */,
 				7A1F00000000000000004702 /* WaterPurifierManagerTests */,
+				7A1F00000000000000005503 /* WaterPurifierManagerUITests */,
 				7A1F00000000000000004D03 /* Shared */,
 				7A1F00000000000000004D04 /* Config */,
 				7A1F00000000000000004D02 /* Products */,
@@ -82,6 +103,7 @@
 			children = (
 				7A1F00000000000000004601 /* WaterPurifierManager.app */,
 				7A1F00000000000000004602 /* WaterPurifierManagerTests.xctest */,
+				7A1F00000000000000005502 /* WaterPurifierManagerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +177,29 @@
 			productReference = 7A1F00000000000000004602 /* WaterPurifierManagerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		7A1F00000000000000005507 /* WaterPurifierManagerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A1F00000000000000005511 /* Build configuration list for PBXNativeTarget "WaterPurifierManagerUITests" */;
+			buildPhases = (
+				7A1F00000000000000005506 /* Sources */,
+				7A1F00000000000000005504 /* Frameworks */,
+				7A1F00000000000000005505 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A1F00000000000000005508 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				7A1F00000000000000005503 /* WaterPurifierManagerUITests */,
+			);
+			name = WaterPurifierManagerUITests;
+			packageProductDependencies = (
+			);
+			productName = WaterPurifierManagerUITests;
+			productReference = 7A1F00000000000000005502 /* WaterPurifierManagerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -169,6 +214,10 @@
 						CreatedOnToolsVersion = 26.5;
 					};
 					7A1F00000000000000005402 = {
+						CreatedOnToolsVersion = 26.5;
+						TestTargetID = 7A1F00000000000000005401;
+					};
+					7A1F00000000000000005507 = {
 						CreatedOnToolsVersion = 26.5;
 						TestTargetID = 7A1F00000000000000005401;
 					};
@@ -195,6 +244,7 @@
 			targets = (
 				7A1F00000000000000005401 /* WaterPurifierManager */,
 				7A1F00000000000000005402 /* WaterPurifierManagerTests */,
+				7A1F00000000000000005507 /* WaterPurifierManagerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -209,6 +259,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7A1F00000000000000005202 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A1F00000000000000005505 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,6 +289,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A1F00000000000000005506 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -240,9 +304,46 @@
 			target = 7A1F00000000000000005401 /* WaterPurifierManager */;
 			targetProxy = 7A1F00000000000000004401 /* PBXContainerItemProxy */;
 		};
+		7A1F00000000000000005508 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A1F00000000000000005401 /* WaterPurifierManager */;
+			targetProxy = 7A1F00000000000000005501 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		7A1F00000000000000005509 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nguyenduyhust.waterpurifiermanager.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = WaterPurifierManager;
+			};
+			name = Debug;
+		};
+		7A1F00000000000000005510 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nguyenduyhust.waterpurifiermanager.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = WaterPurifierManager;
+			};
+			name = Release;
+		};
 		7A1F00000000000000005801 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -432,6 +533,15 @@
 			buildConfigurations = (
 				7A1F00000000000000005805 /* Debug */,
 				7A1F00000000000000005806 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A1F00000000000000005511 /* Build configuration list for PBXNativeTarget "WaterPurifierManagerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A1F00000000000000005509 /* Debug */,
+				7A1F00000000000000005510 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

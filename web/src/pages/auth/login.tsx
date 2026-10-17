@@ -1,17 +1,24 @@
-import { Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 import { AppLogo } from '@/components/app-logo';
+import { rememberReturnTo, takeReturnTo } from '@/lib/return-to';
 import { useAuth } from '@/contexts/auth-context';
 import { LoginForm } from '@/components/auth/login-form';
 
 export function LoginPage() {
   const { user, loading } = useAuth();
+  const location = useLocation();
+
+  useEffect(() => {
+    rememberReturnTo(location);
+  }, [location]);
 
   if (loading) {
     return null;
   }
 
   if (user) {
-    return <Navigate to="/" replace />;
+    return <Navigate to={takeReturnTo(location)} replace />;
   }
 
   return (

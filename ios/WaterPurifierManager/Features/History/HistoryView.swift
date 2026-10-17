@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HistoryView: View {
     @Environment(HistoryStore.self) private var history
+    @Environment(PurifierStore.self) private var store
 
     var body: some View {
         @Bindable var history = history
@@ -24,11 +25,13 @@ struct HistoryView: View {
         .overlay {
             if history.isLoading && !history.hasLoaded { ProgressView() }
         }
-        .refreshable { await history.load() }
-        // Reload on every visit so entries made on other tabs or devices show up.
-        .task { await history.load() }
+        .refreshable { await history.load(purifierIds: purifierIds) }
+        // Reload on every visit, and when purifiers change, so entries from other members show up.
+        .task(id: purifierIds) { await history.load(purifierIds: purifierIds) }
         .errorAlert($history.errorMessage)
     }
+
+    private var purifierIds: [String] { store.purifiers.compactMap(\.id) }
 }
 
 private struct ActivityRow: View {
@@ -49,6 +52,11 @@ private struct ActivityRow: View {
                 if let filterName = log.filterName {
                     Text(filterName)
                         .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                if let actorName = log.actorName, !actorName.isEmpty {
+                    Text("by \(actorName)")
+                        .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
                 if let notes = log.notes, !notes.isEmpty {

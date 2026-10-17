@@ -24,11 +24,13 @@ struct RootView: View {
 struct MainTabView: View {
     @State private var store: PurifierStore
     @State private var history: HistoryStore
+    @State private var myInvites: MyInvitesStore
     @Environment(\.scenePhase) private var scenePhase
 
     init(user: AuthUser) {
-        _store = State(initialValue: PurifierStore(userId: user.uid))
+        _store = State(initialValue: PurifierStore(user: user))
         _history = State(initialValue: HistoryStore(userId: user.uid))
+        _myInvites = State(initialValue: MyInvitesStore(user: user))
     }
 
     var body: some View {
@@ -49,13 +51,18 @@ struct MainTabView: View {
         }
         .environment(store)
         .environment(history)
+        .environment(myInvites)
         .task {
             store.start()
+            myInvites.start()
             if await NotificationScheduler.shared.requestAuthorizationIfNeeded() {
                 store.scheduleNotifications()
             }
         }
-        .onDisappear { store.stop() }
+        .onDisappear {
+            store.stop()
+            myInvites.stop()
+        }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active { store.refreshClock() }
         }

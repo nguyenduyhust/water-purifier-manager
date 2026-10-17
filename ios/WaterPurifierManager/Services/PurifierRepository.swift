@@ -12,6 +12,9 @@ struct NewPurifier {
 /// Firestore access for purifiers and their filters. Writes use the exact field
 /// layout of `web/src/services/purifier-service.ts` so both apps share data.
 struct PurifierRepository {
+    /// Firestore batches hold at most 500 writes.
+    private static let batchLimit = 450
+
     private let activityLogs = ActivityLogRepository()
 
     private var db: Firestore { Firestore.firestore() }
@@ -21,12 +24,16 @@ struct PurifierRepository {
         purifiers.document(purifierId).collection("filters")
     }
 
+    /// Owned purifiers are found by `userId`, shared ones by `memberIds`; each needs its own query.
     func listenToPurifiers(
         userId: String,
+        shared: Bool,
         onChange: @escaping (Result<[Purifier], Error>) -> Void
     ) -> ListenerRegistration {
-        purifiers
-            .whereField("userId", isEqualTo: userId)
+        let query = shared
+            ? purifiers.whereField("memberIds", arrayContains: userId)
+            : purifiers.whereField("userId", isEqualTo: userId)
+        return query
             .order(by: "createdAt", descending: true)
             .addSnapshotListener { snapshot, error in
                 if let error {
@@ -37,13 +44,12 @@ struct PurifierRepository {
             }
     }
 
+    /// Access to filters follows the parent purifier, so members query without a userId filter.
     func listenToFilters(
         purifierId: String,
-        userId: String,
         onChange: @escaping (Result<[Filter], Error>) -> Void
     ) -> ListenerRegistration {
         filters(of: purifierId)
-            .whereField("userId", isEqualTo: userId)
             .order(by: "position")
             .addSnapshotListener { snapshot, error in
                 if let error {
@@ -55,7 +61,7 @@ struct PurifierRepository {
     }
 
     @discardableResult
-    func create(_ newPurifier: NewPurifier, userId: String) async throws -> String {
+    func create(_ newPurifier: NewPurifier, owner: Actor) async throws -> String {
         let now = Timestamp(date: .now)
         let installedAt = Timestamp(date: newPurifier.installationDate)
         let purifierRef = purifiers.document()
@@ -64,7 +70,7 @@ struct PurifierRepository {
         // One batch so a purifier never exists without its filters.
         let batch = db.batch()
         batch.setData([
-            "userId": userId,
+            "userId": owner.id,
             "typeId": newPurifier.type.id,
             "typeName": typeName,
             "name": newPurifier.name,
@@ -78,7 +84,7 @@ struct PurifierRepository {
         for template in newPurifier.type.filterTemplates {
             batch.setData([
                 "purifierId": purifierRef.documentID,
-                "userId": userId,
+                "userId": owner.id,
                 "position": template.position,
                 "name": template.name.resolved(),
                 "intervalMonths": template.defaultIntervalMonths,
@@ -90,11 +96,11 @@ struct PurifierRepository {
         try await batch.commit()
 
         try await activityLogs.add(
-            userId: userId,
+            purifierId: purifierRef.documentID,
             type: .purifierCreated,
             timestamp: newPurifier.installationDate,
-            purifierId: purifierRef.documentID,
-            purifierName: newPurifier.name
+            purifierName: newPurifier.name,
+            actor: owner
         )
         return purifierRef.documentID
     }
@@ -108,20 +114,26 @@ struct PurifierRepository {
         ])
     }
 
-    func delete(purifierId: String, userId: String) async throws {
-        let snapshot = try await filters(of: purifierId)
-            .whereField("userId", isEqualTo: userId)
+    /// Owner only: removes the purifier with its filters, history and pending invites.
+    func delete(purifierId: String, ownerId: String) async throws {
+        async let filterDocs = filters(of: purifierId).getDocuments()
+        async let logDocs = purifiers.document(purifierId).collection("logs").getDocuments()
+        async let inviteDocs = db.collection("invites")
+            .whereField("createdBy", isEqualTo: ownerId)
+            .whereField("purifierId", isEqualTo: purifierId)
             .getDocuments()
 
-        let batch = db.batch()
-        for document in snapshot.documents {
-            batch.deleteDocument(document.reference)
+        let children = try await (filterDocs.documents + logDocs.documents + inviteDocs.documents).map(\.reference)
+        for start in stride(from: 0, to: children.count, by: Self.batchLimit) {
+            let batch = db.batch()
+            children[start..<min(start + Self.batchLimit, children.count)].forEach { batch.deleteDocument($0) }
+            try await batch.commit()
         }
-        batch.deleteDocument(purifiers.document(purifierId))
-        try await batch.commit()
+        // Last, so the purifier's rules still apply while its children are deleted.
+        try await purifiers.document(purifierId).delete()
     }
 
-    func replaceFilter(_ item: FilterItem, replacedAt: Date, notes: String) async throws {
+    func replaceFilter(_ item: FilterItem, replacedAt: Date, notes: String, actor: Actor) async throws {
         guard let filterId = item.filter.id, let purifierId = item.purifier.id else { return }
 
         try await filters(of: purifierId).document(filterId).updateData([
@@ -130,11 +142,11 @@ struct PurifierRepository {
         ])
 
         try await activityLogs.add(
-            userId: item.filter.userId,
+            purifierId: purifierId,
             type: .filterReplaced,
             timestamp: replacedAt,
-            purifierId: purifierId,
             purifierName: item.purifier.name,
+            actor: actor,
             filterId: filterId,
             filterName: item.filter.name,
             filterPosition: item.filter.position,
