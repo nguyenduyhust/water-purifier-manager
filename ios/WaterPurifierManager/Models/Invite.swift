@@ -58,7 +58,7 @@ enum InviteLink {
 
     /// The web app's invite page, which also works from a phone browser.
     static func url(for inviteId: String) -> URL {
-        webAppURL.appending(path: "invite/\(inviteId)")
+        AppLinks.webApp.appending(path: "invite/\(inviteId)")
     }
 
     /// Accepts a full invite link or just the code.
@@ -75,10 +75,5 @@ enum InviteLink {
         }
         // Firestore auto ids are 20 alphanumeric characters.
         return candidate.range(of: "^[A-Za-z0-9]{10,40}$", options: .regularExpression) != nil ? candidate : nil
-    }
-
-    private static var webAppURL: URL {
-        let configured = Bundle.main.object(forInfoDictionaryKey: "WebAppURL") as? String
-        return configured.flatMap(URL.init(string:)) ?? URL(string: "https://water-purifier-manager.vercel.app")!
     }
 }

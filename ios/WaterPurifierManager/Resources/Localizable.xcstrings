@@ -1744,6 +1744,26 @@
           }
         }
       }
+    },
+    "Privacy Policy": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chính sách quyền riêng tư"
+          }
+        }
+      }
+    },
+    "Support": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hỗ trợ"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

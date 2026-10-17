@@ -75,6 +75,8 @@ struct SettingsView: View {
             }
 
             Section {
+                Link("Privacy Policy", destination: AppLinks.privacyPolicy)
+                Link("Support", destination: AppLinks.support)
                 LabeledContent("Version", value: appVersion)
             }
         }
