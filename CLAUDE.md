@@ -263,7 +263,7 @@ Defined in `firebase/firestore.indexes.json`:
 ## Deployment
 
 - **Web:** Vercel auto-deploys on push to main (Root Directory = `web`)
-- **Firestore rules & indexes:** `cd firebase && firebase deploy --only firestore`
+- **Firestore rules & indexes:** `cd firebase && npx firebase-tools@latest deploy --only firestore`. Don't deploy with the firebase-tools 13 pinned in `firebase/package.json` (it is only for the emulator tests): it misreads the index file and asks to delete production indexes
 - **Environment:** Set Firebase env vars in hosting platform
 
 ---
