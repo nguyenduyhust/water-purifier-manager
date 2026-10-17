@@ -6,7 +6,7 @@ One file per domain. Each requirement lists its acceptance criteria with a check
 
 | File | Requirements |
 |------|--------------|
-| [authentication.md](authentication.md) | FR-001 Authentication |
+| [authentication.md](authentication.md) | FR-001 Authentication, FR-010 Account deletion |
 | [purifiers.md](purifiers.md) | FR-002 Purifier management, FR-003 Purifier types |
 | [filters.md](filters.md) | FR-004 Filter management and status |
 | [reminders.md](reminders.md) | FR-005 Replacement reminders |
