@@ -132,13 +132,13 @@ web/src/
 ## Documentation
 
 - [CLAUDE.md](CLAUDE.md) - Project context for Claude Code
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) - System architecture
-- [docs/CONVENTIONS.md](docs/CONVENTIONS.md) - Coding conventions
-- [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) - Project requirements
+- [docs/README.md](docs/README.md) - Documentation index (overview, requirements, architecture, specs, testing, operations, security, decisions, proposals)
+- [docs/04-development/getting-started.md](docs/04-development/getting-started.md) - Run the apps locally
+- [ios/README.md](ios/README.md) - iOS app setup
 
 ## Contributing
 
-1. Read `docs/CONVENTIONS.md` for coding standards
+1. Read [docs/04-development/conventions.md](docs/04-development/conventions.md) and [workflow.md](docs/04-development/workflow.md)
 2. Create a feature branch from `main`
 3. Make your changes with appropriate tests
 4. Submit a pull request

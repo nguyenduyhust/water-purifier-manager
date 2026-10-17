@@ -83,10 +83,8 @@ water-purifier-manager/
 │   └── purifier-types.json   # Purifier models + filter templates, used by all apps
 ├── ios/                      # Native SwiftUI app — see ios/README.md
 ├── firebase/                 # Firestore rules, indexes, emulator config (shared backend)
-├── docs/
-│   ├── ARCHITECTURE.md       # System architecture
-│   ├── CONVENTIONS.md        # Coding conventions
-│   └── REQUIREMENTS.md       # Project requirements
+├── docs/                     # Documentation in numbered topic folders — start at docs/README.md
+│   ├── 01-overview/ … 10-proposals/
 └── CLAUDE.md                 # This file
 ```
 
@@ -107,7 +105,7 @@ water-purifier-manager/
 
 ## Architecture Decisions
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for detailed architecture documentation.
+See [docs/03-architecture/](docs/03-architecture/README.md) for how the apps are built and [docs/09-decisions/](docs/09-decisions/README.md) for the decisions behind it. The docs index is [docs/README.md](docs/README.md).
 
 ### Key Patterns Used
 
@@ -118,7 +116,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for detailed architecture docum
 
 ## Coding Conventions
 
-See [docs/CONVENTIONS.md](docs/CONVENTIONS.md) for full coding standards.
+See [docs/04-development/conventions.md](docs/04-development/conventions.md) for full coding standards.
 
 ### Quick Rules
 
@@ -174,8 +172,8 @@ Web and iOS must stay in sync on the Firestore schema and filter status rules. W
 ## Internationalization (i18n)
 
 ### Supported Languages
-- English (en) - Default
-- Vietnamese (vi)
+- Vietnamese (vi) - fallback when no preference is stored or detected
+- English (en)
 
 ### How i18n Works
 
@@ -243,7 +241,7 @@ const { purifierTypes, getPurifierTypeById } = usePurifierTypes();
 - Purifier → PurifierType (via `typeId`, types defined in client code)
 - Filter → Purifier (via `purifierId`, also subcollection)
 - ActivityLog → Purifier/Filter (via `purifierId`, `filterId`)
-- Access: owner via `userId`, shared members via `memberIds` with role `editor` or `viewer` (see FR-009 in `docs/REQUIREMENTS.md`). Owned and shared purifiers are fetched with separate queries and merged
+- Access: owner via `userId`, shared members via `memberIds` with role `editor` or `viewer` (see FR-009 in `docs/02-requirements/functional/sharing.md`). Owned and shared purifiers are fetched with separate queries and merged
 
 ### Firestore Security Rules
 
@@ -291,8 +289,8 @@ Defined in `firebase/firestore.indexes.json`:
 ### When Unsure
 
 1. Check existing code for patterns (especially hooks and services)
-2. Refer to `docs/CONVENTIONS.md` for coding standards
-3. Refer to `docs/ARCHITECTURE.md` for structural decisions
+2. Refer to `docs/04-development/conventions.md` for coding standards
+3. Refer to `docs/03-architecture/` and `docs/09-decisions/` for structural decisions
 4. Ask for clarification before making architectural changes
 
 ### Key Domain Concepts
