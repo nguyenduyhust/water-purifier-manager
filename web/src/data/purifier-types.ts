@@ -15,6 +15,7 @@ export interface DefaultPurifierType {
 export interface LocalizedPurifierType {
   id: string;
   name: string;
+  brand: string;
   filterTemplates: FilterTemplate[];
 }
 
@@ -23,10 +24,16 @@ export const DEFAULT_PURIFIER_TYPES: DefaultPurifierType[] = purifierTypesData;
 
 type Language = "en" | "vi";
 
+// Names follow "Brand - Model (N filters)"; matches PurifierType.brand on iOS.
+function brandOf(type: DefaultPurifierType): string {
+  return type.name.en.split(" - ")[0];
+}
+
 export function getLocalizedPurifierTypes(lang: Language): LocalizedPurifierType[] {
   return DEFAULT_PURIFIER_TYPES.map((type) => ({
     id: type.id,
     name: type.name[lang],
+    brand: brandOf(type),
     filterTemplates: type.filterTemplates.map((filter) => ({
       position: filter.position,
       name: filter.name[lang],
@@ -46,6 +53,7 @@ export function getLocalizedPurifierTypeById(
   return {
     id: type.id,
     name: type.name[lang],
+    brand: brandOf(type),
     filterTemplates: type.filterTemplates.map((filter) => ({
       position: filter.position,
       name: filter.name[lang],

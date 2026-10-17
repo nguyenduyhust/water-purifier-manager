@@ -15,10 +15,14 @@ A web application for managing water purifiers and tracking filter replacement s
 
 ## Supported Purifier Types
 
-Pre-configured Vietnamese water purifier brands:
-- **Kangaroo**: KG108 (8 filters), KG100HQ (9 filters), KG104 Hydrogen (10 filters)
-- **Karofi**: KSI80 (8 filters), Optimus O-i229 (9 filters), KAD-X60 (10 filters)
-- **Sunhouse**: SHR76210CK (10 filters)
+42 pre-configured models (filter count in parentheses), defined in [`shared/purifier-types.json`](shared/purifier-types.json):
+- **Kangaroo**: KG102 (5), KG112 (5), KG103 (6), KG113 (6), KG104 (7), KG114 (7), KG106 (6), KG116 (6), KG107 (7), KG117 (7), KG108 (8), KG118 (8), KG109 (9), KG10A17 (10), KG10A13 (10), KG11A1 (11), KG11A2 (11), KG11A3 (11), KG12A6 (12), KG12A8 Sumire (12), KG400HD (5)
+- **Karofi**: KSI80 (8), Optimus O-i229/A (9), KAD-X60 (10), KAD-X58 (11), KAD-X59 (12), KAQ-X18 (11), KAQ-US08 (10)
+- **Sunhouse**: SHR76210CK (10), SHA76222KL (11), SHA76623KL (11), SHA76656LA (12), SHA8866K (7), SHA8896L (12)
+- **Hòa Phát**: HPN666 (11), HPN669 (12)
+- **Toshiba**: TWP-W2396SVN(M) (10)
+- **Mutosi**: MP-S1011 (10), MP-S1021H (10)
+- **A. O. Smith**: Z7 (5), G1 / G2 (5), R400E (2)
 
 ## Tech Stack
 

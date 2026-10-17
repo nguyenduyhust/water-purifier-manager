@@ -1161,17 +1161,17 @@
     ]
   },
   {
-    "id": "karofi-ksi80",
+    "id": "kangaroo-kg10a17",
     "name": {
-      "en": "Karofi - KSI80 (8 filters)",
-      "vi": "Karofi - KSI80 (8 lõi)"
+      "en": "Kangaroo - KG10A17 (10 filters)",
+      "vi": "Kangaroo - KG10A17 (10 lõi)"
     },
     "filterTemplates": [
       {
         "position": 1,
         "name": {
-          "en": "Filter 1 - PP",
-          "vi": "Lõi số 1 - PP"
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
         },
         "defaultIntervalMonths": 3,
         "description": {
@@ -1182,25 +1182,25 @@
       {
         "position": 2,
         "name": {
-          "en": "Filter 2 - GAC",
-          "vi": "Lõi số 2 - GAC"
+          "en": "Filter 2 - Activated Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính"
         },
         "defaultIntervalMonths": 6,
         "description": {
-          "en": "Granular activated carbon, removes odor, chlorine",
-          "vi": "Than hoạt tính dạng hạt, khử mùi, chlorine"
+          "en": "Activated carbon, removes odor, chlorine",
+          "vi": "Than hoạt tính, khử mùi, chlorine"
         }
       },
       {
         "position": 3,
         "name": {
-          "en": "Filter 3 - CTO",
-          "vi": "Lõi số 3 - CTO"
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
         },
-        "defaultIntervalMonths": 6,
+        "defaultIntervalMonths": 9,
         "description": {
-          "en": "Carbon block, removes chemicals",
-          "vi": "Than hoạt tính dạng khối, lọc hóa chất"
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
         }
       },
       {
@@ -1211,51 +1211,75 @@
         },
         "defaultIntervalMonths": 24,
         "description": {
-          "en": "Smax RO membrane removes 99% of impurities",
-          "vi": "Màng lọc RO Smax loại bỏ 99% tạp chất"
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
         }
       },
       {
         "position": 5,
         "name": {
-          "en": "Filter 5 - TCR",
-          "vi": "Lõi số 5 - TCR"
+          "en": "Filter 5 - Ceramic Ball",
+          "vi": "Lõi số 5 - Bóng gốm"
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Premium activated carbon, improves taste",
-          "vi": "Than hoạt tính cao cấp, cải thiện vị nước"
+          "en": "Ceramic ball filter, adds minerals",
+          "vi": "Lõi bóng gốm, bổ sung khoáng chất"
         }
       },
       {
         "position": 6,
         "name": {
-          "en": "Filter 6 - Hydrogen",
-          "vi": "Lõi số 6 - Hydrogen"
+          "en": "Filter 6 - ORP",
+          "vi": "Lõi số 6 - ORP"
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Creates hydrogen-rich water, antioxidant",
-          "vi": "Tạo nước giàu hydrogen, chống oxy hóa"
+          "en": "ORP filter, creates antioxidant water",
+          "vi": "Lõi ORP, tạo nước chống oxy hóa"
         }
       },
       {
         "position": 7,
         "name": {
-          "en": "Filter 7 - Mineral",
-          "vi": "Lõi số 7 - Khoáng"
+          "en": "Filter 7 - Alkaline",
+          "vi": "Lõi số 7 - Alkaline"
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Adds natural minerals",
-          "vi": "Bổ sung khoáng chất thiên nhiên"
+          "en": "Creates alkaline water, balances pH",
+          "vi": "Tạo nước kiềm, cân bằng độ pH"
         }
       },
       {
         "position": 8,
         "name": {
-          "en": "Filter 8 - Nano Silver",
-          "vi": "Lõi số 8 - Nano Silver"
+          "en": "Filter 8 - Mineral",
+          "vi": "Lõi số 8 - Khoáng"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - 5-in-1",
+          "vi": "Lõi số 9 - 5 trong 1"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Combined functional cartridge (minerals, pH, taste)",
+          "vi": "Lõi chức năng tổng hợp (khoáng, pH, vị)"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Nano Silver",
+          "vi": "Lõi số 10 - Nano Silver"
         },
         "defaultIntervalMonths": 18,
         "description": {
@@ -1266,19 +1290,19 @@
     ]
   },
   {
-    "id": "karofi-optimus-o-i229",
+    "id": "kangaroo-kg10a13",
     "name": {
-      "en": "Karofi - Optimus O-i229 (9 filters)",
-      "vi": "Karofi - Optimus O-i229 (9 lõi)"
+      "en": "Kangaroo - KG10A13 (10 filters)",
+      "vi": "Kangaroo - KG10A13 (10 lõi)"
     },
     "filterTemplates": [
       {
         "position": 1,
         "name": {
-          "en": "Filter 1 - Sediment",
-          "vi": "Lõi số 1 - Sediment"
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
         },
-        "defaultIntervalMonths": 6,
+        "defaultIntervalMonths": 3,
         "description": {
           "en": "Removes sediment, rust, particles > 5 micron",
           "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
@@ -1287,85 +1311,1117 @@
       {
         "position": 2,
         "name": {
-          "en": "Filter 2 - Pre-Carbon",
-          "vi": "Lõi số 2 - Pre-Carbon"
+          "en": "Filter 2 - GAC Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính GAC"
         },
         "defaultIntervalMonths": 6,
         "description": {
-          "en": "Pre-RO carbon, protects membrane",
-          "vi": "Than hoạt tính trước RO, bảo vệ màng"
+          "en": "Granular activated carbon; removes chlorine and odor",
+          "vi": "Than hoạt tính dạng hạt, khử clo và mùi"
         }
       },
       {
         "position": 3,
         "name": {
-          "en": "Filter 3 - RO Smax Membrane",
-          "vi": "Lõi số 3 - Màng RO Smax"
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
         },
-        "defaultIntervalMonths": 30,
+        "defaultIntervalMonths": 9,
         "description": {
-          "en": "Smax RO technology, long lifespan",
-          "vi": "Màng RO công nghệ Smax, tuổi thọ cao"
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
         }
       },
       {
         "position": 4,
         "name": {
-          "en": "Filter 4 - Post-Carbon",
-          "vi": "Lõi số 4 - Post-Carbon"
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
         },
-        "defaultIntervalMonths": 12,
+        "defaultIntervalMonths": 24,
         "description": {
-          "en": "Post-RO carbon, improves taste",
-          "vi": "Than hoạt tính sau RO, cải thiện vị nước"
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
         }
       },
       {
         "position": 5,
         "name": {
-          "en": "Filter 5 - ORP",
-          "vi": "Lõi số 5 - ORP"
+          "en": "Filter 5 - FIR+",
+          "vi": "Lõi số 5 - FIR+"
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Increases ORP, energy-rich water",
-          "vi": "Tăng chỉ số ORP, nước giàu năng lượng"
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
         }
       },
       {
         "position": 6,
         "name": {
-          "en": "Filter 6 - Hydrogen",
-          "vi": "Lõi số 6 - Hydrogen"
+          "en": "Filter 6 - OrpH+",
+          "vi": "Lõi số 6 - OrpH+"
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Creates hydrogen-rich water, antioxidant",
-          "vi": "Tạo nước giàu hydrogen, chống oxy hóa"
+          "en": "Lowers oxidation-reduction potential",
+          "vi": "Giảm chỉ số oxy hóa khử (ORP)"
         }
       },
       {
         "position": 7,
         "name": {
-          "en": "Filter 7 - Mineral",
-          "vi": "Lõi số 7 - Khoáng"
+          "en": "Filter 7 - HypH+",
+          "vi": "Lõi số 7 - HypH+"
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Adds natural minerals",
-          "vi": "Bổ sung khoáng chất thiên nhiên"
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
         }
       },
       {
         "position": 8,
         "name": {
-          "en": "Filter 8 - Alkaline",
-          "vi": "Lõi số 8 - Alkaline"
+          "en": "Filter 8 - HypH+",
+          "vi": "Lõi số 8 - HypH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Mineral+",
+          "vi": "Lõi số 9 - Mineral+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Nano Carbon+",
+          "vi": "Lõi số 10 - Nano Carbon+"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Antibacterial carbon; improves taste",
+          "vi": "Than kháng khuẩn, cải thiện vị nước"
+        }
+      }
+    ]
+  },
+  {
+    "id": "kangaroo-kg11a1",
+    "name": {
+      "en": "Kangaroo - KG11A1 (11 filters)",
+      "vi": "Kangaroo - KG11A1 (11 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - GAC Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính GAC"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Granular activated carbon; removes chlorine and odor",
+          "vi": "Than hoạt tính dạng hạt, khử clo và mùi"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 9,
+        "description": {
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
         },
         "defaultIntervalMonths": 24,
         "description": {
-          "en": "Creates alkaline water, balances pH",
-          "vi": "Tạo nước kiềm, cân bằng độ pH"
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - FIR+",
+          "vi": "Lõi số 5 - FIR+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - HypH+",
+          "vi": "Lõi số 6 - HypH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - HypH+",
+          "vi": "Lõi số 7 - HypH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Mineral+",
+          "vi": "Lõi số 8 - Mineral+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Mineral+",
+          "vi": "Lõi số 9 - Mineral+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - 5-in-1+",
+          "vi": "Lõi số 10 - 5 trong 1+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Combined functional cartridge (minerals, pH, taste)",
+          "vi": "Lõi chức năng tổng hợp (khoáng, pH, vị)"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Nano Carbon+",
+          "vi": "Lõi số 11 - Nano Carbon+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial carbon; improves taste",
+          "vi": "Than kháng khuẩn, cải thiện vị nước"
+        }
+      }
+    ]
+  },
+  {
+    "id": "kangaroo-kg11a2",
+    "name": {
+      "en": "Kangaroo - KG11A2 (11 filters)",
+      "vi": "Kangaroo - KG11A2 (11 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - GAC Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính GAC"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Granular activated carbon; removes chlorine and odor",
+          "vi": "Than hoạt tính dạng hạt, khử clo và mùi"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 9,
+        "description": {
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - FIR+",
+          "vi": "Lõi số 5 - FIR+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - HypH+",
+          "vi": "Lõi số 6 - HypH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - HypH+",
+          "vi": "Lõi số 7 - HypH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Mineral+",
+          "vi": "Lõi số 8 - Mineral+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Mineral+",
+          "vi": "Lõi số 9 - Mineral+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - 5-in-1+",
+          "vi": "Lõi số 10 - 5 trong 1+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Combined functional cartridge (minerals, pH, taste)",
+          "vi": "Lõi chức năng tổng hợp (khoáng, pH, vị)"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Nano Carbon+",
+          "vi": "Lõi số 11 - Nano Carbon+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial carbon; improves taste",
+          "vi": "Than kháng khuẩn, cải thiện vị nước"
+        }
+      }
+    ]
+  },
+  {
+    "id": "kangaroo-kg11a3",
+    "name": {
+      "en": "Kangaroo - KG11A3 (11 filters)",
+      "vi": "Kangaroo - KG11A3 (11 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - GAC Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính GAC"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Granular activated carbon; removes chlorine and odor",
+          "vi": "Than hoạt tính dạng hạt, khử clo và mùi"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 9,
+        "description": {
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - FIR+",
+          "vi": "Lõi số 5 - FIR+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - HypH+",
+          "vi": "Lõi số 6 - HypH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - HypH+",
+          "vi": "Lõi số 7 - HypH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Mineral+",
+          "vi": "Lõi số 8 - Mineral+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Mineral+",
+          "vi": "Lõi số 9 - Mineral+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - 5-in-1+",
+          "vi": "Lõi số 10 - 5 trong 1+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Combined functional cartridge (minerals, pH, taste)",
+          "vi": "Lõi chức năng tổng hợp (khoáng, pH, vị)"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Nano Carbon+",
+          "vi": "Lõi số 11 - Nano Carbon+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial carbon; improves taste",
+          "vi": "Than kháng khuẩn, cải thiện vị nước"
+        }
+      }
+    ]
+  },
+  {
+    "id": "kangaroo-kg12a6",
+    "name": {
+      "en": "Kangaroo - KG12A6 (12 filters)",
+      "vi": "Kangaroo - KG12A6 (12 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - Activated Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Activated carbon, removes odor, chlorine",
+          "vi": "Than hoạt tính, khử mùi, chlorine"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 9,
+        "description": {
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Vortex Membrane",
+          "vi": "Lõi số 4 - Màng RO Vortex"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - FIR+",
+          "vi": "Lõi số 5 - FIR+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - OrpH+",
+          "vi": "Lõi số 6 - OrpH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Lowers oxidation-reduction potential",
+          "vi": "Giảm chỉ số oxy hóa khử (ORP)"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - HypH+",
+          "vi": "Lõi số 7 - HypH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - HypH+",
+          "vi": "Lõi số 8 - HypH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Mineral+",
+          "vi": "Lõi số 9 - Mineral+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Mineral+",
+          "vi": "Lõi số 10 - Mineral+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - 5-in-1",
+          "vi": "Lõi số 11 - 5 trong 1"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Combined functional cartridge (minerals, pH, taste)",
+          "vi": "Lõi chức năng tổng hợp (khoáng, pH, vị)"
+        }
+      },
+      {
+        "position": 12,
+        "name": {
+          "en": "Filter 12 - Nano Carbon+",
+          "vi": "Lõi số 12 - Nano Carbon+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial carbon; improves taste",
+          "vi": "Than kháng khuẩn, cải thiện vị nước"
+        }
+      }
+    ]
+  },
+  {
+    "id": "kangaroo-kg12a8",
+    "name": {
+      "en": "Kangaroo - KG12A8 Sumire (12 filters)",
+      "vi": "Kangaroo - KG12A8 Sumire (12 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - Activated Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Activated carbon, removes odor, chlorine",
+          "vi": "Than hoạt tính, khử mùi, chlorine"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - Cation",
+          "vi": "Lõi số 3 - Cation"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Softens hard water by exchanging calcium and magnesium ions",
+          "vi": "Làm mềm nước cứng, giảm canxi và magie"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - PP 1µm",
+          "vi": "Lõi số 4 - PP 1µm"
+        },
+        "defaultIntervalMonths": 9,
+        "description": {
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - RO Vortex Membrane",
+          "vi": "Lõi số 5 - Màng RO Vortex"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - FIR+",
+          "vi": "Lõi số 6 - FIR+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - OrpH+",
+          "vi": "Lõi số 7 - OrpH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Lowers oxidation-reduction potential",
+          "vi": "Giảm chỉ số oxy hóa khử (ORP)"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - HypH+",
+          "vi": "Lõi số 8 - HypH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - HypH+",
+          "vi": "Lõi số 9 - HypH+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tăng độ pH"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Mineral+",
+          "vi": "Lõi số 10 - Mineral+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Mineral+",
+          "vi": "Lõi số 11 - Mineral+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 12,
+        "name": {
+          "en": "Filter 12 - Nano Carbon+",
+          "vi": "Lõi số 12 - Nano Carbon+"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial carbon; improves taste",
+          "vi": "Than kháng khuẩn, cải thiện vị nước"
+        }
+      }
+    ]
+  },
+  {
+    "id": "kangaroo-kg400hd",
+    "name": {
+      "en": "Kangaroo - KG400HD (5 filters)",
+      "vi": "Kangaroo - KG400HD (5 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - Activated Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Activated carbon, removes odor, chlorine",
+          "vi": "Than hoạt tính, khử mùi, chlorine"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 9,
+        "description": {
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - HCM 3-in-1",
+          "vi": "Lõi số 5 - Lõi HCM 3 trong 1"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Combined functional cartridge",
+          "vi": "Lõi chức năng tổng hợp"
+        }
+      }
+    ]
+  },
+  {
+    "id": "karofi-ksi80",
+    "name": {
+      "en": "Karofi - KSI80 (8 filters)",
+      "vi": "Karofi - KSI80 (8 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - Coconut Activated Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính gáo dừa"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Coconut-shell carbon; removes chlorine, odor and organics",
+          "vi": "Than gáo dừa, khử clo, mùi và chất hữu cơ"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - GAC-T33",
+          "vi": "Lõi số 5 - Than GAC-T33"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Mineral",
+          "vi": "Lõi số 6 - Khoáng"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Far Infrared",
+          "vi": "Lõi số 7 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Nano Silver",
+          "vi": "Lõi số 8 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "karofi-optimus-o-i229",
+    "name": {
+      "en": "Karofi - Optimus O-i229/A (9 filters)",
+      "vi": "Karofi - Optimus O-i229/A (9 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - OCB Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính OCB"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Granular activated carbon; removes chlorine and odor",
+          "vi": "Than hoạt tính dạng hạt, khử clo và mùi"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - GAC-T33",
+          "vi": "Lõi số 5 - Than GAC-T33"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Mineral",
+          "vi": "Lõi số 6 - Khoáng"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - ORP Alkaline",
+          "vi": "Lõi số 7 - ORP Alkaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Raises pH and lowers oxidation-reduction potential",
+          "vi": "Tạo nước kiềm, giảm chỉ số oxy hóa khử"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Far Infrared",
+          "vi": "Lõi số 8 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
         }
       },
       {
@@ -1374,7 +2430,7 @@
           "en": "Filter 9 - Nano Silver",
           "vi": "Lõi số 9 - Nano Silver"
         },
-        "defaultIntervalMonths": 18,
+        "defaultIntervalMonths": 12,
         "description": {
           "en": "Antibacterial nano silver technology",
           "vi": "Diệt khuẩn bằng công nghệ nano bạc"
@@ -1392,121 +2448,685 @@
       {
         "position": 1,
         "name": {
-          "en": "Filter 1 - PP 5 micron",
-          "vi": "Lõi số 1 - PP 5 micron"
+          "en": "Filter 1 - Smax Pro 1",
+          "vi": "Lõi số 1 - Smax Pro 1"
         },
-        "defaultIntervalMonths": 3,
+        "defaultIntervalMonths": 12,
         "description": {
-          "en": "Removes sediment, rust, particles > 5 micron",
-          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
+          "en": "Pleated PP; removes sediment > 5 micron",
+          "vi": "Lõi PP xếp ly, lọc cặn > 5 micron"
         }
       },
       {
         "position": 2,
         "name": {
-          "en": "Filter 2 - PP 1 micron",
-          "vi": "Lõi số 2 - PP 1 micron"
+          "en": "Filter 2 - Smax Pro 2",
+          "vi": "Lõi số 2 - Smax Pro 2"
         },
-        "defaultIntervalMonths": 6,
+        "defaultIntervalMonths": 12,
         "description": {
-          "en": "Removes fine particles > 1 micron",
-          "vi": "Lọc cặn mịn > 1 micron"
+          "en": "Compressed activated carbon with a PP outer layer; removes chlorine, organics and odor",
+          "vi": "Than hoạt tính ép bọc lớp PP, khử clo, chất hữu cơ và mùi"
         }
       },
       {
         "position": 3,
         "name": {
-          "en": "Filter 3 - GAC",
-          "vi": "Lõi số 3 - GAC"
+          "en": "Filter 3 - Smax Pro 3",
+          "vi": "Lõi số 3 - Smax Pro 3"
         },
-        "defaultIntervalMonths": 6,
+        "defaultIntervalMonths": 12,
         "description": {
-          "en": "Granular activated carbon, removes odor, chlorine",
-          "vi": "Than hoạt tính dạng hạt, khử mùi, chlorine"
+          "en": "Pleated PP; removes particles > 1 micron",
+          "vi": "Lõi PP xếp ly, lọc tạp chất > 1 micron"
         }
       },
       {
         "position": 4,
         "name": {
-          "en": "Filter 4 - CTO",
-          "vi": "Lõi số 4 - CTO"
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
         },
-        "defaultIntervalMonths": 6,
+        "defaultIntervalMonths": 24,
         "description": {
-          "en": "Carbon block, removes chemicals",
-          "vi": "Than hoạt tính dạng khối, lọc hóa chất"
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
         }
       },
       {
         "position": 5,
         "name": {
-          "en": "Filter 5 - RO Membrane",
-          "vi": "Lõi số 5 - Màng RO"
+          "en": "Filter 5 - Mineral",
+          "vi": "Lõi số 5 - Khoáng"
         },
-        "defaultIntervalMonths": 24,
+        "defaultIntervalMonths": 12,
         "description": {
-          "en": "RO membrane removes 99% of impurities",
-          "vi": "Màng lọc RO loại bỏ 99% tạp chất"
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
         }
       },
       {
         "position": 6,
         "name": {
-          "en": "Filter 6 - T33",
-          "vi": "Lõi số 6 - T33"
+          "en": "Filter 6 - ORP Alkaline",
+          "vi": "Lõi số 6 - ORP Alkaline"
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Post-RO carbon, improves taste",
-          "vi": "Than hoạt tính sau RO, cải thiện vị nước"
+          "en": "Raises pH and lowers oxidation-reduction potential",
+          "vi": "Tạo nước kiềm, giảm chỉ số oxy hóa khử"
         }
       },
       {
         "position": 7,
         "name": {
-          "en": "Filter 7 - Mineral",
-          "vi": "Lõi số 7 - Khoáng"
+          "en": "Filter 7 - Hydrogen Plus",
+          "vi": "Lõi số 7 - Hydrogen Plus"
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Adds natural minerals",
-          "vi": "Bổ sung khoáng chất thiên nhiên"
+          "en": "Adds dissolved hydrogen",
+          "vi": "Bổ sung hydrogen hòa tan"
         }
       },
       {
         "position": 8,
         "name": {
-          "en": "Filter 8 - Nano Silver",
-          "vi": "Lõi số 8 - Nano Silver"
+          "en": "Filter 8 - Tourmaline",
+          "vi": "Lõi số 8 - Tourmaline"
         },
-        "defaultIntervalMonths": 18,
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Tourmaline mineral media",
+          "vi": "Đá Tourmaline, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - GAC-T33",
+          "vi": "Lõi số 9 - Than GAC-T33"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Nano Silver",
+          "vi": "Lõi số 10 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "karofi-kad-x58",
+    "name": {
+      "en": "Karofi - KAD-X58 (11 filters)",
+      "vi": "Karofi - KAD-X58 (11 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - Smax Pro V1",
+          "vi": "Lõi số 1 - Smax Pro V1"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Pleated PP; removes sediment > 5 micron",
+          "vi": "Lõi PP xếp ly, lọc cặn > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - Smax Pro V2",
+          "vi": "Lõi số 2 - Smax Pro V2"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Compressed activated carbon with a PP outer layer; removes chlorine, organics and odor",
+          "vi": "Than hoạt tính ép bọc lớp PP, khử clo, chất hữu cơ và mùi"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - Smax Pro V3",
+          "vi": "Lõi số 3 - Smax Pro V3"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Pleated PP; removes particles > 1 micron",
+          "vi": "Lõi PP xếp ly, lọc tạp chất > 1 micron"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 36,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - Mineral Plus",
+          "vi": "Lõi số 5 - Khoáng Plus"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Mineral",
+          "vi": "Lõi số 6 - Khoáng"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Bio Ceramic",
+          "vi": "Lõi số 7 - Bio Ceramic"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Ceramic balls; add minerals",
+          "vi": "Sứ sinh học, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Far Infrared",
+          "vi": "Lõi số 8 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Tourmaline",
+          "vi": "Lõi số 9 - Tourmaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Tourmaline mineral media",
+          "vi": "Đá Tourmaline, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - GAC-T33",
+          "vi": "Lõi số 10 - Than GAC-T33"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Nano Silver",
+          "vi": "Lõi số 11 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "karofi-kad-x59",
+    "name": {
+      "en": "Karofi - KAD-X59 (12 filters)",
+      "vi": "Karofi - KAD-X59 (12 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - Smax Pro V1",
+          "vi": "Lõi số 1 - Smax Pro V1"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Pleated PP; removes sediment > 5 micron",
+          "vi": "Lõi PP xếp ly, lọc cặn > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - Smax Pro V2",
+          "vi": "Lõi số 2 - Smax Pro V2"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Compressed activated carbon with a PP outer layer; removes chlorine, organics and odor",
+          "vi": "Than hoạt tính ép bọc lớp PP, khử clo, chất hữu cơ và mùi"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - Smax Pro V3",
+          "vi": "Lõi số 3 - Smax Pro V3"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Pleated PP; removes particles > 1 micron",
+          "vi": "Lõi PP xếp ly, lọc tạp chất > 1 micron"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 36,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - Mineral",
+          "vi": "Lõi số 5 - Khoáng"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Bio Ceramic Extra",
+          "vi": "Lõi số 6 - Bio Ceramic Extra"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Ceramic balls; add minerals",
+          "vi": "Sứ sinh học, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Far Infrared",
+          "vi": "Lõi số 7 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Tourmaline",
+          "vi": "Lõi số 8 - Tourmaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Tourmaline mineral media",
+          "vi": "Đá Tourmaline, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - GAC-T33",
+          "vi": "Lõi số 9 - Than GAC-T33"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Nano Silver Plus",
+          "vi": "Lõi số 10 - Nano Silver Plus"
+        },
+        "defaultIntervalMonths": 12,
         "description": {
           "en": "Antibacterial nano silver technology",
           "vi": "Diệt khuẩn bằng công nghệ nano bạc"
         }
       },
       {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Hydro-ion Alkaline",
+          "vi": "Lõi số 11 - Hydro-ion kiềm"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tạo nước kiềm"
+        }
+      },
+      {
+        "position": 12,
+        "name": {
+          "en": "Filter 12 - Mineral Plus",
+          "vi": "Lõi số 12 - Khoáng Plus"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      }
+    ]
+  },
+  {
+    "id": "karofi-kaq-x18",
+    "name": {
+      "en": "Karofi - KAQ-X18 (11 filters)",
+      "vi": "Karofi - KAQ-X18 (11 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - Smax Pro V1",
+          "vi": "Lõi số 1 - Smax Pro V1"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Pleated PP; removes sediment > 5 micron",
+          "vi": "Lõi PP xếp ly, lọc cặn > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - Smax Pro V2",
+          "vi": "Lõi số 2 - Smax Pro V2"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Compressed activated carbon with a PP outer layer; removes chlorine, organics and odor",
+          "vi": "Than hoạt tính ép bọc lớp PP, khử clo, chất hữu cơ và mùi"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - Smax Pro V3",
+          "vi": "Lõi số 3 - Smax Pro V3"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Pleated PP; removes particles > 1 micron",
+          "vi": "Lõi PP xếp ly, lọc tạp chất > 1 micron"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 36,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - Mineral Plus",
+          "vi": "Lõi số 5 - Khoáng Plus"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Mineral",
+          "vi": "Lõi số 6 - Khoáng"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Bio Ceramic",
+          "vi": "Lõi số 7 - Bio Ceramic"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Ceramic balls; add minerals",
+          "vi": "Sứ sinh học, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Far Infrared",
+          "vi": "Lõi số 8 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
         "position": 9,
         "name": {
-          "en": "Filter 9 - Alkaline",
-          "vi": "Lõi số 9 - Alkaline"
+          "en": "Filter 9 - Tourmaline",
+          "vi": "Lõi số 9 - Tourmaline"
         },
-        "defaultIntervalMonths": 24,
+        "defaultIntervalMonths": 12,
         "description": {
-          "en": "Creates alkaline water, balances pH",
-          "vi": "Tạo nước kiềm, cân bằng độ pH"
+          "en": "Tourmaline mineral media",
+          "vi": "Đá Tourmaline, bổ sung khoáng chất"
         }
       },
       {
         "position": 10,
         "name": {
-          "en": "Filter 10 - Hydrogen",
-          "vi": "Lõi số 10 - Hydrogen"
+          "en": "Filter 10 - GAC-T33",
+          "vi": "Lõi số 10 - Than GAC-T33"
         },
-        "defaultIntervalMonths": 18,
+        "defaultIntervalMonths": 12,
         "description": {
-          "en": "Creates hydrogen-rich water, antioxidant",
-          "vi": "Tạo nước giàu hydrogen, chống oxy hóa"
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Nano Silver",
+          "vi": "Lõi số 11 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "karofi-kaq-us08",
+    "name": {
+      "en": "Karofi - KAQ-US08 (10 filters)",
+      "vi": "Karofi - KAQ-US08 (10 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - Smax Pro V1",
+          "vi": "Lõi số 1 - Smax Pro V1"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Pleated PP; removes sediment > 5 micron",
+          "vi": "Lõi PP xếp ly, lọc cặn > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - Smax Pro V2",
+          "vi": "Lõi số 2 - Smax Pro V2"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Compressed activated carbon with a PP outer layer; removes chlorine, organics and odor",
+          "vi": "Than hoạt tính ép bọc lớp PP, khử clo, chất hữu cơ và mùi"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - Smax Pro V3",
+          "vi": "Lõi số 3 - Smax Pro V3"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Pleated PP; removes particles > 1 micron",
+          "vi": "Lõi PP xếp ly, lọc tạp chất > 1 micron"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 36,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - Mineral",
+          "vi": "Lõi số 5 - Khoáng"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Bio Ceramic",
+          "vi": "Lõi số 6 - Bio Ceramic"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Ceramic balls; add minerals",
+          "vi": "Sứ sinh học, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Far Infrared",
+          "vi": "Lõi số 7 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Tourmaline",
+          "vi": "Lõi số 8 - Tourmaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Tourmaline mineral media",
+          "vi": "Đá Tourmaline, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - GAC-T33",
+          "vi": "Lõi số 9 - Than GAC-T33"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Nano Silver Plus",
+          "vi": "Lõi số 10 - Nano Silver Plus"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
         }
       }
     ]
@@ -1521,37 +3141,37 @@
       {
         "position": 1,
         "name": {
-          "en": "Filter 1 - PP",
-          "vi": "Lõi số 1 - PP"
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
         },
         "defaultIntervalMonths": 3,
         "description": {
-          "en": "Removes sediment, rust > 5 micron",
-          "vi": "Lọc cặn thô, rỉ sét > 5 micron"
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
         }
       },
       {
         "position": 2,
         "name": {
-          "en": "Filter 2 - UDF",
-          "vi": "Lõi số 2 - UDF"
+          "en": "Filter 2 - Activated Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính"
         },
         "defaultIntervalMonths": 6,
         "description": {
-          "en": "Granular activated carbon",
-          "vi": "Than hoạt tính dạng hạt"
+          "en": "Removes chlorine, odor and organic compounds",
+          "vi": "Khử clo, mùi và hợp chất hữu cơ"
         }
       },
       {
         "position": 3,
         "name": {
-          "en": "Filter 3 - CTO",
-          "vi": "Lõi số 3 - CTO"
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
         },
         "defaultIntervalMonths": 6,
         "description": {
-          "en": "Carbon block",
-          "vi": "Than hoạt tính dạng khối"
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
         }
       },
       {
@@ -1562,20 +3182,149 @@
         },
         "defaultIntervalMonths": 24,
         "description": {
-          "en": "RO membrane removes 99% of impurities",
-          "vi": "Màng lọc RO loại bỏ 99% tạp chất"
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
         }
       },
       {
         "position": 5,
         "name": {
-          "en": "Filter 5 - T33",
-          "vi": "Lõi số 5 - T33"
+          "en": "Filter 5 - Flavor",
+          "vi": "Lõi số 5 - Tạo vị"
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Post-RO carbon",
-          "vi": "Than hoạt tính sau RO"
+          "en": "Improves the taste of purified water",
+          "vi": "Cải thiện vị nước sau lọc"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Maifan",
+          "vi": "Lõi số 6 - Đá Maifan"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Maifan stone; adds minerals",
+          "vi": "Đá Maifan, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Alkaline",
+          "vi": "Lõi số 7 - Alkaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Raises pH to create alkaline water",
+          "vi": "Tạo nước kiềm, tăng độ pH"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Far Infrared",
+          "vi": "Lõi số 8 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - ORP",
+          "vi": "Lõi số 9 - ORP"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Lowers oxidation-reduction potential",
+          "vi": "Giảm chỉ số oxy hóa khử (ORP)"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Nano Silver",
+          "vi": "Lõi số 10 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "sunhouse-sha76222kl",
+    "name": {
+      "en": "Sunhouse - SHA76222KL (11 filters)",
+      "vi": "Sunhouse - SHA76222KL (11 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - GAC Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính GAC"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Granular activated carbon; removes chlorine and odor",
+          "vi": "Than hoạt tính dạng hạt, khử clo và mùi"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - Active Carbon",
+          "vi": "Lõi số 5 - Than hoạt tính sau RO"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
         }
       },
       {
@@ -1586,8 +3335,443 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Adds minerals",
-          "vi": "Bổ sung khoáng chất"
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Alkaline",
+          "vi": "Lõi số 7 - Alkaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Raises pH to create alkaline water",
+          "vi": "Tạo nước kiềm, tăng độ pH"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Far Infrared",
+          "vi": "Lõi số 8 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Bio Ceramic",
+          "vi": "Lõi số 9 - Bio Ceramic"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Ceramic balls; add minerals",
+          "vi": "Sứ sinh học, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Hydrogen",
+          "vi": "Lõi số 10 - Hydrogen"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Adds dissolved hydrogen",
+          "vi": "Bổ sung hydrogen hòa tan"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Nano Silver",
+          "vi": "Lõi số 11 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "sunhouse-sha76623kl",
+    "name": {
+      "en": "Sunhouse - SHA76623KL (11 filters)",
+      "vi": "Sunhouse - SHA76623KL (11 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - GAC Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính GAC"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Granular activated carbon; removes chlorine and odor",
+          "vi": "Than hoạt tính dạng hạt, khử clo và mùi"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - Active Carbon",
+          "vi": "Lõi số 5 - Than hoạt tính sau RO"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Mineral",
+          "vi": "Lõi số 6 - Khoáng"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Alkaline",
+          "vi": "Lõi số 7 - Alkaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Raises pH to create alkaline water",
+          "vi": "Tạo nước kiềm, tăng độ pH"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Far Infrared",
+          "vi": "Lõi số 8 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Bio Ceramic",
+          "vi": "Lõi số 9 - Bio Ceramic"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Ceramic balls; add minerals",
+          "vi": "Sứ sinh học, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Hydrogen",
+          "vi": "Lõi số 10 - Hydrogen"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Adds dissolved hydrogen",
+          "vi": "Bổ sung hydrogen hòa tan"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Nano Silver",
+          "vi": "Lõi số 11 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "sunhouse-sha76656la",
+    "name": {
+      "en": "Sunhouse - SHA76656LA (12 filters)",
+      "vi": "Sunhouse - SHA76656LA (12 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - CTO Carbon Block",
+          "vi": "Lõi số 2 - Than khối CTO"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Compressed carbon block; removes chlorine, odor and chemicals",
+          "vi": "Than hoạt tính dạng khối, khử clo, mùi và hóa chất"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 36,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - Active Carbon",
+          "vi": "Lõi số 5 - Than hoạt tính sau RO"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Hydro-ion Alkaline",
+          "vi": "Lõi số 6 - Hydro-ion kiềm"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tạo nước kiềm"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Mineral Plus",
+          "vi": "Lõi số 7 - Khoáng Plus"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Mineral Plus",
+          "vi": "Lõi số 8 - Khoáng Plus"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Alkaline",
+          "vi": "Lõi số 9 - Alkaline"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Raises pH to create alkaline water",
+          "vi": "Tạo nước kiềm, tăng độ pH"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Bio Ceramic",
+          "vi": "Lõi số 10 - Bio Ceramic"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Ceramic balls; add minerals",
+          "vi": "Sứ sinh học, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Far Infrared",
+          "vi": "Lõi số 11 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 12,
+        "name": {
+          "en": "Filter 12 - Nano Silver",
+          "vi": "Lõi số 12 - Nano Silver"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "sunhouse-sha8866k",
+    "name": {
+      "en": "Sunhouse - SHA8866K (7 filters)",
+      "vi": "Sunhouse - SHA8866K (7 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - Activated Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Removes chlorine, odor and organic compounds",
+          "vi": "Khử clo, mùi và hợp chất hữu cơ"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 9,
+        "description": {
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - Mineral",
+          "vi": "Lõi số 5 - Khoáng"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Alkaline",
+          "vi": "Lõi số 6 - Alkaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Raises pH to create alkaline water",
+          "vi": "Tạo nước kiềm, tăng độ pH"
         }
       },
       {
@@ -1596,10 +3780,103 @@
           "en": "Filter 7 - Nano Silver",
           "vi": "Lõi số 7 - Nano Silver"
         },
-        "defaultIntervalMonths": 18,
+        "defaultIntervalMonths": 12,
         "description": {
-          "en": "Nano silver antibacterial",
-          "vi": "Diệt khuẩn nano bạc"
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "sunhouse-sha8896l",
+    "name": {
+      "en": "Sunhouse - SHA8896L (12 filters)",
+      "vi": "Sunhouse - SHA8896L (12 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - CTO Carbon Block",
+          "vi": "Lõi số 2 - Than khối CTO"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Compressed carbon block; removes chlorine, odor and chemicals",
+          "vi": "Than hoạt tính dạng khối, khử clo, mùi và hóa chất"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - Active Carbon",
+          "vi": "Lõi số 5 - Than hoạt tính sau RO"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Mineral Plus",
+          "vi": "Lõi số 6 - Khoáng Plus"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Mineral Plus",
+          "vi": "Lõi số 7 - Khoáng Plus"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
         }
       },
       {
@@ -1608,10 +3885,163 @@
           "en": "Filter 8 - Alkaline",
           "vi": "Lõi số 8 - Alkaline"
         },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Raises pH to create alkaline water",
+          "vi": "Tạo nước kiềm, tăng độ pH"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Far Infrared",
+          "vi": "Lõi số 9 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Bio Ceramic",
+          "vi": "Lõi số 10 - Bio Ceramic"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Ceramic balls; add minerals",
+          "vi": "Sứ sinh học, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Hydrogen",
+          "vi": "Lõi số 11 - Hydrogen"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Adds dissolved hydrogen",
+          "vi": "Bổ sung hydrogen hòa tan"
+        }
+      },
+      {
+        "position": 12,
+        "name": {
+          "en": "Filter 12 - Nano Silver",
+          "vi": "Lõi số 12 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "hoa-phat-hpn666",
+    "name": {
+      "en": "Hòa Phát - HPN666 (11 filters)",
+      "vi": "Hòa Phát - HPN666 (11 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - PP 5µm",
+          "vi": "Lõi số 2 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - Activated Carbon",
+          "vi": "Lõi số 3 - Than hoạt tính"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Removes chlorine, odor and organic compounds",
+          "vi": "Khử clo, mùi và hợp chất hữu cơ"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - PP 1µm",
+          "vi": "Lõi số 4 - PP 1µm"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - RO Membrane",
+          "vi": "Lõi số 5 - Màng RO"
+        },
         "defaultIntervalMonths": 24,
         "description": {
-          "en": "Creates alkaline water",
-          "vi": "Tạo nước kiềm"
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - GAC-T33",
+          "vi": "Lõi số 6 - Than GAC-T33"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Maifan",
+          "vi": "Lõi số 7 - Đá Maifan"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Maifan stone; adds minerals",
+          "vi": "Đá Maifan, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Tourmaline",
+          "vi": "Lõi số 8 - Tourmaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Tourmaline mineral media",
+          "vi": "Đá Tourmaline, bổ sung khoáng chất"
         }
       },
       {
@@ -1620,22 +4050,745 @@
           "en": "Filter 9 - Hydrogen",
           "vi": "Lõi số 9 - Hydrogen"
         },
-        "defaultIntervalMonths": 18,
+        "defaultIntervalMonths": 12,
         "description": {
-          "en": "Creates hydrogen-rich water",
-          "vi": "Tạo nước giàu hydrogen"
+          "en": "Adds dissolved hydrogen",
+          "vi": "Bổ sung hydrogen hòa tan"
         }
       },
       {
         "position": 10,
         "name": {
           "en": "Filter 10 - Far Infrared",
-          "vi": "Lõi số 10 - Far Infrared"
+          "vi": "Lõi số 10 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Nano Silver",
+          "vi": "Lõi số 11 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "hoa-phat-hpn669",
+    "name": {
+      "en": "Hòa Phát - HPN669 (12 filters)",
+      "vi": "Hòa Phát - HPN669 (12 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - CTO Carbon Block",
+          "vi": "Lõi số 2 - Than khối CTO"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Compressed carbon block; removes chlorine, odor and chemicals",
+          "vi": "Than hoạt tính dạng khối, khử clo, mùi và hóa chất"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - GAC-T33",
+          "vi": "Lõi số 5 - Than GAC-T33"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - T33 Plus",
+          "vi": "Lõi số 6 - T33 Plus"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Maifan",
+          "vi": "Lõi số 7 - Đá Maifan"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Maifan stone; adds minerals",
+          "vi": "Đá Maifan, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Tourmaline",
+          "vi": "Lõi số 8 - Tourmaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Tourmaline mineral media",
+          "vi": "Đá Tourmaline, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Hydrogen",
+          "vi": "Lõi số 9 - Hydrogen"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen",
+          "vi": "Bổ sung hydrogen hòa tan"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Hydrogen Plus",
+          "vi": "Lõi số 10 - Hydrogen Plus"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen",
+          "vi": "Bổ sung hydrogen hòa tan"
+        }
+      },
+      {
+        "position": 11,
+        "name": {
+          "en": "Filter 11 - Far Infrared",
+          "vi": "Lõi số 11 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 12,
+        "name": {
+          "en": "Filter 12 - Nano Silver",
+          "vi": "Lõi số 12 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "toshiba-twp-w2396svn-m",
+    "name": {
+      "en": "Toshiba - TWP-W2396SVN(M) (10 filters)",
+      "vi": "Toshiba - TWP-W2396SVN(M) (10 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - FPC Composite",
+          "vi": "Lõi số 1 - Lõi tổng hợp FPC"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Composite pre-filter (sediment + carbon); about 3,600 L",
+          "vi": "Lõi lọc thô tổng hợp (cặn + than), khoảng 3.600 L"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - RO Membrane",
+          "vi": "Lõi số 2 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - Post Carbon C",
+          "vi": "Lõi số 3 - Than hoạt tính C"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - ORP",
+          "vi": "Lõi số 4 - ORP"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Lowers oxidation-reduction potential",
+          "vi": "Giảm chỉ số oxy hóa khử (ORP)"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - Maifan",
+          "vi": "Lõi số 5 - Đá Maifan"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Maifan stone; adds minerals",
+          "vi": "Đá Maifan, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Alkaline",
+          "vi": "Lõi số 6 - Alkaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Raises pH to create alkaline water",
+          "vi": "Tạo nước kiềm, tăng độ pH"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - 3-in-1",
+          "vi": "Lõi số 7 - 3 trong 1"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Combined functional cartridge",
+          "vi": "Lõi chức năng tổng hợp"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Tourmaline",
+          "vi": "Lõi số 8 - Tourmaline"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Tourmaline mineral media",
+          "vi": "Đá Tourmaline, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Activated Carbon",
+          "vi": "Lõi số 9 - Than hoạt tính"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Removes chlorine, odor and organic compounds",
+          "vi": "Khử clo, mùi và hợp chất hữu cơ"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Nano Silver",
+          "vi": "Lõi số 10 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "mutosi-mp-s1011",
+    "name": {
+      "en": "Mutosi - MP-S1011 (10 filters)",
+      "vi": "Mutosi - MP-S1011 (10 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - Activated Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Removes chlorine, odor and organic compounds",
+          "vi": "Khử clo, mùi và hợp chất hữu cơ"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - GAC-T33",
+          "vi": "Lõi số 5 - Than GAC-T33"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Mineral",
+          "vi": "Lõi số 6 - Khoáng"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Bio Ceramic",
+          "vi": "Lõi số 7 - Bio Ceramic"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Ceramic balls; add minerals",
+          "vi": "Sứ sinh học, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Far Infrared",
+          "vi": "Lõi số 8 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - ORP Hydrogen",
+          "vi": "Lõi số 9 - ORP Hydrogen"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and lowers oxidation-reduction potential",
+          "vi": "Bổ sung hydrogen, giảm chỉ số oxy hóa khử"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Nano Silver",
+          "vi": "Lõi số 10 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "mutosi-mp-s1021h",
+    "name": {
+      "en": "Mutosi - MP-S1021H (10 filters)",
+      "vi": "Mutosi - MP-S1021H (10 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 3,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - CTO Carbon Block",
+          "vi": "Lõi số 2 - Than khối CTO"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Compressed carbon block; removes chlorine, odor and chemicals",
+          "vi": "Than hoạt tính dạng khối, khử clo, mùi và hóa chất"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
+        },
+        "defaultIntervalMonths": 6,
+        "description": {
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Membrane",
+          "vi": "Lõi số 4 - Màng RO"
+        },
+        "defaultIntervalMonths": 24,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - GAC-T33",
+          "vi": "Lõi số 5 - Than GAC-T33"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Post-carbon; improves taste and removes residual odor",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước, khử mùi còn lại"
+        }
+      },
+      {
+        "position": 6,
+        "name": {
+          "en": "Filter 6 - Mineral",
+          "vi": "Lõi số 6 - Khoáng"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds beneficial minerals",
+          "vi": "Bổ sung khoáng chất có lợi"
+        }
+      },
+      {
+        "position": 7,
+        "name": {
+          "en": "Filter 7 - Bio Ceramic",
+          "vi": "Lõi số 7 - Bio Ceramic"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Ceramic balls; add minerals",
+          "vi": "Sứ sinh học, bổ sung khoáng chất"
+        }
+      },
+      {
+        "position": 8,
+        "name": {
+          "en": "Filter 8 - Far Infrared",
+          "vi": "Lõi số 8 - Hồng ngoại xa"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Far infrared ceramic",
+          "vi": "Gốm hồng ngoại xa"
+        }
+      },
+      {
+        "position": 9,
+        "name": {
+          "en": "Filter 9 - Hydro-ion Alkaline",
+          "vi": "Lõi số 9 - Hydro-ion kiềm"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Adds dissolved hydrogen and raises pH",
+          "vi": "Bổ sung hydrogen, tạo nước kiềm"
+        }
+      },
+      {
+        "position": 10,
+        "name": {
+          "en": "Filter 10 - Nano Silver",
+          "vi": "Lõi số 10 - Nano Silver"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Antibacterial nano silver technology",
+          "vi": "Diệt khuẩn bằng công nghệ nano bạc"
+        }
+      }
+    ]
+  },
+  {
+    "id": "aosmith-z7",
+    "name": {
+      "en": "A. O. Smith - Z7 (5 filters)",
+      "vi": "A. O. Smith - Z7 (5 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - Pre-filter",
+          "vi": "Lõi số 1 - Lọc sơ bộ"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Removes coarse sediment",
+          "vi": "Lọc cặn thô"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - Sediment",
+          "vi": "Lõi số 2 - Lọc cặn"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Removes sediment and particles",
+          "vi": "Lọc cặn và tạp chất"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - Carbon Block",
+          "vi": "Lõi số 3 - Than khối"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Removes chlorine, odor and chemicals",
+          "vi": "Khử clo, mùi và hóa chất"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Side Stream",
+          "vi": "Lõi số 4 - Màng RO Side Stream"
+        },
+        "defaultIntervalMonths": 36,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - Silver GAC Min-Tech",
+          "vi": "Lõi số 5 - Silver GAC Min-Tech"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Silver-impregnated carbon; adds minerals and improves taste",
+          "vi": "Than tẩm bạc, bổ sung khoáng và cải thiện vị"
+        }
+      }
+    ]
+  },
+  {
+    "id": "aosmith-g1-g2",
+    "name": {
+      "en": "A. O. Smith - G1 / G2 (5 filters)",
+      "vi": "A. O. Smith - G1 / G2 (5 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - PP 5µm",
+          "vi": "Lõi số 1 - PP 5µm"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Removes sediment, rust, sand and particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - GAC Carbon",
+          "vi": "Lõi số 2 - Than hoạt tính GAC"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Granular activated carbon; removes chlorine and odor",
+          "vi": "Than hoạt tính dạng hạt, khử clo và mùi"
+        }
+      },
+      {
+        "position": 3,
+        "name": {
+          "en": "Filter 3 - PP 1µm",
+          "vi": "Lõi số 3 - PP 1µm"
         },
         "defaultIntervalMonths": 18,
         "description": {
-          "en": "Far infrared rays",
-          "vi": "Tia hồng ngoại xa"
+          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
+          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+        }
+      },
+      {
+        "position": 4,
+        "name": {
+          "en": "Filter 4 - RO Side Stream",
+          "vi": "Lõi số 4 - Màng RO Side Stream"
+        },
+        "defaultIntervalMonths": 36,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
+        }
+      },
+      {
+        "position": 5,
+        "name": {
+          "en": "Filter 5 - PAC",
+          "vi": "Lõi số 5 - PAC"
+        },
+        "defaultIntervalMonths": 18,
+        "description": {
+          "en": "Post-carbon; improves taste",
+          "vi": "Than hoạt tính sau RO, cải thiện vị nước"
+        }
+      }
+    ]
+  },
+  {
+    "id": "aosmith-r400e",
+    "name": {
+      "en": "A. O. Smith - R400E (2 filters)",
+      "vi": "A. O. Smith - R400E (2 lõi)"
+    },
+    "filterTemplates": [
+      {
+        "position": 1,
+        "name": {
+          "en": "Filter 1 - Composite 5-in-1",
+          "vi": "Lõi số 1 - Lõi tổng hợp 5 trong 1"
+        },
+        "defaultIntervalMonths": 12,
+        "description": {
+          "en": "Composite pre-filter combining sediment and carbon stages",
+          "vi": "Lõi lọc thô tổng hợp nhiều cấp cặn và than"
+        }
+      },
+      {
+        "position": 2,
+        "name": {
+          "en": "Filter 2 - RO Side Stream",
+          "vi": "Lõi số 2 - Màng RO Side Stream"
+        },
+        "defaultIntervalMonths": 36,
+        "description": {
+          "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
+          "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
         }
       }
     ]
