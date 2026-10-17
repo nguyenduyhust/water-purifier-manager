@@ -51,7 +51,7 @@ async function createUser(email, displayName) {
 }
 
 await fetch(`${AUTH}/emulator/v1/projects/${PROJECT}/accounts`, { method: 'DELETE' });
-await fetch(`${FIRESTORE}`, { method: 'DELETE' });
+await fetch(`http://127.0.0.1:8080/emulator/v1/projects/${PROJECT}/databases/(default)/documents`, { method: 'DELETE' });
 
 const [alice, bob, carol] = [
   await createUser('alice@example.com', 'Alice'),
@@ -123,4 +123,30 @@ await write(`invites/${INVITE_ID}`, {
   expiresAt: new Date(now.getTime() + 7 * DAY),
 });
 
-console.log('Seeded: alice (owner), bob (editor), carol (viewer), dave (invite', INVITE_ID + ')');
+// History written before sharing existed, in the legacy collection only its owner can read.
+await write('activityLogs/legacyCreated', {
+  userId: alice,
+  type: 'purifier_created',
+  timestamp: new Date(now - 200 * DAY),
+  purifierId: 'kitchen',
+  purifierName: 'Kitchen purifier',
+  filterId: null,
+  filterName: null,
+  filterPosition: null,
+  notes: null,
+  createdAt: new Date(now - 200 * DAY),
+});
+await write('activityLogs/legacyReplaced', {
+  userId: alice,
+  type: 'filter_replaced',
+  timestamp: new Date(now - 120 * DAY),
+  purifierId: 'kitchen',
+  purifierName: 'Kitchen purifier',
+  filterId: 'f1',
+  filterName: 'Filter 1 - PP 5µm',
+  filterPosition: 1,
+  notes: 'Legacy entry',
+  createdAt: new Date(now - 120 * DAY),
+});
+
+console.log('Seeded: alice (owner), bob (editor), carol (viewer), dave (invite', INVITE_ID + '), 2 legacy activityLogs');

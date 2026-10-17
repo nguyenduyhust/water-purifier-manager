@@ -84,11 +84,16 @@ export const activityLogService = {
     );
 
     const snapshots = await Promise.all([legacyQuery, ...purifierQueries].map((q) => getDocs(q)));
-    const logs = snapshots.flatMap((snapshot) =>
-      snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }) as ActivityLog)
-    );
+    // Migrated entries keep their legacy id; the per-purifier copy (listed after
+    // the legacy one) wins because it records who did it.
+    const logsById = new Map<string, ActivityLog>();
+    for (const snapshot of snapshots) {
+      for (const doc of snapshot.docs) {
+        logsById.set(doc.id, { id: doc.id, ...doc.data() } as ActivityLog);
+      }
+    }
 
-    return logs
+    return [...logsById.values()]
       .map(toHistoryEvent)
       .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
       .slice(0, HISTORY_LIMIT);

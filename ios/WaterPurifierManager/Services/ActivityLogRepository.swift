@@ -47,19 +47,27 @@ struct ActivityLogRepository {
             .whereField("userId", isEqualTo: userId)
             .order(by: "timestamp", descending: true)
             .limit(to: limit)
-        let queries = [legacy] + purifierIds.map {
+        let purifierQueries = purifierIds.map {
             logs(of: $0).order(by: "timestamp", descending: true).limit(to: limit)
         }
 
-        let entries = try await withThrowingTaskGroup(of: [ActivityLog].self) { group in
-            for query in queries {
-                group.addTask {
-                    try await query.getDocuments().documents.compactMap { try? $0.data(as: ActivityLog.self) }
-                }
+        async let legacyEntries = Self.fetch(legacy)
+        let migratedOrNew = try await withThrowingTaskGroup(of: [ActivityLog].self) { group in
+            for query in purifierQueries {
+                group.addTask { try await Self.fetch(query) }
             }
             return try await group.reduce(into: []) { $0 += $1 }
         }
 
-        return Array(entries.sorted { $0.timestamp > $1.timestamp }.prefix(limit))
+        // Migrated entries keep their legacy id; the per-purifier copy wins because it records who did it.
+        var byId: [String: ActivityLog] = [:]
+        for entry in try await legacyEntries + migratedOrNew {
+            byId[entry.id ?? UUID().uuidString] = entry
+        }
+        return Array(byId.values.sorted { $0.timestamp > $1.timestamp }.prefix(limit))
+    }
+
+    private static func fetch(_ query: Query) async throws -> [ActivityLog] {
+        try await query.getDocuments().documents.compactMap { try? $0.data(as: ActivityLog.self) }
     }
 }
