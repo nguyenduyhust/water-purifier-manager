@@ -18,7 +18,9 @@ import {
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
@@ -48,7 +50,7 @@ export function PurifierForm({
   submitLabel,
 }: PurifierFormProps) {
   const { t } = useTranslation();
-  const { purifierTypes, getPurifierTypeById } = usePurifierTypes();
+  const { purifierTypesByBrand, getPurifierTypeById } = usePurifierTypes();
   const [selectedType, setSelectedType] = useState(defaultValues?.typeId || '');
 
   const form = useForm<PurifierFormValues>({
@@ -103,10 +105,15 @@ export function PurifierForm({
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {purifierTypes.map((type) => (
-                    <SelectItem key={type.id} value={type.id}>
-                      {type.name}
-                    </SelectItem>
+                  {purifierTypesByBrand.map((group) => (
+                    <SelectGroup key={group.brand}>
+                      <SelectLabel>{group.brand}</SelectLabel>
+                      {group.types.map((type) => (
+                        <SelectItem key={type.id} value={type.id}>
+                          {type.name}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
                   ))}
                 </SelectContent>
               </Select>
