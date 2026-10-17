@@ -223,6 +223,97 @@
 
 ---
 
+### FR-009: Purifier Sharing
+
+**Description:** The owner of a purifier can invite other people to view or manage it.
+
+**Priority:** High
+
+**Status:** In progress
+
+**Decisions**
+
+- Sharing is per purifier (not a household): each purifier has its own member list.
+- Roles: **owner** (creator; full control), **editor** (edit purifier info, replace filters), **viewer** (read only).
+- Invites by **link** (anyone signed in who opens it, single use) and by **email** (only that verified email can accept). Both work client-side; no Cloud Functions yet, so the app does not send email — the owner shares the link or tells the invitee to open the app.
+- Web and iOS ship together.
+
+**Acceptance Criteria:**
+- [ ] Owner creates an invite link with a role; it expires after 7 days and works once
+- [ ] Owner invites by email; the invitee sees the pending invite after signing in with that verified email
+- [ ] Owner revokes pending invites, changes a member's role, removes a member
+- [ ] A member can leave a shared purifier
+- [ ] Shared purifiers appear in the member's list, dashboard and reminders
+- [ ] Editors can edit purifier info and replace filters; viewers cannot change anything
+- [ ] Only the owner can delete the purifier or manage sharing
+- [ ] History shows who did each action and is visible to every member
+
+#### Data model
+
+```typescript
+// purifiers/{purifierId} — new optional fields; userId stays the owner
+interface Purifier {
+  userId: string;                                   // owner
+  memberIds?: string[];                             // shared members, owner excluded
+  roles?: Record<string, 'editor' | 'viewer'>;      // keyed by member uid
+  memberProfiles?: Record<string, { name: string; email: string | null; joinedAt: Timestamp }>;
+  lastInviteId?: string;                            // set when a member joins; lets rules verify the invite
+}
+
+// purifiers/{purifierId}/logs/{logId} — history moves under each purifier
+interface PurifierLog {
+  type: 'purifier_created' | 'filter_replaced';
+  timestamp: Timestamp;
+  purifierName: string;
+  filterId: string | null;
+  filterName: string | null;
+  filterPosition: number | null;
+  notes: string | null;
+  actorId: string;
+  actorName: string;
+  createdAt: Timestamp;
+}
+
+// invites/{inviteId} — the random document id is the secret in the link
+interface Invite {
+  purifierId: string;
+  purifierName: string;
+  role: 'editor' | 'viewer';
+  email: string | null;          // null = link invite; lowercase otherwise
+  status: 'pending' | 'accepted' | 'declined';
+  createdBy: string;             // owner uid
+  createdByName: string;
+  createdAt: Timestamp;
+  expiresAt: Timestamp;          // createdAt + 7 days
+  acceptedBy?: string;
+  acceptedAt?: Timestamp;
+}
+```
+
+#### Access rules (enforced in `firebase/firestore.rules`)
+
+| Action | Owner | Editor | Viewer | Invitee |
+|--------|-------|--------|--------|---------|
+| Read purifier, filters, logs | ✅ | ✅ | ✅ | |
+| Edit name, location, notes | ✅ | ✅ | | |
+| Replace filter / add log | ✅ | ✅ | | |
+| Manage members and invites | ✅ | | | |
+| Delete purifier | ✅ | | | |
+| Leave | | ✅ | ✅ | |
+| Accept a valid invite | | | | ✅ |
+
+Accepting is one batch: add self to the purifier (`memberIds`, `roles`, `memberProfiles`, `lastInviteId`) and mark the invite accepted. Each side's rule checks the other through `get()`/`getAfter()`, so a member can only join with an unexpired, unused invite for that purifier and with the role it grants.
+
+#### Compatibility
+
+- No data migration. Owned purifiers are still found by `userId == uid`; shared ones by `memberIds array-contains uid`.
+- Old `activityLogs` entries stay where they are and are still shown to their owner; new entries go to `purifiers/{id}/logs`. Deleting a purifier deletes its logs and invites.
+- Rules keep accepting the old queries, so earlier app builds keep working for owners.
+
+**Out of scope for now:** sending invite emails (needs Cloud Functions), opening invite links directly in the iOS app (universal links), per-member reminder settings, transferring ownership.
+
+---
+
 ## Non-Functional Requirements
 
 ### Performance
@@ -650,96 +741,7 @@ See [`firebase/firestore.rules`](../firebase/firestore.rules).
 
 ## Future Enhancements
 
-### Household Sharing (Multi-User Access)
-
-**Goal:** Allow multiple users (family members) to manage the same purifiers.
-
-**Approach:** Household-based sharing (recommended for family use)
-
-#### Data Model Changes
-
-**New Collection: `/households/{householdId}`**
-```typescript
-interface Household {
-  id: string;
-  name: string;                    // e.g., "Nguyen Family"
-  ownerId: string;                 // Creator's userId
-  members: string[];               // Array of member userIds
-  createdAt: Timestamp;
-  updatedAt: Timestamp;
-}
-```
-
-**Purifier Document: Add optional field**
-```typescript
-interface Purifier {
-  // ... existing fields unchanged
-  userId: string;                  // Keep as creator/owner
-  householdId?: string | null;     // NEW: optional household reference
-}
-```
-
-#### Access Logic
-
-- If `householdId` is null/undefined → only `userId` (owner) can access (current behavior)
-- If `householdId` exists → all household members can access
-
-#### Security Rules Update
-
-```javascript
-// Households collection
-match /households/{householdId} {
-  allow read: if request.auth != null && request.auth.uid in resource.data.members;
-  allow create: if request.auth != null && request.resource.data.ownerId == request.auth.uid;
-  allow update: if request.auth != null && resource.data.ownerId == request.auth.uid;
-  allow delete: if request.auth != null && resource.data.ownerId == request.auth.uid;
-}
-
-// Purifiers - updated to support household access
-match /purifiers/{purifierId} {
-  function isOwner() {
-    return resource.data.userId == request.auth.uid;
-  }
-
-  function isHouseholdMember() {
-    return resource.data.householdId != null
-      && exists(/databases/$(database)/documents/households/$(resource.data.householdId))
-      && request.auth.uid in get(/databases/$(database)/documents/households/$(resource.data.householdId)).data.members;
-  }
-
-  allow read: if request.auth != null && (isOwner() || isHouseholdMember());
-  // ... similar for write operations
-}
-```
-
-#### UI Features Required
-
-1. **Household Management Page**
-   - Create household
-   - Invite members (by email)
-   - Remove members
-   - Leave household
-   - Delete household (owner only)
-
-2. **Purifier Assignment**
-   - Assign purifier to household
-   - Remove purifier from household
-
-3. **Member Roles (Optional)**
-   - Owner: full control
-   - Editor: can edit purifiers, replace filters
-   - Viewer: read-only access
-
-#### Benefits
-
-- No migration needed for existing data
-- Backward compatible (existing purifiers work as-is)
-- Natural for family use case
-- One-time household setup, applies to all shared purifiers
-
-#### Implementation Priority: Low
-
-This feature is documented for future implementation when multi-user support is needed.
+Purifier sharing, previously planned here as household sharing, is now FR-009.
 
 ---
 
@@ -762,3 +764,4 @@ This feature is documented for future implementation when multi-user support is 
 | 2025-01-07 | 1.0.0 | Initial requirements | Claude |
 | 2025-01-07 | 1.1.0 | Added i18n requirement (FR-008), updated status of all requirements, added Vietnamese purifier brands, Google Sign-In | Claude |
 | 2025-01-08 | 1.2.0 | Updated Firestore structure (activityLogs), added Household Sharing as future enhancement | Claude |
+| 2026-10-17 | 1.3.0 | FR-009 Purifier Sharing (per purifier, owner/editor/viewer, link and email invites) replaces household sharing | Claude |

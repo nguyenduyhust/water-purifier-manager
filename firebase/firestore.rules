@@ -2,25 +2,197 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Purifiers collection
-    match /purifiers/{purifierId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+    function signedIn() {
+      return request.auth != null;
+    }
 
-      // Filters subcollection
+    function purifierPath(purifierId) {
+      return /databases/$(database)/documents/purifiers/$(purifierId);
+    }
+
+    function invitePath(inviteId) {
+      return /databases/$(database)/documents/invites/$(inviteId);
+    }
+
+    // `data` is a purifier document's data. The owner is `userId`; shared
+    // members are listed in `memberIds` with a role in `roles`.
+    function isOwner(data) {
+      return data.userId == request.auth.uid;
+    }
+
+    function isMember(data) {
+      return request.auth.uid in data.get('memberIds', []);
+    }
+
+    function canRead(data) {
+      return isOwner(data) || isMember(data);
+    }
+
+    function canEdit(data) {
+      return isOwner(data)
+        || (isMember(data) && data.get('roles', {}).get(request.auth.uid, '') == 'editor');
+    }
+
+    function validMembership(data) {
+      let memberIds = data.get('memberIds', []);
+      let roles = data.get('roles', {});
+      return memberIds.size() <= 20
+        && !(data.userId in memberIds)
+        && roles.keys().toSet() == memberIds.toSet()
+        && roles.values().toSet().hasOnly(['editor', 'viewer'])
+        && data.get('memberProfiles', {}).keys().toSet().hasOnly(memberIds);
+    }
+
+    // Email invites can only be used by that verified email address.
+    function inviteUsable(invite) {
+      return invite.status == 'pending'
+        && invite.expiresAt > request.time
+        && (invite.email == null
+          || (request.auth.token.email_verified == true
+            && request.auth.token.email.lower() == invite.email));
+    }
+
+    match /purifiers/{purifierId} {
+      // The userId branch keeps owner queries from older app builds working.
+      allow read: if signedIn()
+        && (resource.data.userId == request.auth.uid || request.auth.uid in resource.data.memberIds);
+
+      allow create: if signedIn()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.get('memberIds', []).size() == 0
+        && request.resource.data.get('roles', {}).size() == 0
+        && request.resource.data.get('memberProfiles', {}).size() == 0;
+
+      allow update: if signedIn()
+        && (ownerUpdate() || editorUpdate() || leave() || acceptInvite());
+
+      allow delete: if signedIn() && isOwner(resource.data);
+
+      function ownerUpdate() {
+        return isOwner(resource.data)
+          && request.resource.data.userId == request.auth.uid
+          && validMembership(request.resource.data);
+      }
+
+      function editorUpdate() {
+        return !isOwner(resource.data)
+          && canEdit(resource.data)
+          && request.resource.data.diff(resource.data).affectedKeys()
+            .hasOnly(['name', 'location', 'notes', 'updatedAt']);
+      }
+
+      function leave() {
+        let before = resource.data;
+        let after = request.resource.data;
+        let me = request.auth.uid;
+        return isMember(before)
+          && after.diff(before).affectedKeys().hasOnly(['memberIds', 'roles', 'memberProfiles'])
+          && after.get('memberIds', []).toSet() == before.memberIds.toSet().difference([me].toSet())
+          && after.get('roles', {}).diff(before.get('roles', {})).affectedKeys().hasOnly([me])
+          && !(me in after.get('roles', {}))
+          && after.get('memberProfiles', {}).diff(before.get('memberProfiles', {})).affectedKeys().hasOnly([me])
+          && !(me in after.get('memberProfiles', {}));
+      }
+
+      // Joining must happen in the same batch that marks the invite accepted.
+      function acceptInvite() {
+        let before = resource.data;
+        let after = request.resource.data;
+        let me = request.auth.uid;
+        let inviteId = after.get('lastInviteId', '');
+        let invite = get(invitePath(inviteId)).data;
+        let inviteAfter = getAfter(invitePath(inviteId)).data;
+        return !isOwner(before)
+          && !isMember(before)
+          && after.diff(before).affectedKeys().hasOnly(['memberIds', 'roles', 'memberProfiles', 'lastInviteId'])
+          && after.memberIds.toSet() == before.get('memberIds', []).toSet().union([me].toSet())
+          && after.roles.diff(before.get('roles', {})).affectedKeys().hasOnly([me])
+          && after.roles[me] == invite.role
+          && after.get('memberProfiles', {}).diff(before.get('memberProfiles', {})).affectedKeys().hasOnly([me])
+          && validMembership(after)
+          && invite.purifierId == purifierId
+          && inviteUsable(invite)
+          && inviteAfter.status == 'accepted'
+          && inviteAfter.acceptedBy == me;
+      }
+
+      // Filter cartridges. Access follows the parent purifier.
       match /filters/{filterId} {
-        allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-        allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-        allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+        allow read: if signedIn() && canRead(get(purifierPath(purifierId)).data);
+
+        // getAfter: filters are created in the same batch as their purifier.
+        allow create: if signedIn()
+          && isOwner(getAfter(purifierPath(purifierId)).data)
+          && request.resource.data.userId == request.auth.uid
+          && request.resource.data.purifierId == purifierId;
+
+        allow update: if signedIn()
+          && canEdit(get(purifierPath(purifierId)).data)
+          && request.resource.data.diff(resource.data).affectedKeys()
+            .hasOnly(['lastReplacedAt', 'intervalMonths', 'updatedAt']);
+
+        allow delete: if signedIn() && isOwner(get(purifierPath(purifierId)).data);
+      }
+
+      // Per-purifier history, visible to every member.
+      match /logs/{logId} {
+        allow read: if signedIn() && canRead(get(purifierPath(purifierId)).data);
+
+        allow create: if signedIn()
+          && canEdit(getAfter(purifierPath(purifierId)).data)
+          && request.resource.data.actorId == request.auth.uid
+          && request.resource.data.type in ['purifier_created', 'filter_replaced'];
+
+        allow delete: if signedIn() && isOwner(get(purifierPath(purifierId)).data);
       }
     }
 
-    // Activity Logs collection
+    // The random document id is the secret shared in an invite link.
+    match /invites/{inviteId} {
+      allow get: if signedIn();
+
+      // Owners list their own invites; invitees list invites sent to their email.
+      allow list: if signedIn()
+        && (resource.data.createdBy == request.auth.uid
+          || resource.data.email == request.auth.token.email.lower());
+
+      allow create: if signedIn()
+        && request.resource.data.createdBy == request.auth.uid
+        && isOwner(get(purifierPath(request.resource.data.purifierId)).data)
+        && request.resource.data.role in ['editor', 'viewer']
+        && request.resource.data.status == 'pending'
+        && request.resource.data.expiresAt > request.time
+        && request.resource.data.expiresAt < request.time + duration.value(8, 'd')
+        && (request.resource.data.email == null
+          || (request.resource.data.email is string
+            && request.resource.data.email == request.resource.data.email.lower()))
+        && !('acceptedBy' in request.resource.data);
+
+      allow update: if signedIn() && inviteUsable(resource.data) && (accepting() || declining());
+
+      allow delete: if signedIn() && resource.data.createdBy == request.auth.uid;
+
+      function accepting() {
+        return request.resource.data.diff(resource.data).affectedKeys()
+            .hasOnly(['status', 'acceptedBy', 'acceptedAt'])
+          && request.resource.data.status == 'accepted'
+          && request.resource.data.acceptedBy == request.auth.uid
+          && request.auth.uid in getAfter(purifierPath(resource.data.purifierId)).data.get('memberIds', []);
+      }
+
+      // Only an email invite can be declined, by the person it was sent to.
+      function declining() {
+        return resource.data.email != null
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status'])
+          && request.resource.data.status == 'declined';
+      }
+    }
+
+    // Legacy history written by earlier app versions; new entries go to purifiers/{id}/logs.
     match /activityLogs/{logId} {
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow read: if signedIn() && resource.data.userId == request.auth.uid;
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if signedIn() && resource.data.userId == request.auth.uid;
     }
   }
 }
