@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Droplets, LayoutDashboard, LogOut, Menu, History } from 'lucide-react';
+import { Droplets, LayoutDashboard, LogOut, Menu, History, UserX } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth } from '@/contexts/auth-context';
 import { Button } from '@/components/ui/button';
@@ -15,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { AppLogo } from '@/components/app-logo';
+import { DeleteAccountDialog } from '@/components/auth/delete-account-dialog';
 import { LanguageSwitcher } from '@/components/language-switcher';
 import { cn } from '@/lib/utils';
 
@@ -27,6 +28,7 @@ export function AppLayout({ children }: AppLayoutProps) {
   const { user, signOut } = useAuth();
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showDeleteAccount, setShowDeleteAccount] = useState(false);
 
   const navigation = [
     { name: t('nav.dashboard'), href: '/', icon: LayoutDashboard },
@@ -142,8 +144,17 @@ export function AppLayout({ children }: AppLayoutProps) {
                 <LogOut className="mr-2 h-4 w-4" />
                 <span>{t('auth.signOut')}</span>
               </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem
+                onClick={() => setShowDeleteAccount(true)}
+                className="text-destructive focus:text-destructive"
+              >
+                <UserX className="mr-2 h-4 w-4" />
+                <span>{t('account.deleteTitle')}</span>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          <DeleteAccountDialog open={showDeleteAccount} onOpenChange={setShowDeleteAccount} />
         </header>
 
         {/* Page content */}

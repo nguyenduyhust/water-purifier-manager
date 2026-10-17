@@ -4,6 +4,7 @@ import { AppLogo } from '@/components/app-logo';
 import { rememberReturnTo, takeReturnTo } from '@/lib/return-to';
 import { useAuth } from '@/contexts/auth-context';
 import { LoginForm } from '@/components/auth/login-form';
+import { LegalLinks } from '@/pages/legal';
 
 export function LoginPage() {
   const { user, loading } = useAuth();
@@ -28,6 +29,9 @@ export function LoginPage() {
         <h1 className="text-2xl font-bold">Water Purifier Manager</h1>
       </div>
       <LoginForm />
+      <div className="mt-6">
+        <LegalLinks />
+      </div>
     </div>
   );
 }

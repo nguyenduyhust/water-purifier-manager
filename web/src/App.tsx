@@ -12,6 +12,7 @@ import { PurifierDetailPage } from '@/pages/purifiers/detail';
 import { EditPurifierPage } from '@/pages/purifiers/edit';
 import { HistoryPage } from '@/pages/history';
 import { InvitePage } from '@/pages/invite';
+import { PrivacyPage, SupportPage } from '@/pages/legal';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/support" element={<SupportPage />} />
 
           {/* Protected routes */}
           <Route

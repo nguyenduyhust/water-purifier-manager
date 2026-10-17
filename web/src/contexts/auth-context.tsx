@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { User } from 'firebase/auth';
 import { authService } from '@/services/auth-service';
+import { accountService } from '@/services/account-service';
 
 interface AuthContextType {
   user: User | null;
@@ -10,6 +11,8 @@ interface AuthContextType {
   signInWithGoogle: () => Promise<void>;
   signOut: () => Promise<void>;
   resetPassword: (email: string) => Promise<void>;
+  /** Confirms the user's identity (password for email accounts), then deletes all their data and the account */
+  deleteAccount: (password?: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -51,6 +54,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
     await authService.resetPassword(email);
   };
 
+  const deleteAccount = async (password?: string) => {
+    if (!user) return;
+    await accountService.reauthenticate(user, password);
+    await accountService.deleteAccount(user);
+  };
+
   const value: AuthContextType = {
     user,
     loading,
@@ -59,6 +68,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     signInWithGoogle,
     signOut,
     resetPassword,
+    deleteAccount,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

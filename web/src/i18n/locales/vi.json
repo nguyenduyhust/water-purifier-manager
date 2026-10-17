@@ -156,6 +156,24 @@
     "filterReplaced": "Đã thay lõi lọc",
     "by": "bởi {{name}}"
   },
+  "account": {
+    "deleteTitle": "Xóa tài khoản",
+    "deleteDescription": "Thao tác này sẽ xóa vĩnh viễn tài khoản và dữ liệu của bạn:",
+    "deleteOwned": "Các máy lọc bạn sở hữu, kèm lõi lọc, lịch sử và lời mời. Những người được chia sẻ sẽ mất quyền truy cập.",
+    "deleteShared": "Bạn sẽ bị gỡ khỏi các máy lọc người khác chia sẻ với bạn. Các mục bạn đã thêm vào lịch sử của họ vẫn giữ tên bạn.",
+    "deleteIrreversible": "Không thể hoàn tác.",
+    "deletePasswordLabel": "Nhập mật khẩu để xác nhận",
+    "deleteGoogleHint": "Bạn sẽ được yêu cầu đăng nhập lại bằng Google để xác nhận.",
+    "deleteUseIos": "Bạn đăng nhập bằng Apple. Hãy xóa tài khoản trong ứng dụng iOS: Cài đặt → Xóa tài khoản.",
+    "deleteWrongAccount": "Hãy đăng nhập bằng đúng tài khoản Google bạn đang dùng.",
+    "deleteConfirm": "Xóa tài khoản",
+    "deleteFailed": "Không xóa được tài khoản. Vui lòng thử lại.",
+    "deleted": "Tài khoản của bạn đã được xóa"
+  },
+  "legal": {
+    "privacy": "Chính sách quyền riêng tư",
+    "support": "Hỗ trợ"
+  },
   "sharing": {
     "share": "Chia sẻ",
     "sharing": "Chia sẻ",
