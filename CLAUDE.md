@@ -6,7 +6,7 @@
 ## Project Overview
 
 **Name:** Water Purifier Manager
-**Description:** A web app and native iOS app for managing water purifiers and tracking filter replacement schedules. Users can manage multiple purifiers with different filter configurations. Supports Vietnamese water purifier brands (Kangaroo, Karofi, Sunhouse) with bilingual support (English/Vietnamese).
+**Description:** A web app and native iOS app for managing water purifiers and tracking filter replacement schedules. Users can manage multiple purifiers with different filter configurations. Supports water purifier brands sold in Vietnam (Kangaroo, Karofi, Sunhouse, Hòa Phát, Toshiba, Mutosi, A. O. Smith) with bilingual support (English/Vietnamese).
 **Tech Stack:** Web — TypeScript, React 18, Vite, Tailwind CSS, shadcn/ui, Firebase (Auth + Firestore), react-i18next. iOS — Swift, SwiftUI (iOS 17+), Firebase iOS SDK, GoogleSignIn
 
 ## Quick Start

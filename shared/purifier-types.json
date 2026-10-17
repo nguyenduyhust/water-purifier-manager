@@ -1175,8 +1175,8 @@
         },
         "defaultIntervalMonths": 3,
         "description": {
-          "en": "Removes sediment, rust, sand and particles > 5 micron",
-          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
         }
       },
       {
@@ -1187,8 +1187,8 @@
         },
         "defaultIntervalMonths": 6,
         "description": {
-          "en": "Removes chlorine, odor and organic compounds",
-          "vi": "Khử clo, mùi và hợp chất hữu cơ"
+          "en": "Activated carbon, removes odor, chlorine",
+          "vi": "Than hoạt tính, khử mùi, chlorine"
         }
       },
       {
@@ -1199,8 +1199,8 @@
         },
         "defaultIntervalMonths": 9,
         "description": {
-          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
-          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
         }
       },
       {
@@ -1209,7 +1209,7 @@
           "en": "Filter 4 - RO Membrane",
           "vi": "Lõi số 4 - Màng RO"
         },
-        "defaultIntervalMonths": 36,
+        "defaultIntervalMonths": 24,
         "description": {
           "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
           "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
@@ -1223,8 +1223,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Ceramic balls; add minerals",
-          "vi": "Bóng gốm, bổ sung khoáng chất"
+          "en": "Ceramic ball filter, adds minerals",
+          "vi": "Lõi bóng gốm, bổ sung khoáng chất"
         }
       },
       {
@@ -1235,8 +1235,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Lowers oxidation-reduction potential",
-          "vi": "Giảm chỉ số oxy hóa khử (ORP)"
+          "en": "ORP filter, creates antioxidant water",
+          "vi": "Lõi ORP, tạo nước chống oxy hóa"
         }
       },
       {
@@ -1247,8 +1247,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Raises pH to create alkaline water",
-          "vi": "Tạo nước kiềm, tăng độ pH"
+          "en": "Creates alkaline water, balances pH",
+          "vi": "Tạo nước kiềm, cân bằng độ pH"
         }
       },
       {
@@ -1304,8 +1304,8 @@
         },
         "defaultIntervalMonths": 3,
         "description": {
-          "en": "Removes sediment, rust, sand and particles > 5 micron",
-          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
         }
       },
       {
@@ -1328,8 +1328,8 @@
         },
         "defaultIntervalMonths": 9,
         "description": {
-          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
-          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
         }
       },
       {
@@ -1338,7 +1338,7 @@
           "en": "Filter 4 - RO Membrane",
           "vi": "Lõi số 4 - Màng RO"
         },
-        "defaultIntervalMonths": 36,
+        "defaultIntervalMonths": 24,
         "description": {
           "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
           "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
@@ -1433,8 +1433,8 @@
         },
         "defaultIntervalMonths": 3,
         "description": {
-          "en": "Removes sediment, rust, sand and particles > 5 micron",
-          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
         }
       },
       {
@@ -1457,8 +1457,8 @@
         },
         "defaultIntervalMonths": 9,
         "description": {
-          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
-          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
         }
       },
       {
@@ -1467,7 +1467,7 @@
           "en": "Filter 4 - RO Membrane",
           "vi": "Lõi số 4 - Màng RO"
         },
-        "defaultIntervalMonths": 36,
+        "defaultIntervalMonths": 24,
         "description": {
           "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
           "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
@@ -1574,8 +1574,8 @@
         },
         "defaultIntervalMonths": 3,
         "description": {
-          "en": "Removes sediment, rust, sand and particles > 5 micron",
-          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
         }
       },
       {
@@ -1598,8 +1598,8 @@
         },
         "defaultIntervalMonths": 9,
         "description": {
-          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
-          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
         }
       },
       {
@@ -1608,7 +1608,7 @@
           "en": "Filter 4 - RO Membrane",
           "vi": "Lõi số 4 - Màng RO"
         },
-        "defaultIntervalMonths": 36,
+        "defaultIntervalMonths": 24,
         "description": {
           "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
           "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
@@ -1715,8 +1715,8 @@
         },
         "defaultIntervalMonths": 3,
         "description": {
-          "en": "Removes sediment, rust, sand and particles > 5 micron",
-          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
         }
       },
       {
@@ -1739,8 +1739,8 @@
         },
         "defaultIntervalMonths": 9,
         "description": {
-          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
-          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
         }
       },
       {
@@ -1749,7 +1749,7 @@
           "en": "Filter 4 - RO Membrane",
           "vi": "Lõi số 4 - Màng RO"
         },
-        "defaultIntervalMonths": 36,
+        "defaultIntervalMonths": 24,
         "description": {
           "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
           "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
@@ -1856,8 +1856,8 @@
         },
         "defaultIntervalMonths": 3,
         "description": {
-          "en": "Removes sediment, rust, sand and particles > 5 micron",
-          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
         }
       },
       {
@@ -1868,8 +1868,8 @@
         },
         "defaultIntervalMonths": 6,
         "description": {
-          "en": "Removes chlorine, odor and organic compounds",
-          "vi": "Khử clo, mùi và hợp chất hữu cơ"
+          "en": "Activated carbon, removes odor, chlorine",
+          "vi": "Than hoạt tính, khử mùi, chlorine"
         }
       },
       {
@@ -1880,8 +1880,8 @@
         },
         "defaultIntervalMonths": 9,
         "description": {
-          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
-          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
         }
       },
       {
@@ -1890,7 +1890,7 @@
           "en": "Filter 4 - RO Vortex Membrane",
           "vi": "Lõi số 4 - Màng RO Vortex"
         },
-        "defaultIntervalMonths": 36,
+        "defaultIntervalMonths": 24,
         "description": {
           "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
           "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
@@ -2009,8 +2009,8 @@
         },
         "defaultIntervalMonths": 3,
         "description": {
-          "en": "Removes sediment, rust, sand and particles > 5 micron",
-          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
         }
       },
       {
@@ -2021,8 +2021,8 @@
         },
         "defaultIntervalMonths": 6,
         "description": {
-          "en": "Removes chlorine, odor and organic compounds",
-          "vi": "Khử clo, mùi và hợp chất hữu cơ"
+          "en": "Activated carbon, removes odor, chlorine",
+          "vi": "Than hoạt tính, khử mùi, chlorine"
         }
       },
       {
@@ -2045,8 +2045,8 @@
         },
         "defaultIntervalMonths": 9,
         "description": {
-          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
-          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
         }
       },
       {
@@ -2055,7 +2055,7 @@
           "en": "Filter 5 - RO Vortex Membrane",
           "vi": "Lõi số 5 - Màng RO Vortex"
         },
-        "defaultIntervalMonths": 36,
+        "defaultIntervalMonths": 24,
         "description": {
           "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
           "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
@@ -2162,8 +2162,8 @@
         },
         "defaultIntervalMonths": 3,
         "description": {
-          "en": "Removes sediment, rust, sand and particles > 5 micron",
-          "vi": "Lọc cặn thô, rỉ sét, cát, tạp chất > 5 micron"
+          "en": "Removes sediment, rust, particles > 5 micron",
+          "vi": "Lọc cặn thô, rỉ sét, tạp chất > 5 micron"
         }
       },
       {
@@ -2174,8 +2174,8 @@
         },
         "defaultIntervalMonths": 6,
         "description": {
-          "en": "Removes chlorine, odor and organic compounds",
-          "vi": "Khử clo, mùi và hợp chất hữu cơ"
+          "en": "Activated carbon, removes odor, chlorine",
+          "vi": "Than hoạt tính, khử mùi, chlorine"
         }
       },
       {
@@ -2186,8 +2186,8 @@
         },
         "defaultIntervalMonths": 9,
         "description": {
-          "en": "Fine filter for particles > 1 micron; protects the RO membrane",
-          "vi": "Lọc tinh tạp chất > 1 micron, bảo vệ màng RO"
+          "en": "Fine filter, removes particles > 1 micron",
+          "vi": "Lọc tinh, loại bỏ tạp chất > 1 micron"
         }
       },
       {
@@ -2196,7 +2196,7 @@
           "en": "Filter 4 - RO Membrane",
           "vi": "Lõi số 4 - Màng RO"
         },
-        "defaultIntervalMonths": 36,
+        "defaultIntervalMonths": 24,
         "description": {
           "en": "Reverse osmosis membrane; removes dissolved solids, heavy metals and bacteria",
           "vi": "Màng lọc thẩm thấu ngược, loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn"
@@ -2205,8 +2205,8 @@
       {
         "position": 5,
         "name": {
-          "en": "Filter 5 - 3-in-1",
-          "vi": "Lõi số 5 - 3 trong 1"
+          "en": "Filter 5 - HCM 3-in-1",
+          "vi": "Lõi số 5 - Lõi HCM 3 trong 1"
         },
         "defaultIntervalMonths": 12,
         "description": {
@@ -2453,8 +2453,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: sediment",
-          "vi": "Lõi lọc thô thông minh: lọc cặn"
+          "en": "Pleated PP; removes sediment > 5 micron",
+          "vi": "Lõi PP xếp ly, lọc cặn > 5 micron"
         }
       },
       {
@@ -2465,8 +2465,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: sediment and activated carbon",
-          "vi": "Lõi lọc thô thông minh: lọc cặn và than hoạt tính"
+          "en": "Compressed activated carbon with a PP outer layer; removes chlorine, organics and odor",
+          "vi": "Than hoạt tính ép bọc lớp PP, khử clo, chất hữu cơ và mùi"
         }
       },
       {
@@ -2477,8 +2477,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: 1 micron fine filtration",
-          "vi": "Lõi lọc thô thông minh: lọc tinh 1 micron"
+          "en": "Pleated PP; removes particles > 1 micron",
+          "vi": "Lõi PP xếp ly, lọc tạp chất > 1 micron"
         }
       },
       {
@@ -2582,8 +2582,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: sediment",
-          "vi": "Lõi lọc thô thông minh: lọc cặn"
+          "en": "Pleated PP; removes sediment > 5 micron",
+          "vi": "Lõi PP xếp ly, lọc cặn > 5 micron"
         }
       },
       {
@@ -2594,8 +2594,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: sediment and activated carbon",
-          "vi": "Lõi lọc thô thông minh: lọc cặn và than hoạt tính"
+          "en": "Compressed activated carbon with a PP outer layer; removes chlorine, organics and odor",
+          "vi": "Than hoạt tính ép bọc lớp PP, khử clo, chất hữu cơ và mùi"
         }
       },
       {
@@ -2606,8 +2606,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: 1 micron fine filtration",
-          "vi": "Lõi lọc thô thông minh: lọc tinh 1 micron"
+          "en": "Pleated PP; removes particles > 1 micron",
+          "vi": "Lõi PP xếp ly, lọc tạp chất > 1 micron"
         }
       },
       {
@@ -2723,8 +2723,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: sediment",
-          "vi": "Lõi lọc thô thông minh: lọc cặn"
+          "en": "Pleated PP; removes sediment > 5 micron",
+          "vi": "Lõi PP xếp ly, lọc cặn > 5 micron"
         }
       },
       {
@@ -2735,8 +2735,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: sediment and activated carbon",
-          "vi": "Lõi lọc thô thông minh: lọc cặn và than hoạt tính"
+          "en": "Compressed activated carbon with a PP outer layer; removes chlorine, organics and odor",
+          "vi": "Than hoạt tính ép bọc lớp PP, khử clo, chất hữu cơ và mùi"
         }
       },
       {
@@ -2747,8 +2747,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: 1 micron fine filtration",
-          "vi": "Lõi lọc thô thông minh: lọc tinh 1 micron"
+          "en": "Pleated PP; removes particles > 1 micron",
+          "vi": "Lõi PP xếp ly, lọc tạp chất > 1 micron"
         }
       },
       {
@@ -2876,8 +2876,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: sediment",
-          "vi": "Lõi lọc thô thông minh: lọc cặn"
+          "en": "Pleated PP; removes sediment > 5 micron",
+          "vi": "Lõi PP xếp ly, lọc cặn > 5 micron"
         }
       },
       {
@@ -2888,8 +2888,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: sediment and activated carbon",
-          "vi": "Lõi lọc thô thông minh: lọc cặn và than hoạt tính"
+          "en": "Compressed activated carbon with a PP outer layer; removes chlorine, organics and odor",
+          "vi": "Than hoạt tính ép bọc lớp PP, khử clo, chất hữu cơ và mùi"
         }
       },
       {
@@ -2900,8 +2900,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: 1 micron fine filtration",
-          "vi": "Lõi lọc thô thông minh: lọc tinh 1 micron"
+          "en": "Pleated PP; removes particles > 1 micron",
+          "vi": "Lõi PP xếp ly, lọc tạp chất > 1 micron"
         }
       },
       {
@@ -3017,8 +3017,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: sediment",
-          "vi": "Lõi lọc thô thông minh: lọc cặn"
+          "en": "Pleated PP; removes sediment > 5 micron",
+          "vi": "Lõi PP xếp ly, lọc cặn > 5 micron"
         }
       },
       {
@@ -3029,8 +3029,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: sediment and activated carbon",
-          "vi": "Lõi lọc thô thông minh: lọc cặn và than hoạt tính"
+          "en": "Compressed activated carbon with a PP outer layer; removes chlorine, organics and odor",
+          "vi": "Than hoạt tính ép bọc lớp PP, khử clo, chất hữu cơ và mùi"
         }
       },
       {
@@ -3041,8 +3041,8 @@
         },
         "defaultIntervalMonths": 12,
         "description": {
-          "en": "Smart pre-filter: 1 micron fine filtration",
-          "vi": "Lõi lọc thô thông minh: lọc tinh 1 micron"
+          "en": "Pleated PP; removes particles > 1 micron",
+          "vi": "Lõi PP xếp ly, lọc tạp chất > 1 micron"
         }
       },
       {
