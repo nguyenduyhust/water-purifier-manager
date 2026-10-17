@@ -45,7 +45,7 @@ struct PurifierTypeCatalogTests {
 
     @Test func groupsByBrandInFileOrder() {
         let brands = catalog.typesByBrand.map(\.brand)
-        #expect(brands == ["Kangaroo", "Karofi", "Sunhouse"])
+        #expect(brands == ["Kangaroo", "Karofi", "Sunhouse", "Hòa Phát", "Toshiba", "Mutosi", "A. O. Smith"])
         #expect(catalog.typesByBrand.map(\.types.count).reduce(0, +) == catalog.types.count)
     }
 }
