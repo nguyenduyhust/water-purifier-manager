@@ -31,7 +31,7 @@ A purifier is a device the user tracks. It is created from a model in the catalo
 - **Priority**: High
 - **Status**: Done
 - **Acceptance criteria**:
-  - [x] The catalog lists the models sold in Vietnam: 13 Kangaroo, 3 Karofi, 1 Sunhouse (17 in total, 5–10 filters each)
+  - [x] The catalog lists models sold in Vietnam: 42 models from 7 brands, 2–12 filters each
   - [x] Each model defines its filters (position, name, description, default interval in months)
   - [x] Names and descriptions exist in English and Vietnamese
   - [x] Web and iOS read the same file (`shared/purifier-types.json`)
@@ -39,9 +39,13 @@ A purifier is a device the user tracks. It is created from a model in the catalo
 
 | Brand | Models |
 |-------|--------|
-| Kangaroo | KG102, KG112, KG103, KG113, KG104, KG114, KG106, KG116, KG107, KG117, KG108, KG118, KG109 |
-| Karofi | KSI80, Optimus O-i229, KAD-X60 |
-| Sunhouse | SHR76210CK |
+| Kangaroo | KG102, KG112, KG103, KG113, KG104, KG114, KG106, KG116, KG107, KG117, KG108, KG118, KG109, KG10A17, KG10A13, KG11A1, KG11A2, KG11A3, KG12A6, KG12A8 Sumire, KG400HD |
+| Karofi | KSI80, Optimus O-i229/A, KAD-X60, KAD-X58, KAD-X59, KAQ-X18, KAQ-US08 |
+| Sunhouse | SHR76210CK, SHA76222KL, SHA76623KL, SHA76656LA, SHA8866K, SHA8896L |
+| Hòa Phát | HPN666, HPN669 |
+| Toshiba | TWP-W2396SVN(M) |
+| Mutosi | MP-S1011, MP-S1021H |
+| A. O. Smith | Z7, G1 / G2, R400E |
 
 ---
 

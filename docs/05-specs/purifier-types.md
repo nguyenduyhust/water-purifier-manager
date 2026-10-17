@@ -24,11 +24,11 @@ The catalog of purifier models users choose from. It is static data shipped insi
 ]
 ```
 
-Names follow `"<Brand> - <Model> (<N> filters)"`; the iOS app groups models by the part before ` - `.
+Names follow `"<Brand> - <Model> (<N> filters)"`; both apps group models by the part before ` - `, in file order, so a brand's models must be contiguous.
 
 ## Contents
 
-17 models: 13 Kangaroo, 3 Karofi, 1 Sunhouse; 5 to 10 filters each. Kangaroo filter chart codes (1.1, 1.2, 6.1, 6.2…) per model are documented in [`shared/README.md`](../../shared/README.md).
+42 models: 21 Kangaroo, 7 Karofi, 6 Sunhouse, 2 Hòa Phát, 1 Toshiba, 2 Mutosi, 3 A. O. Smith; 2 to 12 filters each. Intervals use the manufacturer's value, the lower bound when a range is published, or a typical default when none is. Kangaroo filter chart codes (1.1, 1.2, 6.1, 6.2…) per model are documented in [`shared/README.md`](../../shared/README.md).
 
 ## Consumers
 

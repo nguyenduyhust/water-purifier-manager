@@ -31,7 +31,7 @@
 | Field | Rule |
 |-------|------|
 | Name | Required, ≤ 100 |
-| Purifier type | Required; list of the 17 catalog models in the current language |
+| Purifier type | Required; the catalog models in the current language, grouped by brand |
 | Location | Optional, ≤ 200 |
 | Installation date | Required; defaults to today |
 | Notes | Optional, ≤ 500 |

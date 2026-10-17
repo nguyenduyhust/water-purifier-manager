@@ -15,7 +15,7 @@ Cancel        New purifier          Save
 │ Name       e.g. Kitchen purifier     │
 │ Location   e.g. Kitchen, Living room │
 ├──────────────────────────────────────┤
-│ Purifier type        Select a … ›    │   grouped by brand (Kangaroo, Karofi, Sunhouse)
+│ Purifier type        Select a … ›    │   grouped by brand (Kangaroo, Karofi, Sunhouse…)
 │ Installation date    17 Oct 2026     │   today or earlier
 └──────────────────────────────────────┘
  Filter replacement dates are calculated from the installation date.
