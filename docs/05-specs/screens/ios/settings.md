@@ -25,7 +25,7 @@ LANGUAGE
  You are removed from purifiers shared with you.
  Privacy Policy                      → web /privacy
  Support                             → web /support
- Version   0.1.0
+ Version   1.0
 ```
 
 ## Actions
