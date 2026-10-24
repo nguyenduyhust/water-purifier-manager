@@ -12,6 +12,15 @@ struct SignUpView: View {
 
     private var passwordsMatch: Bool { password == confirmPassword }
 
+    /// iOS's strong password suggestion takes over the fields in UI tests, which can't dismiss it;
+    /// a one-time-code field never gets one.
+    private var newPasswordContentType: UITextContentType? {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("-useFirebaseEmulators") { return .oneTimeCode }
+        #endif
+        return .newPassword
+    }
+
     private var canSubmit: Bool {
         !email.trimmed.isEmpty && password.count >= 6 && passwordsMatch && !isWorking
     }
@@ -30,9 +39,9 @@ struct SignUpView: View {
 
             Section {
                 SecureField("Password", text: $password)
-                    .textContentType(.newPassword)
+                    .textContentType(newPasswordContentType)
                 SecureField("Confirm password", text: $confirmPassword)
-                    .textContentType(.newPassword)
+                    .textContentType(newPasswordContentType)
             } footer: {
                 if !confirmPassword.isEmpty && !passwordsMatch {
                     Text("Passwords don't match")

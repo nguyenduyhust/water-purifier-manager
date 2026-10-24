@@ -10,13 +10,18 @@ extension XCTestCase {
         try XCTSkipUnless(reachable, "Firestore emulator not running on 127.0.0.1:8080")
     }
 
-    func launchSignedIn(as email: String, password secret: String = "secret123") -> XCUIApplication {
+    /// Launches the app signed out, on the sign in screen, in English.
+    func launchSignedOut() -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments = ["-useFirebaseEmulators", "-signOutOnLaunch", "-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
+        XCTAssertTrue(app.textFields["Email"].waitForExistence(timeout: timeout))
+        return app
+    }
 
+    func launchSignedIn(as email: String, password secret: String = "secret123") -> XCUIApplication {
+        let app = launchSignedOut()
         let emailField = app.textFields["Email"]
-        XCTAssertTrue(emailField.waitForExistence(timeout: timeout))
         emailField.tap()
         emailField.typeText(email)
         let password = app.secureTextFields["Password"]
@@ -27,8 +32,13 @@ extension XCTestCase {
         signIn.tap()
 
         XCTAssertTrue(app.tabBars.firstMatch.waitForExistence(timeout: timeout))
-        // iOS may offer to save the password and ask for notification permission;
-        // both system prompts swallow taps until dismissed.
+        dismissSystemPrompts(in: app)
+        return app
+    }
+
+    /// iOS may offer to save the password and ask for notification permission after sign-in;
+    /// both prompts swallow taps until dismissed.
+    func dismissSystemPrompts(in app: XCUIApplication) {
         let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         for _ in 0..<3 {
             if app.buttons["Not Now"].waitForExistence(timeout: 2) {
@@ -41,7 +51,6 @@ extension XCTestCase {
                 break
             }
         }
-        return app
     }
 
     func text(in app: XCUIApplication, containing substring: String) -> XCUIElement {

@@ -1,6 +1,6 @@
 # Test Strategy
 
-**Last Updated**: 2026-10-17
+**Last Updated**: 2026-10-23
 
 ## Principles
 
@@ -17,7 +17,7 @@
 | Filter status rule, sorting | Unit (Swift Testing) | `ios/WaterPurifierManagerTests/FilterStatusCalculatorTests.swift` | ✅ |
 | Purifier catalog | Unit | `ios/WaterPurifierManagerTests/PurifierTypeCatalogTests.swift` | ✅ |
 | Roles, invite checks, invite links | Unit | `ios/WaterPurifierManagerTests/SharingTests.swift` | ✅ |
-| Sharing journeys on iOS (editor, viewer, join) | UI (XCTest) against emulators | `ios/WaterPurifierManagerUITests/` | ✅ Needs emulators + seed |
+| Main journeys on iOS (auth, purifiers, filters, dashboard, settings, language, sharing, account deletion) | UI (XCTest) against emulators | `ios/WaterPurifierManagerUITests/` — see [test-cases.md](test-cases.md) | ✅ Needs emulators |
 | Sharing journeys on web | End-to-end (puppeteer) against emulators | Run during development; script not committed | ⚠️ Manual |
 | Web units (status service, hooks) | — | — | ❌ None |
 | Data migrations | Rehearsal on emulators | `firebase/scripts/migrate-activity-logs.mjs --emulator` | ⚠️ Manual |
