@@ -33,6 +33,7 @@ final class PurifierStore {
     @ObservationIgnored private var owned: [Purifier]?
     @ObservationIgnored private var shared: [Purifier]?
     @ObservationIgnored private var filterListeners: [String: ListenerRegistration] = [:]
+    @ObservationIgnored private var filterRetries: [String: Int] = [:]
     @ObservationIgnored private var rescheduleTask: Task<Void, Never>?
 
     init(user: AuthUser, notifications: NotificationScheduler = .shared) {
@@ -59,6 +60,7 @@ final class PurifierStore {
         sharedListener = nil
         filterListeners.values.forEach { $0.remove() }
         filterListeners = [:]
+        filterRetries = [:]
         rescheduleTask?.cancel()
     }
 
@@ -178,6 +180,7 @@ final class PurifierStore {
             listener.remove()
             filterListeners[id] = nil
             filtersByPurifier[id] = nil
+            filterRetries[id] = nil
         }
 
         for id in ids where filterListeners[id] == nil {
@@ -190,12 +193,30 @@ final class PurifierStore {
     private func handleFilters(_ result: Result<[Filter], Error>, purifierId: String) {
         switch result {
         case .failure:
-            // Usually access was just removed; the purifier listener drops it next.
+            // Either access was just removed (the purifier listener drops the purifier next), or the
+            // purifier was created on this device and the server doesn't have it yet, so the rules
+            // deny reading its filters. A failed listener stops for good; listen again shortly.
             filtersByPurifier[purifierId] = []
+            filterListeners[purifierId]?.remove()
+            filterListeners[purifierId] = nil
+            retryFilterListener(purifierId: purifierId)
         case .success(let filters):
             filtersByPurifier[purifierId] = filters
+            filterRetries[purifierId] = nil
             scheduleNotifications()
         }
         isLoading = false
     }
+
+    private func retryFilterListener(purifierId: String) {
+        let attempt = filterRetries[purifierId, default: 0] + 1
+        guard attempt <= Self.maxFilterRetries else { return }
+        filterRetries[purifierId] = attempt
+        Task { [weak self] in
+            try? await Task.sleep(for: .seconds(attempt))
+            self?.syncFilterListeners()
+        }
+    }
+
+    private static let maxFilterRetries = 5
 }

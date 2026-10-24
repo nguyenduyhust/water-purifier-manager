@@ -1,6 +1,6 @@
 # iOS Tests
 
-**Last Updated**: 2026-10-17
+**Last Updated**: 2026-10-23
 
 ## Unit tests (`WaterPurifierManagerTests`, Swift Testing)
 
@@ -14,7 +14,16 @@ Unit tests run in the app host and don't need Firebase.
 
 ## UI tests (`WaterPurifierManagerUITests`, XCTest)
 
-`SharingUITests` drives the app against the local emulators:
+All UI tests drive the app against the local emulators. Test case ids refer to [test-cases.md](test-cases.md).
+
+| Suite | Data | Covers |
+|-------|------|--------|
+| `FunctionalUITests` | Creates its own users and documents through the emulators' REST API (`EmulatorData`) | Sign up, sign-up validation, wrong password, forgot password, sign out; create, edit and delete a purifier; replace a filter and see history; dashboard statistics; settings; Vietnamese UI; create and revoke an invite; change a member's role and remove them; leave a shared purifier |
+| `AccountDeletionUITests` | Own user and data | Delete account: owned data, membership, invites, legacy history and the Auth account are gone |
+| `SharingUITests` | Seed (`seed-sharing.mjs`) | The three journeys below |
+| `ScreenshotTests` | `seed-screenshots.mjs`; runs only with `TEST_RUNNER_SCREENSHOT_LANG=en|vi` | App Store screenshots |
+
+`SharingUITests`:
 
 | Test | Journey |
 |------|---------|
@@ -39,7 +48,12 @@ xcodebuild -project WaterPurifierManager.xcodeproj -scheme WaterPurifierManager 
 ### Gotchas
 
 - After sign-in iOS may show **"Save Password?"** and the notification permission alert; both swallow taps. The tests dismiss them ("Not Now", "Allow") before continuing.
-- Tests mutate data (replace a filter, accept the invite); reseed before re-running.
+- `SharingUITests` mutates the seed (replaces a filter, accepts the invite); reseed before re-running. The other suites create their own data.
+- Run with `-parallel-testing-enabled NO`: parallel clones share the emulators and the seed.
+- iOS's strong password suggestion takes over the sign-up password fields and swallows typing. Debug builds launched with `-useFirebaseEmulators` mark those fields as one-time codes, which never get a suggestion.
+- Fields with a `prompt` are found by their placeholder (`app.textFields["e.g. Kitchen purifier"]`), `LabeledContent` reads as one label (`"Name, Uma"`), list section headers are upper case, and headers in a navigation-link picker are buttons.
+- A multi-line `TextField` sometimes doesn't take focus from an element tap; the tests tap its leading edge by coordinate.
+- `FunctionalUITests` attaches a screenshot and the view hierarchy to every failure; export them with `xcrun xcresulttool export attachments --path <result>.xcresult --output-path <dir> --only-failures`.
 
 ## Related
 
